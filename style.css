@@ -1,7 +1,7 @@
 * {
     padding: 0;
     margin: 0;
-    pointer-events: none;
+    /* pointer-events: none; */
 }
 html, body {
     max-width: 100%;
@@ -9,13 +9,12 @@ html, body {
     overscroll-behavior: none;
     -webkit-overflow-scrolling: none;
 }
-.cover {
+/* .cover {
     width: 100%;
     height: 100vh;
-    background: repeating-linear-gradient(0deg, #fff 0%, #fff 50%, #000 50%, #000 100%),
-        repeating-linear-gradient(90deg, #fff 0%, #fff 50%, #000 50%, #000 100%);
-    background-size: 50px 50px;
-    background-blend-mode: difference;
+    background: url(/assets/transperant.jpg);
+    background-size: cover;
+    background-attachment: fixed;
 
 }
 
@@ -28,6 +27,54 @@ scratch {
     background-size: cover;
     background-attachment: fixed;
     pointer-events: none;
-    
+    user-select: none;
     border-radius: 50%;
-}
+} */
+
+.sc__inner {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+ }
+ .sc__wrapper {
+    display: block;
+    width: 100%;
+    height: 300px;
+    max-width: 300px;
+    margin: 0 auto;
+    border: 5px solid white;
+ }
+ 
+ .sc__container {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    max-width: 300px;
+ }
+ 
+ .sc__container > img {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+ }
+ 
+ .sc__container canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+ }
+ 
+ .sc__infos {
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 18px;
+ }

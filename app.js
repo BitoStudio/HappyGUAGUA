@@ -23,32 +23,71 @@
 // document.addEventListener('mousemove', moveHandler)
 
 // version 2 - ScratchCard-js
-const scContainer = document.getElementById('js--sc--container')
-const scInfos = document.querySelector('.sc__infos');
-const sc = new ScratchCard('#js--sc--container', {
-  scratchType: SCRATCH_TYPE.SPRAY,
-  containerWidth: scContainer.offsetWidth,
+const scContainer1 = document.getElementById('js--sc--container1')
+// const scInfos1 = document.querySelector('.sc__infos');
+const sc1 = new ScratchCard('#js--sc--container1', {
+  scratchType: SCRATCH_TYPE.LINE,
+  containerWidth: scContainer1.offsetWidth,
   containerHeight: 300,
   imageForwardSrc: '/assets/transperant.jpg',
   imageBackgroundSrc: '/assets/sad_frog.jpg',
   htmlBackground: '',
   clearZoneRadius: 50,
-  nPoints: 30,
-  pointSize: 5,
-  callback: function () {
-    alert('Now the window will reload !')
-    window.location.reload()
-  }
+  nPoints: 0,
+  pointSize: 0,
+  // callback: function () {
+  //   alert('Now the window will reload !')
+  //   window.location.reload()
+  // }
+})
+
+const scContainer2 = document.getElementById('js--sc--container2')
+// const scInfos1 = document.querySelector('.sc__infos');
+const sc2 = new ScratchCard('#js--sc--container2', {
+  scratchType: SCRATCH_TYPE.LINE,
+  containerWidth: scContainer2.offsetWidth,
+  containerHeight: 300,
+  imageForwardSrc: '/assets/transperant.jpg',
+  imageBackgroundSrc: '/assets/sad_frog.jpg',
+  htmlBackground: '',
+  clearZoneRadius: 50,
+  nPoints: 0,
+  pointSize: 0,
+  // callback: function () {
+  //   alert('Now the window will reload !')
+  //   window.location.reload()
+  // }
+})
+
+const scContainer3 = document.getElementById('js--sc--container3')
+// const scInfos1 = document.querySelector('.sc__infos');
+const sc3 = new ScratchCard('#js--sc--container3', {
+  scratchType: SCRATCH_TYPE.LINE,
+  containerWidth: scContainer3.offsetWidth,
+  containerHeight: 300,
+  imageForwardSrc: '/assets/transperant.jpg',
+  imageBackgroundSrc: '/assets/sad_frog.jpg',
+  htmlBackground: '',
+  clearZoneRadius: 50,
+  nPoints: 0,
+  pointSize: 0,
+  // callback: function () {
+  //   alert('Now the window will reload !')
+  //   window.location.reload()
+  // }
 })
 
 // Init
-sc.init().then(() => {
-  sc.canvas.addEventListener('scratch.move', () => {
-    let percent = sc.getPercent().toFixed(0);
-    scInfos.innerHTML = percent + '%';
-    console.log(percent)
+sc1.init().then(() => {
+  sc1.canvas.addEventListener('scratch.move', () => {
+    let percent = sc1.getPercent().toFixed(0);
+    // scInfos.innerHTML = percent + '%';
+    // console.log(percent)
   })
 }).catch((error) => {
   // image not loaded
   alert(error.message);
 });
+
+sc2.init();
+sc3.init();

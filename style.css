@@ -1,85 +1,21 @@
 * {
-    padding: 0;
-    margin: 0;
-    /* pointer-events: none; */
+   padding: 0;
+   margin: 0;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none; 
+   -o-user-select: none;
+   user-select: none;
 }
 html, body {
-    max-width: 100%;
-    overflow: hidden;
-    overscroll-behavior: none;
-    -webkit-overflow-scrolling: none;
-}
-/* .cover {
-    width: 100%;
-    height: 100vh;
-    background: url(/assets/transperant.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-
+   max-width: 100%;
+   overflow: hidden;
+   overscroll-behavior: none;
+   -webkit-overflow-scrolling: none;
 }
 
-scratch {
-    display: block;
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background: url(/assets/sad_frog.jpg);
-    background-size: cover;
-    background-attachment: fixed;
-    pointer-events: none;
-    user-select: none;
-    border-radius: 50%;
-} */
-
-.sc__inner {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
- }
- /* .sc__wrapper {
-    display: block;
-    width: 100%;
-    height: 900px;
-    max-width: 300px;
-    margin: 0 auto;
-    border: 5px solid white;
- } */
- 
- .sc__container {
-    position: relative;
-    overflow: hidden;
-    height: 300px;
-    max-width: 300px;
- }
- 
- .sc__container > img {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
- }
- 
- .sc__container canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
- }
- 
- .sc__infos {
-    text-align: center;
-    height: 40px;
-    line-height: 40px;
-    margin-top: 5px;
-    font-weight: bold;
-    font-size: 18px;
- }
-
-.mask1 {
+/* Shape Mask */
+.mask {
    width: 300px;
    height: 300px;
    -webkit-mask-image: url(/assets/tbr.png);
@@ -91,26 +27,36 @@ scratch {
    /* mask-repeat: no-repeat; */
 }
 
-.container {
-   /* border: 3px solid yellow; */
-   position: relative;
+.scratch-area {
+   /* border: 3px solid yellow; */ 
+   position: absolute;
    width: 300px;
    height: 300px;
    margin: 0 auto;
-   -webkit-user-select: none;
-   -moz-user-select: none;
-   -ms-user-select: none; 
-   -o-user-select: none;
-   user-select: none;
 }
 
-.canvas {
+.cover {
    position: absolute;
    top: 0;
    z-index: 10;
 }
 
-img {
+.result {   
    pointer-events: none;
-   z-index: 5;
+   top: 0;
+   z-index: 5; /* behide cover */
+}
+
+/* composition */
+#scratch-card-1 {
+   top: 0px;
+   left: 20px;
+}
+#scratch-card-2 {
+   top: 300px;
+   left: 150px;
+}
+#scratch-card-3 {
+   top: 500px;
+   left: 0px;
 }

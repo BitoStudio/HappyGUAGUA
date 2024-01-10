@@ -1,0 +1,48 @@
+.eye-container {
+    position: absolute;
+}
+
+.eye {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-image: url(assets/eyesocket.png);
+    background-position: center;
+    background-size: contain;
+}
+
+.eye-left {
+    top: 0;
+    left: 0;
+}
+
+.eye-right {
+    top: 0;
+    right: 0;
+}
+
+.eye-inner {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-left: 4px;
+    margin-top: 4px;
+}
+
+#eye-container-1 {
+    width: 30%;
+    top: 40%;
+    left: 5%;
+}
+#eye-container-2 {
+    width: 30%;
+    top: 70%;
+    left: 50%;
+}
+#eye-container-3 {
+    width: 30%;
+    top: 15%;
+    left: 10%;
+}

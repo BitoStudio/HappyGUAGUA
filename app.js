@@ -8,19 +8,18 @@ window.onload = ()=>{
     console.log(pageid);
     pagttern.style = "display: block;";
 
-    var canvas = document.getElementById('cover-1');
     createScratchCard(document.getElementById('cover-' + page + '-1'), {
         cover: 'assets/silver.jpg',
         brush: 'assets/brush.png',
-        brushSize: 80,
-        callbackRatio: 50,
+        brushSize: 30,
+        callbackRatio: 70,
         callback: Mycallback1
     });
 
     createScratchCard(document.getElementById('cover-' + page + '-2'), {
         cover: 'assets/silver.jpg',
         brush: 'assets/tbr.png',
-        brushSize: 80,
+        brushSize: 30,
         callbackRatio: 70,
         callback: Mycallback2
     });
@@ -28,7 +27,7 @@ window.onload = ()=>{
     createScratchCard(document.getElementById('cover-' + page + '-3'), {
         cover: 'assets/silver.jpg',
         brush: 'assets/tbr.png',
-        brushSize: 80,
+        brushSize: 30,
         callbackRatio: 70,
         callback: Mycallback3
     });

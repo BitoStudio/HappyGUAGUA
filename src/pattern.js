@@ -1,8 +1,9 @@
 export default class Pattern {
     constructor(id) {
-        var patternId = 'pattern-' + id;
-        var renderer = document.getElementById(patternId);
-        console.log(patternId);
+        const patternId = 'pattern-' + id;
+        const renderer = document.getElementById(patternId);
         renderer.style = "display: block;";
+
+        console.log(patternId);
     }
 }

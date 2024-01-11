@@ -1,7 +1,7 @@
 export default class ScratchCard {
     constructor(id, paras) {
-
         const canvas = document.getElementById('cover-' + id)
+        
         var isDrawing, lastPoint;
         var canvasWidth = canvas.width;
         var canvasHeight = canvas.height;

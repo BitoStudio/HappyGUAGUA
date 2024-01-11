@@ -1,19 +1,20 @@
 export default class ScratchCard {
-    constructor(id, paras) {
+    constructor(parent, id, params) {
         const canvas = document.getElementById('cover-' + id)
-        
-        var isDrawing, lastPoint;
+
+        this.isDrawing = false;
+        var lastPoint;
         var canvasWidth = canvas.width;
         var canvasHeight = canvas.height;
         var ctx = canvas.getContext('2d');
         var cover = new Image();
         var brush = new Image();
-        var brushSize = paras.brushSize ? paras.brushSize : 80;
+        var brushSize = params.brushSize ? params.brushSize : 80;
 
-        var callbackRatio = paras.callbackRatio ? paras.callbackRatio : 50;
+        var callbackRatio = params.callbackRatio ? params.callbackRatio : 50;
 
-        brush.src = paras.brush ? paras.brush : 'assets/brush.png';
-        cover.src = paras.cover ? paras.cover : 'assets/transperant.jpg';
+        brush.src = params.brush ? params.brush : 'assets/brush.png';
+        cover.src = params.cover ? params.cover : 'assets/transperant.jpg';
         cover.onload = function () {
 
             const imgRatio = cover.height / cover.width
@@ -86,17 +87,17 @@ export default class ScratchCard {
             // console.log(filledInPixels + '%');
             if (filledInPixels > callbackRatio) {
                 canvas.parentNode.removeChild(canvas);
-                if (paras.callback) paras.callback();
+                if (params.callback) params.callback();
             }
         }
 
         function handleMouseDown(e) {
-            isDrawing = true;
+            this.isDrawing = true;
             lastPoint = getMouse(e, canvas);
         }
 
         function handleMouseMove(e) {
-            if (!isDrawing) { return; }
+            if (!this.isDrawing) { return; }
 
             e.preventDefault();
 
@@ -114,10 +115,12 @@ export default class ScratchCard {
 
             lastPoint = currentPoint;
             handlePercentage(getFilledInPixels(32));
+
+            parent.add()
         }
 
         function handleMouseUp(e) {
-            isDrawing = false;
+            this.isDrawing = false;
         }
     }
 }

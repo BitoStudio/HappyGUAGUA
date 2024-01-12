@@ -3,8 +3,8 @@ import ScratchCard from './scratchCard.js';
 export default class ScratchCards {
     constructor(id) {
         const body = document.body
-        body.addEventListener('mousemove', handleMouseMove);
-        body.addEventListener('touchmove', handleMouseMove);
+        body.addEventListener('mousemove', handleMouseMove, { passive: false });
+        body.addEventListener('touchmove', handleMouseMove, { passive: false });
 
 
         this.value = 0
@@ -43,6 +43,8 @@ export default class ScratchCards {
         ]
 
         function handleMouseMove(e) {
+            e.preventDefault()
+
             var touchX = e.clientX || e.touches[0].clientX;
             var touchY = e.clientY || e.touches[0].clientY;
 
@@ -57,6 +59,5 @@ export default class ScratchCards {
     update() {
         this.value -= this.decreaseRate
         this.value = Math.max(0, Math.min(this.value, 1));
-        // console.log(this.value);
     }
 }

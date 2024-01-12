@@ -4,17 +4,19 @@ export default class ScratchCard {
         this.id = id
         this.canvas = document.getElementById('cover-' + id)
         var isDrawing = false;
-        var lastPoint;
+        this.lastPoint = 0;
         var canvasWidth = this.canvas.width;
         var canvasHeight = this.canvas.height;
         var ctx = this.canvas.getContext('2d');
+
+
         var cover = new Image();
-        var brush = new Image();
-        var brushSize = params.brushSize ? params.brushSize : 80;
+        this.brush = new Image();
+        this.brushSize = params.brushSize ? params.brushSize : 80;
 
         var callbackRatio = params.callbackRatio ? params.callbackRatio : 50;
 
-        brush.src = params.brush ? params.brush : 'assets/brush.png';
+        this.brush.src = params.brush ? params.brush : 'assets/brush.png';
         cover.src = params.cover ? params.cover : 'assets/transperant.jpg';
         cover.onload = function () {
 
@@ -93,44 +95,59 @@ export default class ScratchCard {
         //     lastPoint = getMouse(e);
         // }
 
-        // function handleMouseMove(e) {
-        //     if (!isDrawing) { return; }
 
-        //     e.preventDefault();
 
-        //     var currentPoint = getMouse(e);
-        //     var dist = distanceBetween(lastPoint, currentPoint);
-        //     var angle = angleBetween(lastPoint, currentPoint);
-        //     var x, y;
-
-        //     for (var i = 0; i < dist; i++) {
-        //         x = lastPoint.x + (Math.sin(angle) * i) - brushSize / 2;
-        //         y = lastPoint.y + (Math.cos(angle) * i) - brushSize / 2 + brushSize / 4;
-        //         ctx.globalCompositeOperation = 'destination-out';
-        //         ctx.drawImage(brush, x, y, brushSize, brushSize * brush.height / brush.width);
-        //     }
-
-        //     lastPoint = currentPoint;
-        //     handlePercentage(getFilledInPixels(32));
-
-        //     parent.add()
-        // }
-
-        // function handleMouseUp(e) {
-        //     isDrawing = false;
-        // }
+        function handleMouseUp(e) {
+            isDrawing = false;
+        }
     }
 
-    isInside(touch) {
+    checkTouch(touch) {
         const offsetX = touch.x - this.canvas.getBoundingClientRect().left;
         const offsetY = touch.y - this.canvas.getBoundingClientRect().top;
-        return offsetX > 0 && offsetX < this.canvas.width && offsetY > 0 && offsetY < this.canvas.height
+
+        return {
+            isInside: offsetX > 0 && offsetX < this.canvas.width && offsetY > 0 && offsetY < this.canvas.height,
+            pos: {
+                x: offsetX,
+                y: offsetY
+            }
+        }
     }
 
-
     receiveTouched(touch) {
-        if (this.isInside(touch)) {
-            console.log(this.id);
+        const result = this.checkTouch(touch)
+
+        if (result.isInside) {
+            this.draw(result.pos)
+        } else
+            this.lastPoint = result.pos
+    }
+
+    draw(pos) {
+        var currentPoint = pos;
+        var dist = this.distanceBetween(this.lastPoint, currentPoint);
+        var angle = this.angleBetween(this.lastPoint, currentPoint);
+        var x, y;
+
+        for (var i = 0; i < dist; i++) {
+            x = this.lastPoint.x + (Math.sin(angle) * i) - this.brushSize / 2;
+            y = this.lastPoint.y + (Math.cos(angle) * i) - this.brushSize / 2 + this.brushSize / 4;
+            this.canvas.getContext('2d').globalCompositeOperation = 'destination-out';
+            this.canvas.getContext('2d').drawImage(this.brush, x, y, this.brushSize, this.brushSize * this.brush.height / this.brush.width);
         }
+
+        this.lastPoint = currentPoint;
+        // handlePercentage(getFilledInPixels(32));
+
+        // parent.add()
+    }
+
+    distanceBetween(point1, point2) {
+        return Math.sqrt(Math.pow(point2.x - point1.x, 2) + Math.pow(point2.y - point1.y, 2));
+    }
+
+    angleBetween(point1, point2) {
+        return Math.atan2(point2.x - point1.x, point2.y - point1.y);
     }
 }

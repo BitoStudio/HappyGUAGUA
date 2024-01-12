@@ -7,7 +7,6 @@
     width: 50px;
     height: 50px;
     position: absolute;
-    background-image: url(assets/eyesocket.png);
     background-position: center;
     background-size: contain;
 }
@@ -24,6 +23,14 @@
 
 .eye-inner {
     position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin-left: 4px;
+    margin-top: 4px;
+}
+.eye-pupil {
+    position: absolute;
     display: inline-block;
     width: 30px;
     height: 30px;

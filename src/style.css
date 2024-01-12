@@ -45,40 +45,40 @@ html, body {
 }
 
 .mask-1-1 {
-   -webkit-mask-image: url(/assets/bison.png);
-   mask-image: url(/assets/bison.png);
+   -webkit-mask-image: url(/assets/textures/bison.png);
+   mask-image: url(/assets/textures/bison.png);
 }
 .mask-1-2 {
-   -webkit-mask-image: url(/assets/panda-bear.png);
-   mask-image: url(/assets/panda-bear.png);
+   -webkit-mask-image: url(/assets/textures/panda-bear.png);
+   mask-image: url(/assets/textures/panda-bear.png);
 }
 .mask-1-3 {
-   -webkit-mask-image: url(/assets/rabbit.png);
-   mask-image: url(/assets/rabbit.png);
+   -webkit-mask-image: url(/assets/textures/rabbit.png);
+   mask-image: url(/assets/textures/rabbit.png);
 }
 .mask-2-1 {
-   -webkit-mask-image: url(/assets/hedgehog.png);
-   mask-image: url(/assets/hedgehog.png);
+   -webkit-mask-image: url(/assets/textures/hedgehog.png);
+   mask-image: url(/assets/textures/hedgehog.png);
 }
 .mask-2-2 {
-   -webkit-mask-image: url(/assets/rhinoceros.png);
-   mask-image: url(/assets/rhinoceros.png);
+   -webkit-mask-image: url(/assets/textures/rhinoceros.png);
+   mask-image: url(/assets/textures/rhinoceros.png);
 }
 .mask-2-3 {
-   -webkit-mask-image: url(/assets/bear.png);
-   mask-image: url(/assets/bear.png);
+   -webkit-mask-image: url(/assets/textures/bear.png);
+   mask-image: url(/assets/textures/bear.png);
 }
 .mask-3-1 {
-   -webkit-mask-image: url(/assets/antelope.png);
-   mask-image: url(/assets/antelope.png);
+   -webkit-mask-image: url(/assets/textures/antelope.png);
+   mask-image: url(/assets/textures/antelope.png);
 }
 .mask-3-2 {
-   -webkit-mask-image: url(/assets/flamingo.png);
-   mask-image: url(/assets/flamingo.png);
+   -webkit-mask-image: url(/assets/textures/flamingo.png);
+   mask-image: url(/assets/textures/flamingo.png);
 }
 .mask-3-3 {
-   -webkit-mask-image: url(/assets/fox.png);
-   mask-image: url(/assets/fox.png);
+   -webkit-mask-image: url(/assets/textures/fox.png);
+   mask-image: url(/assets/textures/fox.png);
 }
 
 /* composition */

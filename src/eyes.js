@@ -3,13 +3,18 @@ export default class Eyes {
         window.addEventListener('mousemove', handleMouseMove, false);
         window.addEventListener('touchmove', handleMouseMove, false);
 
+        this.speed = 0.0005
+        this.displacement = 10
+
+
         var lefteye = document.getElementById('eye-left');
         var righteye = document.getElementById('eye-right');
 
+        this.pupils = document.querySelectorAll('.eye-pupil');
+
         function handleMouseMove(e) {
-            const eyes = document.querySelectorAll('.eye');
-            
-            [].forEach.call(eyes, function (eye) {
+
+            eyes.forEach(eye => {
                 // Get the mouse position on the horizontal axis
                 let mouseX = eye.getBoundingClientRect().right;
                 // If it's the left eye we need the left offset instead the right
@@ -24,7 +29,20 @@ export default class Eyes {
                 let rotationDegrees = radianDegrees * (180 / Math.PI) * -1 + 180;
                 // Now all we have to do is add this degrees to our eye!
                 eye.style.transform = `rotate(${rotationDegrees}deg)`;
-            });
+            })
         }
+    }
+
+    update(elapsed) {
+        // console.log(noise.perlin2(elapsed * 0.1, 0.1));
+        const x = noise.perlin2(elapsed * this.speed, 0.1) * this.displacement
+        const y = noise.perlin2(0.1, elapsed * this.speed) * this.displacement
+
+
+
+        this.pupils.forEach(pupil => {
+            pupil.style.transform = `translate(${x}px, ${y}px)`
+
+        })
     }
 }

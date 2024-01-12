@@ -6,7 +6,7 @@ import Time from "./Util/Time.js";
 const patternNum = 3
 
 window.onload = () => {
-    const id = Math.floor(Math.random() * patternNum) + 1;
+    const id = 1//Math.floor(Math.random() * patternNum) + 1;
 
     const pattern = new Pattern(id)
     const scratchCards = new ScratchCards(id)
@@ -16,10 +16,12 @@ window.onload = () => {
     const sound = new Sound()
 
     const time = new Time()
+
     time.on('tick', () => {
         scratchCards.update()
 
         sound.setVolume(scratchCards.value)
+        dragon.eyes.update(time.elapsed)
     })
 }
 

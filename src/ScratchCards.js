@@ -13,8 +13,8 @@ export default class ScratchCards {
         this.decreaseRate = 0.02;
 
         const cards = [new ScratchCard(this, id + '-1', {
-            cover: 'assets/silver.jpg',
-            brush: 'assets/brush.png',
+            cover: 'assets/textures/silver.jpg',
+            brush: 'assets/textures/brush.png',
             brushSize: 30,
             callbackRatio: 70,
             callback: () => {
@@ -23,8 +23,8 @@ export default class ScratchCards {
         }),
 
         new ScratchCard(this, id + '-2', {
-            cover: 'assets/silver.jpg',
-            brush: 'assets/tbr.png',
+            cover: 'assets/textures/silver.jpg',
+            brush: 'assets/textures/tbr.png',
             brushSize: 30,
             callbackRatio: 70,
             callback: () => {
@@ -33,8 +33,8 @@ export default class ScratchCards {
         }),
 
         new ScratchCard(this, id + '-3', {
-            cover: 'assets/silver.jpg',
-            brush: 'assets/tbr.png',
+            cover: 'assets/textures/silver.jpg',
+            brush: 'assets/textures/tbr.png',
             brushSize: 30,
             callbackRatio: 70,
             callback: () => {

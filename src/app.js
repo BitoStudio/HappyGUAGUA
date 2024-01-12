@@ -19,8 +19,8 @@ window.onload = () => {
     time.on('tick', () => {
         scratchCards.update()
         
-        // if (sound.played)
-            // sound.setVolume(scratchCards.value)
+        if (sound.played)
+            sound.setVolume(scratchCards.value)
     })
 }
 

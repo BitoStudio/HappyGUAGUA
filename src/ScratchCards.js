@@ -10,7 +10,7 @@ export default class ScratchCards {
 
         this.value = 0
         this.increaseRate = 0.05;
-        this.decreaseRate = 0.02;
+        this.decreaseRate = 0.03;
 
         const cards = [new ScratchCard(this, id + '-1', {
             cover: 'assets/textures/silver.jpg',

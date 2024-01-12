@@ -5,7 +5,8 @@ export default class ScratchCards {
         const body = document.body
         body.addEventListener('mousemove', handleMouseMove, { passive: false });
         body.addEventListener('touchmove', handleMouseMove, { passive: false });
-
+        body.addEventListener('mouseup', handleMouseUp);
+        body.addEventListener('touchend', handleMouseUp);
 
         this.value = 0
         this.increaseRate = 0.05;
@@ -49,6 +50,10 @@ export default class ScratchCards {
             var touchY = e.clientY || e.touches[0].clientY;
 
             cards.forEach(card => card.receiveTouched({ x: touchX, y: touchY }))
+        }
+
+        function handleMouseUp() {
+            cards.forEach(card => card.reset())
         }
     }
 

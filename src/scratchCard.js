@@ -40,14 +40,6 @@ export default class ScratchCard {
         // canvas.addEventListener('mouseup', handleMouseUp);
         // canvas.addEventListener('touchend', handleMouseUp);
 
-        // function distanceBetween(point1, point2) {
-        //     return Math.sqrt(Math.pow(point2.x - point1.x, 2) + Math.pow(point2.y - point1.y, 2));
-        // }
-
-        // function angleBetween(point1, point2) {
-        //     return Math.atan2(point2.x - point1.x, point2.y - point1.y);
-        // }
-
         // // Only test every `stride` pixel. `stride`x faster,
         // // but might lead to inaccuracy
         // function getFilledInPixels(stride) {
@@ -69,18 +61,6 @@ export default class ScratchCard {
         //     return Math.round((count / total) * 100);
         // }
 
-        // function getMouse(e, pos) {
-        //     var offsetX = 0, offsetY = 0;
-
-        //     const touchX = (e.pageX || e.touches[0].clientX) - canvas.getBoundingClientRect().left;
-        //     const touchY = (e.pageY || e.touches[0].clientY) - canvas.getBoundingClientRect().top;
-        //     const isInside = touchX > 0 && touchX < canvas.width && touchY > 0 && touchY < canvas.height
-
-
-
-        //     return { x: touchX, y: touchY };
-        // }
-
         // function handlePercentage(filledInPixels) {
         //     filledInPixels = filledInPixels || 0;
         //     // console.log(filledInPixels + '%');
@@ -96,10 +76,13 @@ export default class ScratchCard {
         // }
 
 
-
         function handleMouseUp(e) {
             isDrawing = false;
         }
+    }
+
+    reset() {
+        this.lastPoint = -1
     }
 
     checkTouch(touch) {
@@ -121,10 +104,13 @@ export default class ScratchCard {
         if (result.isInside) {
             this.draw(result.pos)
         } else
-            this.lastPoint = result.pos
+            this.reset()
     }
 
     draw(pos) {
+        if (this.lastPoint == -1)
+            this.lastPoint = pos
+
         var currentPoint = pos;
         var dist = this.distanceBetween(this.lastPoint, currentPoint);
         var angle = this.angleBetween(this.lastPoint, currentPoint);

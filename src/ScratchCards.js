@@ -2,11 +2,16 @@ import ScratchCard from './scratchCard.js';
 
 export default class ScratchCards {
     constructor(id) {
+        const body = document.body
+        body.addEventListener('mousemove', handleMouseMove);
+        body.addEventListener('touchmove', handleMouseMove);
+
+
         this.value = 0
         this.increaseRate = 0.05;
-        this.decreaseRate = 0.04;
+        this.decreaseRate = 0.01;
 
-        this.cards = [new ScratchCard(this, id + '-1', {
+        const cards = [new ScratchCard(this, id + '-1', {
             cover: 'assets/silver.jpg',
             brush: 'assets/brush.png',
             brushSize: 30,
@@ -36,6 +41,13 @@ export default class ScratchCards {
             }
         })
         ]
+
+        function handleMouseMove(e) {
+            var touchX = e.clientX || e.touches[0].clientX;
+            var touchY = e.clientY || e.touches[0].clientY;
+
+            cards.forEach(card => card.receiveTouched({ x: touchX, y: touchY }))
+        }
     }
 
     add() {

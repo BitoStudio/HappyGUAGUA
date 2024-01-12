@@ -1,7 +1,7 @@
 import Eyes from "./eyes.js"
 
 export default class Dragon {
-    constructor() {
-        this.eyes = new Eyes()
+    constructor(id) {
+        this.eyes = new Eyes(id)
     }
 }

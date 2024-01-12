@@ -6,12 +6,12 @@ import Time from "./Util/Time.js";
 const patternNum = 3
 
 window.onload = () => {
-    const id = 1//Math.floor(Math.random() * patternNum) + 1;
+    const id = Math.floor(Math.random() * patternNum) + 1;
 
     const pattern = new Pattern(id)
     const scratchCards = new ScratchCards(id)
 
-    const dragon = new Dragon()
+    const dragon = new Dragon(id)
 
     const sound = new Sound()
 

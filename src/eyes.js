@@ -1,48 +1,64 @@
 export default class Eyes {
-    constructor() {
-        window.addEventListener('mousemove', handleMouseMove, false);
-        window.addEventListener('touchmove', handleMouseMove, false);
+    constructor(id) {
 
         this.speed = 0.0005
         this.displacement = 10
 
+        this.watchRate = 0
 
-        var lefteye = document.getElementById('eye-left');
-        var righteye = document.getElementById('eye-right');
+        this.eye = document.getElementById(`eye-container-${id}`);
+        this.pupils = this.eye.querySelectorAll('.eye-pupil');
 
-        this.pupils = document.querySelectorAll('.eye-pupil');
+        this.watchDir = 0
+        window.addEventListener('mousemove', this.handleMouseMove.bind(this), false);
+        window.addEventListener('touchmove', this.handleMouseMove.bind(this), false);
+    }
 
-        function handleMouseMove(e) {
+    handleMouseMove(e) {
+        this.pupils.forEach(pupil => {
+            const { left, top, width, height } = pupil.getBoundingClientRect()
 
-            eyes.forEach(eye => {
-                // Get the mouse position on the horizontal axis
-                let mouseX = eye.getBoundingClientRect().right;
-                // If it's the left eye we need the left offset instead the right
-                if (eye.classList.contains('eye-left')) {
-                    mouseX = eye.getBoundingClientRect().left;
-                }
-                // Now we also need the vertical offset
-                let mouseY = eye.getBoundingClientRect().top;
-                // Now we are going to calculate the radian value of the offset between the mouse and the eye
-                let radianDegrees = Math.atan2(e.pageX - mouseX, e.pageY - mouseY);
-                // Let's convert this into a degree based value so we can use it in CSS
-                let rotationDegrees = radianDegrees * (180 / Math.PI) * -1 + 180;
-                // Now all we have to do is add this degrees to our eye!
-                eye.style.transform = `rotate(${rotationDegrees}deg)`;
-            })
-        }
+            const center = {
+                x: left + width / 2,
+                y: top + height / 2
+            }
+
+            const touch = {
+                x: e.clientX || e.touches[0].clientX,
+                y: e.clientY || e.touches[0].clientY
+            }
+
+            const dir = {
+                x: touch.x - center.x,
+                y: touch.y - center.y
+            };
+
+            const magnitude = Math.sqrt(dir.x ** 2 + dir.y ** 2);
+
+            this.watchDir = {
+                x: dir.x / magnitude * this.displacement,
+                y: dir.y / magnitude * this.displacement
+            };
+            this.watchRate += 0.005
+        })
+    }
+
+    lerp(a, b, t) {
+        return a + t * (b - a);
     }
 
     update(elapsed) {
-        // console.log(noise.perlin2(elapsed * 0.1, 0.1));
-        const x = noise.perlin2(elapsed * this.speed, 0.1) * this.displacement
-        const y = noise.perlin2(0.1, elapsed * this.speed) * this.displacement
+        this.watchRate -= 0.01
+        this.watchRate = Math.max(0, Math.min(this.watchRate, 1));
 
+        const noiseX = noise.perlin2(elapsed * this.speed, 0.1) * this.displacement
+        const noiseY = noise.perlin2(0.1, elapsed * this.speed) * this.displacement
 
+        const x = this.lerp(noiseX, this.watchDir.x, this.watchRate)
+        const y = this.lerp(noiseY, this.watchDir.y, this.watchRate)
 
         this.pupils.forEach(pupil => {
             pupil.style.transform = `translate(${x}px, ${y}px)`
-
         })
     }
 }

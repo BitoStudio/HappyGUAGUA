@@ -1,7 +1,5 @@
 export default class Pattern {
     constructor(id) {
-        console.log(document.body);
-
         const imgData = {
             1: 'url(/assets/textures/test_v1_bg.png)',
             2: 'url(/assets/textures/test_v2_picture.png)',
@@ -9,7 +7,7 @@ export default class Pattern {
         }
 
         const patternId = 'pattern-' + id;
-        
+
         const element = document.getElementById(patternId);
         element.style.display = "block";
         element.style.backgroundImage = imgData[id]

@@ -1,3 +1,5 @@
+import Particle from "./particle.js";
+
 export default class ScratchCard {
     constructor(holder, id, params) {
 
@@ -7,7 +9,7 @@ export default class ScratchCard {
         this.canvas = document.getElementById('cover-' + id)
         this.result = document.getElementById('result-' + id)
         this.lastPoint = 0;
-        
+
         this.canvas.width = this.result.width
         this.canvas.height = this.result.height
         var canvasWidth = this.canvas.width;
@@ -21,6 +23,9 @@ export default class ScratchCard {
         this.brush.src = params.brush ? params.brush : 'assets/brush.png'
         this.brushSize = params.brushSize ? params.brushSize : 80;
         this.callbackRatio = params.callbackRatio ? params.callbackRatio : 50
+
+
+        this.particle = new Particle(this.canvas)
 
         cover.onload = function () {
             const imgRatio = cover.height / cover.width
@@ -57,8 +62,10 @@ export default class ScratchCard {
     receiveTouched(touch) {
         const result = this.checkTouch(touch)
 
-        if (result.isInside)
+        if (result.isInside) {
             this.draw(result.pos)
+            this.particle.explode(touch.x, touch.y)
+        }
         else
             this.reset()
     }
@@ -72,6 +79,7 @@ export default class ScratchCard {
         const angle = this.angleBetween(this.lastPoint, currentPoint);
         const ctx = this.canvas.getContext('2d')
 
+
         var x, y;
 
         for (var i = 0; i < dist; i++) {
@@ -80,6 +88,7 @@ export default class ScratchCard {
             ctx.globalCompositeOperation = 'destination-out';
             ctx.drawImage(this.brush, x, y, this.brushSize, this.brushSize * this.brush.height / this.brush.width);
         }
+
 
         this.lastPoint = currentPoint;
         this.handlePercentage(this.getFilledInPixels(32));

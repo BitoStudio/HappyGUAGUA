@@ -10,12 +10,16 @@
 
 html,
 body {
-   height: 100%;
    overflow: hidden;
    overscroll-behavior: none;
    -webkit-overflow-scrolling: none;
+}
+
+.pattern {
+   height: 100vh;
+   width: 100vw;
+   display: none;
    background-size: 100% 100%;
-   background-repeat: no-repeat; 
 }
 
 /* Shape Mask */
@@ -185,4 +189,15 @@ body {
 #scratch-card-3-3 {
    top: 620px;
    left: 120px;
+}
+
+/* Dragon */
+.dragon {
+   width: 100%;
+   height: auto;
+}
+
+#dragon-1 {
+   position: absolute;
+   bottom: 0;
 }

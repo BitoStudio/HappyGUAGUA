@@ -7,12 +7,12 @@ export default class Pattern {
             2: 'url(/assets/textures/test_v2_picture.png)',
             3: 'url(/assets/textures/test_v1_picture.png)'
         }
-        document.body.style.backgroundImage = imgData[id]
 
         const patternId = 'pattern-' + id;
-        const renderer = document.getElementById(patternId);
-        renderer.style = "display: block;";
-
+        
+        const element = document.getElementById(patternId);
+        element.style.display = "block";
+        element.style.backgroundImage = imgData[id]
 
         console.log(patternId);
     }

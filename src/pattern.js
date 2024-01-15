@@ -3,7 +3,7 @@ export default class Pattern {
         console.log(document.body);
 
         const imgData = {
-            1: 'url(/assets/textures/test_v1_picture_300dpi.png)',
+            1: 'url(/assets/textures/test_v1_bg.png)',
             2: 'url(/assets/textures/test_v2_picture.png)',
             3: 'url(/assets/textures/test_v1_picture.png)'
         }

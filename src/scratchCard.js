@@ -5,8 +5,12 @@ export default class ScratchCard {
         this.id = id
 
         this.canvas = document.getElementById('cover-' + id)
+        this.result = document.getElementById('result-' + id)
         this.lastPoint = 0;
 
+
+        this.canvas.width = this.result.width
+        this.canvas.height = this.result.height
         var canvasWidth = this.canvas.width;
         var canvasHeight = this.canvas.height;
         var ctx = this.canvas.getContext('2d');
@@ -115,8 +119,8 @@ export default class ScratchCard {
         filledInPixels = filledInPixels || 0;
         // console.log(filledInPixels + '%');
         if (filledInPixels > this.callbackRatio) {
-            canvas.parentNode.removeChild(canvas);
-            if (params.callback) params.callback();
+            // canvas.parentNode.removeChild(canvas);
+            // if (params.callback) params.callback();
         }
     }
 }

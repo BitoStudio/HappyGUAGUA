@@ -22,6 +22,27 @@ body {
    background-size: 100% 100%;
 }
 
+/* Dragon */
+.dragon {
+   width: 100%;
+   height: auto;
+}
+
+#dragon-1 {
+   position: fixed;
+   bottom: 0px;
+}
+
+/* Title */
+.title {
+   width: 40%;
+   height: auto;
+   left: 5%;
+   top: 2%;
+   position: fixed;
+}
+
+
 /* Shape Mask */
 .mask {
    width: 100%;
@@ -189,15 +210,4 @@ body {
 #scratch-card-3-3 {
    top: 620px;
    left: 120px;
-}
-
-/* Dragon */
-.dragon {
-   width: 100%;
-   height: auto;
-}
-
-#dragon-1 {
-   position: absolute;
-   bottom: 0;
 }

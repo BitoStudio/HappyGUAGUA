@@ -64,7 +64,7 @@ export default class ScratchCard {
 
         if (result.isInside) {
             this.draw(result.pos)
-            this.particle.explode(touch.x, touch.y)
+            // this.particle.explode(touch.x, touch.y)
         }
         else
             this.reset()

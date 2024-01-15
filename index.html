@@ -1,109 +1,113 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <script src="https://kit.fontawesome.com/03ae434bc8.js" crossorigin="anonymous"></script>
-        <link href="src/style.css" type="text/css" rel="stylesheet">
-        <link href="src/eye.css" type="text/css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
-        <title>Happy GUAGUA</title>
-    </head>
-    <body>
-        <div id="pattern-1" style="display: none;">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/03ae434bc8.js" crossorigin="anonymous"></script>
+    <link href="src/style.css" type="text/css" rel="stylesheet">
+    <link href="src/eye.css" type="text/css" rel="stylesheet">
 
-            <div class="eye-container" id="eye-container-1">
-                <div class="eye eye-left">
-                    <img class="eye-inner" src="assets/textures/eye.png">
-                    <img class="eye-pupil" src="assets/textures/pupil.png">
-                </div>
-                <div class="eye eye-right">
-                    <img class="eye-inner" src="assets/textures/eye.png">
-                    <img class="eye-pupil" src="assets/textures/pupil.png">
-                </div>
+    <title>Happy GUAGUA</title>
+</head>
+
+<body>
+    <div id="pattern-1" style="display: none;">
+
+        <div class="eye-container" id="eye-container-1">
+            <div class="eye eye-left">
+                <img class="eye-inner" src="assets/textures/eye.png">
+                <img class="eye-pupil" src="assets/textures/pupil.png">
             </div>
-
-            <div class="scratch-area" id="scratch-card-1-1">
-                <canvas class="cover mask mask-1-1" id="cover-1-1" ></canvas>
-                <img class="result mask mask-1-1" id="result-1-1" src="assets/textures/test_pattern_health_after.png" >
-            </div>
-
-            <div class="scratch-area" id="scratch-card-1-2">
-                <canvas class="cover mask mask-1-2" id="cover-1-2" ></canvas>
-                <img class="result mask mask-1-2" id="result-1-2" src="assets/textures/test_pattern_love_after.png" >
-            </div>
-
-            <div class="scratch-area" id="scratch-card-1-3">
-                <canvas class="cover mask mask-1-3" id="cover-1-3" ></canvas>
-                <img class="result mask mask-1-3" id="result-1-3" src="assets/textures/test_pattern_work_after.png">
+            <div class="eye eye-right">
+                <img class="eye-inner" src="assets/textures/eye.png">
+                <img class="eye-pupil" src="assets/textures/pupil.png">
             </div>
         </div>
 
-        <div id="pattern-2" style="display: none;">
+        <div class="scratch-area" id="scratch-card-1-1">
+            <canvas class="cover mask mask-1-1" id="cover-1-1"></canvas>
+            <img class="result mask mask-1-1" id="result-1-1" src="assets/textures/test_pattern_health_after.png">
+        </div>
 
-            <div class="eye-container" id="eye-container-2">
-                <div class="eye eye-left">
-                    <img class="eye-inner" src="assets/textures/eye.png">
-                    <img class="eye-pupil" src="assets/textures/pupil.png">
-                </div>
-                <div class="eye eye-right">
-                    <img class="eye-inner" src="assets/textures/eye.png">
-                    <img class="eye-pupil" src="assets/textures/pupil.png">
-                </div>
+        <div class="scratch-area" id="scratch-card-1-2">
+            <canvas class="cover mask mask-1-2" id="cover-1-2"></canvas>
+            <img class="result mask mask-1-2" id="result-1-2" src="assets/textures/test_pattern_love_after.png">
+        </div>
+
+        <div class="scratch-area" id="scratch-card-1-3">
+            <canvas class="cover mask mask-1-3" id="cover-1-3"></canvas>
+            <img class="result mask mask-1-3" id="result-1-3" src="assets/textures/test_pattern_work_after.png">
+        </div>
+    </div>
+
+    <div id="pattern-2" style="display: none;">
+
+        <div class="eye-container" id="eye-container-2">
+            <div class="eye eye-left">
+                <img class="eye-inner" src="assets/textures/eye.png">
+                <img class="eye-pupil" src="assets/textures/pupil.png">
             </div>
-
-            <div class="scratch-area" id="scratch-card-2-1">
-                <canvas class="cover mask mask-2-1" id="cover-2-1"></canvas>
-                <img class="result mask mask-2-1" id="result-2-1" src="assets/textures/test_pattern_health_after.png">
-            </div>
-
-            <div class="scratch-area" id="scratch-card-2-2">
-                <canvas class="cover mask mask-2-2" id="cover-2-2"></canvas>
-                <img class="result mask mask-2-2" id="result-2-2" src="assets/textures/test_pattern_love_after.png">
-            </div>
-
-            <div class="scratch-area" id="scratch-card-2-3">
-                <canvas class="cover mask mask-2-3" id="cover-2-3"></canvas>
-                <img class="result mask mask-2-3" id="result-2-3" src="assets/textures/meme.jpg">
+            <div class="eye eye-right">
+                <img class="eye-inner" src="assets/textures/eye.png">
+                <img class="eye-pupil" src="assets/textures/pupil.png">
             </div>
         </div>
 
-        <div id="pattern-3" style="display: none;">
+        <div class="scratch-area" id="scratch-card-2-1">
+            <canvas class="cover mask mask-2-1" id="cover-2-1"></canvas>
+            <img class="result mask mask-2-1" id="result-2-1" src="assets/textures/test_pattern_health_after.png">
+        </div>
 
-            <div class="eye-container" id="eye-container-3">
-                <div class="eye eye-left">
-                    <img class="eye-inner" src="assets/textures/eye.png">
-                    <img class="eye-pupil" src="assets/textures/pupil.png">
-                </div>
-                <div class="eye eye-right">
-                    <img class="eye-inner" src="assets/textures/eye.png">
-                    <img class="eye-pupil" src="assets/textures/pupil.png">
-                </div>
+        <div class="scratch-area" id="scratch-card-2-2">
+            <canvas class="cover mask mask-2-2" id="cover-2-2"></canvas>
+            <img class="result mask mask-2-2" id="result-2-2" src="assets/textures/test_pattern_love_after.png">
+        </div>
+
+        <div class="scratch-area" id="scratch-card-2-3">
+            <canvas class="cover mask mask-2-3" id="cover-2-3"></canvas>
+            <img class="result mask mask-2-3" id="result-2-3" src="assets/textures/meme.jpg">
+        </div>
+    </div>
+
+    <div id="pattern-3" style="display: none;">
+
+        <div class="eye-container" id="eye-container-3">
+            <div class="eye eye-left">
+                <img class="eye-inner" src="assets/textures/eye.png">
+                <img class="eye-pupil" src="assets/textures/pupil.png">
             </div>
-
-            <div class="scratch-area" id="scratch-card-3-1">
-                <canvas class="cover mask mask-3-1" id="cover-3-1"></canvas>
-                <img class="result mask mask-3-1" id="result-3-1" src="assets/textures/test_pattern_health_after.png">
-            </div>
-
-            <div class="scratch-area" id="scratch-card-3-2">
-                <canvas class="cover mask mask-3-2" id="cover-3-2"></canvas>
-                <img class="result mask mask-3-2" id="result-3-2" src="assets/textures/test_pattern_love_after.png">
-            </div>
-
-            <div class="scratch-area" id="scratch-card-3-3">
-                <canvas class="cover mask mask-3-3" id="cover-3-3"></canvas>
-                <img class="result mask mask-3-3" id="result-3-3" src="assets/textures/meme.jpg">
+            <div class="eye eye-right">
+                <img class="eye-inner" src="assets/textures/eye.png">
+                <img class="eye-pupil" src="assets/textures/pupil.png">
             </div>
         </div>
 
-        <script src='src/Util/perlin.js'></script>
-        <script src="src/app.js" type="module"></script>
-    </body>
+        <div class="scratch-area" id="scratch-card-3-1">
+            <canvas class="cover mask mask-3-1" id="cover-3-1"></canvas>
+            <img class="result mask mask-3-1" id="result-3-1" src="assets/textures/test_pattern_health_after.png">
+        </div>
+
+        <div class="scratch-area" id="scratch-card-3-2">
+            <canvas class="cover mask mask-3-2" id="cover-3-2"></canvas>
+            <img class="result mask mask-3-2" id="result-3-2" src="assets/textures/test_pattern_love_after.png">
+        </div>
+
+        <div class="scratch-area" id="scratch-card-3-3">
+            <canvas class="cover mask mask-3-3" id="cover-3-3"></canvas>
+            <img class="result mask mask-3-3" id="result-3-3" src="assets/textures/meme.jpg">
+        </div>
+    </div>
+
+    <script src='src/Util/perlin.js'></script>
+    <script src="src/app.js" type="module"></script>
+</body>
+
 </html>

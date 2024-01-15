@@ -7,8 +7,7 @@ export default class ScratchCard {
         this.canvas = document.getElementById('cover-' + id)
         this.result = document.getElementById('result-' + id)
         this.lastPoint = 0;
-
-
+        
         this.canvas.width = this.result.width
         this.canvas.height = this.result.height
         var canvasWidth = this.canvas.width;

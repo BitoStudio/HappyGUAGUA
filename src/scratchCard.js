@@ -113,6 +113,7 @@ export default class ScratchCard {
 
     handlePercentage(filledInPixels) {
         filledInPixels = filledInPixels || 0;
+        // console.log(filledInPixels + '%');
         if (filledInPixels > this.callbackRatio) {
             canvas.parentNode.removeChild(canvas);
             if (params.callback) params.callback();

@@ -36,24 +36,10 @@ $d
             mouseX = event.originalEvent.touches[0].clientX;
             mouseY = event.originalEvent.touches[0].clientY;
         }
+
+        createParticle(event);
+
     })
-    .on('mousedown touchstart', function (event) {
-        mouseX = event.clientX;
-        mouseY = event.clientY;
-        if (!!event.originalEvent.touches) {
-            mouseX = event.originalEvent.touches[0].clientX;
-            mouseY = event.originalEvent.touches[0].clientY;
-        }
-        var timer = setInterval(function () {
-            $d
-                .one('mouseup mouseleave touchend touchcancel touchleave', function () {
-                    clearInterval(timer);
-                })
-            createParticle(event);
-        }, 1000 / 60)
-
-    });
-
 
 function createParticle(event) {
     var particle = $('<div class="particle"/>'),

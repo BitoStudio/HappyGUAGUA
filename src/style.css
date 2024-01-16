@@ -213,6 +213,8 @@ body {
 }
 
 .particles > .particle {
+   z-index: 20;
+
    border-radius: 100%;
    background: transparent;
    

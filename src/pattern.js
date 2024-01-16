@@ -1,7 +1,7 @@
 export default class Pattern {
     constructor(id) {
         const imgData = {
-            1: 'url(/assets/textures/test_v1_bg.png)',
+            1: 'url(/assets/textures/test_v2_bg.png)',
             2: 'url(/assets/textures/test_v2_picture.png)',
             3: 'url(/assets/textures/test_v1_picture.png)'
         }

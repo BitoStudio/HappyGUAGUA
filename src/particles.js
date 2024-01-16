@@ -16,8 +16,31 @@ var d = document, $d = $(d),
 
     life = 500,
     lifeDecay = 20,
-
+    splashSpeed = 2,
+    splashDecay = 0.95,
     mouseX = $w.width() / 2, mouseY = $w.height() / 2;
+
+
+let prevMouseX;
+let prevMouseY;
+let prevTimestamp;
+
+function calculateVelocity(currentX, currentY, currentTime) {
+    let currentVelocity = 0;
+
+    if (prevMouseX !== undefined && prevMouseY !== undefined && prevTimestamp !== undefined) {
+        const deltaX = currentX - prevMouseX;
+        const deltaY = currentY - prevMouseY;
+        const deltaTime = currentTime - prevTimestamp;
+
+        currentVelocity = {x: deltaX / deltaTime, y: deltaY / deltaTime}
+    }
+
+    prevMouseX = currentX;
+    prevMouseY = currentY;
+    prevTimestamp = currentTime;
+    return currentVelocity
+}
 
 function updateParticleCount() {
     $('.particle-count > .number').text(particleCount);
@@ -38,11 +61,14 @@ $d
             mouseY = event.originalEvent.touches[0].clientY;
         }
 
-        createParticle(event);
+        const currentTime = performance.now(); // Using high-resolution time
 
+        const vel = calculateVelocity(mouseX, mouseY, currentTime);
+
+        createParticle(event, vel);
     })
 
-function createParticle(event) {
+function createParticle(event, vel) {
     var particle = $('<div class="particle"/>'),
         size = sizes[Math.floor(Math.random() * sizes.length)],
         color = colors[Math.floor(Math.random() * colors.length)],
@@ -73,9 +99,14 @@ function createParticle(event) {
 
     var particleTimer = setInterval(function () {
         time = time - lifeDecay;
+        vel.x = vel.x * splashDecay;
+        vel.y = vel.y * splashDecay;
         // left = left - (speedHorz * direction);
-        top = top - speedUp;
-        speedUp = Math.min(size, speedUp - 0.1);
+        // top = top - speedUp;
+        // speedUp = Math.min(size, speedUp - 0.1);
+        left = left + vel.x * splashSpeed;
+        top = top + vel.y * splashSpeed;
+
         spinVal = spinVal + spinSpeed;
 
 
@@ -85,7 +116,7 @@ function createParticle(event) {
                 width: size + 'px',
                 top: top + 'px',
                 left: left + 'px',
-                opacity: ((time / otime) / 2) + .25,
+                opacity: ((time / otime) / 2),
                 transform: 'rotate(' + spinVal + 'deg)',
                 webkitTransform: 'rotate(' + spinVal + 'deg)'
             });

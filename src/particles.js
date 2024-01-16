@@ -1,12 +1,9 @@
-
 var d = document, $d = $(d),
     w = window, $w = $(w),
     wWidth = $w.width(), wHeight = $w.height(),
     particles = $('.particles'),
     particleCount = 0,
-    sizes = [
-        5
-    ],
+    size = 5,
     colors = [
         '#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5',
         '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4CAF50',
@@ -14,11 +11,13 @@ var d = document, $d = $(d),
         '#FF5722', '#795548', '#9E9E9E', '#607D8B', '#777777'
     ],
 
-    life = 500,
+    life = 1000,
     lifeDecay = 20,
-    splashSpeed = 2,
+    splashSpeed = 3,
     splashDecay = 0.95,
-    mouseX = $w.width() / 2, mouseY = $w.height() / 2;
+    mouseX = $w.width() / 2, mouseY = $w.height() / 2,
+    paritclesPerSpawn = 2,
+    randomDisplacement = 10;
 
 
 let prevMouseX;
@@ -33,7 +32,7 @@ function calculateVelocity(currentX, currentY, currentTime) {
         const deltaY = currentY - prevMouseY;
         const deltaTime = currentTime - prevTimestamp;
 
-        currentVelocity = {x: deltaX / deltaTime, y: deltaY / deltaTime}
+        currentVelocity = { x: deltaX / deltaTime, y: deltaY / deltaTime }
     }
 
     prevMouseX = currentX;
@@ -41,10 +40,6 @@ function calculateVelocity(currentX, currentY, currentTime) {
     prevTimestamp = currentTime;
     return currentVelocity
 }
-
-function updateParticleCount() {
-    $('.particle-count > .number').text(particleCount);
-};
 
 $w
     .on('resize', function () {
@@ -65,23 +60,26 @@ $d
 
         const vel = calculateVelocity(mouseX, mouseY, currentTime);
 
-        createParticle(event, vel);
+        createParticle(mouseX, mouseY, vel);
     })
 
-function createParticle(event, vel) {
+function smoothstep(edge0, edge1, x) {
+    // Scale, bias and saturate x to 0..1 range
+    x = Math.min(Math.max((x - edge0) / (edge1 - edge0), 0), 1);
+    // Evaluate polynomial
+    return x * x * (3 - 2 * x);
+}
+
+function createParticle(mouseX, mouseY, vel) {
     var particle = $('<div class="particle"/>'),
-        size = sizes[Math.floor(Math.random() * sizes.length)],
         color = colors[Math.floor(Math.random() * colors.length)],
         negative = size / 2,
-        speedHorz = Math.random() * 10,
-        speedUp = 0,//Math.random() * 25,
         spinVal = 360 * Math.random(),
         spinSpeed = ((36 * Math.random())) * (Math.random() <= .5 ? -1 : 1),
         otime,
         time = otime = (1 + (.5 * Math.random())) * life,
-        top = (mouseY - negative),
-        left = (mouseX - negative),
-        direction = Math.random() <= .5 ? -1 : 1;
+        top = (mouseY + (Math.random() -0.5) * randomDisplacement),
+        left = (mouseX + (Math.random() -0.5) * randomDisplacement);
 
     particle
         .css({
@@ -95,28 +93,22 @@ function createParticle(event, vel) {
         })
         .appendTo(particles);
     particleCount++;
-    updateParticleCount();
 
     var particleTimer = setInterval(function () {
         time = time - lifeDecay;
         vel.x = vel.x * splashDecay;
         vel.y = vel.y * splashDecay;
-        // left = left - (speedHorz * direction);
-        // top = top - speedUp;
-        // speedUp = Math.min(size, speedUp - 0.1);
         left = left + vel.x * splashSpeed;
         top = top + vel.y * splashSpeed;
-
         spinVal = spinVal + spinSpeed;
-
 
         particle
             .css({
-                height: size + 'px',
-                width: size + 'px',
+                height: size * smoothstep(0, 0.3, time / otime) * smoothstep(1, 0.7, time / otime) + 'px',
+                width: size * smoothstep(0, 0.3, time / otime) * smoothstep(1, 0.7, time / otime) + 'px',
                 top: top + 'px',
                 left: left + 'px',
-                opacity: ((time / otime) / 2),
+                opacity: 1,
                 transform: 'rotate(' + spinVal + 'deg)',
                 webkitTransform: 'rotate(' + spinVal + 'deg)'
             });
@@ -124,7 +116,6 @@ function createParticle(event, vel) {
         if (time <= 0 || left <= -size || left >= wWidth + size || top >= wHeight + size) {
             particle.remove();
             particleCount--;
-            updateParticleCount();
             clearInterval(particleTimer);
         }
     }, 1000 / 60);

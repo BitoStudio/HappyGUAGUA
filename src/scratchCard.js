@@ -1,4 +1,3 @@
-import Particle from "./particle.js";
 
 export default class ScratchCard {
     constructor(holder, id, params) {
@@ -23,9 +22,6 @@ export default class ScratchCard {
         this.brush.src = params.brush ? params.brush : 'assets/brush.png'
         this.brushSize = params.brushSize ? params.brushSize : 80;
         this.callbackRatio = params.callbackRatio ? params.callbackRatio : 50
-
-
-        this.particle = new Particle(this.canvas)
 
         cover.onload = function () {
             const imgRatio = cover.height / cover.width

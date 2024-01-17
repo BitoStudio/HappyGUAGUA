@@ -10,7 +10,6 @@ window.onload = () => {
 
     const pattern = new Pattern(id)
     const scratchCards = new ScratchCards(id)
-
     const dragon = new Dragon(id)
 
     // const sound = new Sound()

@@ -1,4 +1,3 @@
-
 export default class ScratchCard {
     constructor(holder, id, params) {
 

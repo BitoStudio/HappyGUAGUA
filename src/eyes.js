@@ -21,7 +21,7 @@ export default class Eyes {
             const range = this.computePosition(area, this.ratio[i])
             const size = area.w * this.scale
 
-            this.displacement = size * 0.08
+            this.displacement = size * 0.2
             this.pupils[i].width = size
             this.pupils[i].height = size
             this.pupils[i].style.top = `${range.top - size / 2}px`
@@ -66,8 +66,8 @@ export default class Eyes {
             const magnitude = Math.sqrt(dir.x ** 2 + dir.y ** 2);
 
             this.watchDir = {
-                x: dir.x / magnitude * this.displacement * 1.5,
-                y: dir.y / magnitude * this.displacement * 1.5
+                x: dir.x / magnitude * this.displacement * 0.4,
+                y: dir.y / magnitude * this.displacement * 1.2
             };
         })
     }

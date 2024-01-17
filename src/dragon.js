@@ -2,10 +2,9 @@ import Eyes from "./eyes.js"
 
 export default class Dragon {
     constructor(id) {
-
         this.area;
         this.updateArea()
-        this.eyes = new Eyes(id, this.area, [{ x: 0.2, y: 0.65 }, { x: 0.225, y: 0.695 }], 0.07)
+        this.eyes = new Eyes(id, this.area, [{ x: 0.2, y: 0.651 }, { x: 0.225, y: 0.696 }], 0.07)
 
         window.addEventListener('resize', () => { 
             this.updateArea() 

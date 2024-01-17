@@ -3,6 +3,7 @@ import ScratchCard from './scratchCard.js';
 export default class ScratchCards {
     constructor(id) {
         const body = document.body
+        
         body.addEventListener('mousemove', handleMouseMove, { passive: false });
         body.addEventListener('touchmove', handleMouseMove, { passive: false });
         body.addEventListener('mouseup', handleMouseUp);

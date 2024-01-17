@@ -1,24 +1,39 @@
 export default class Eyes {
-    constructor(id) {
-
+    constructor(id, area, ratio, scale) {
         this.speed = 0.0005
-        this.displacement = 10
+        this.ratio = ratio
 
         this.watchRate = 0
         this.watchDir = { x: 0, y: 0 }
         this.touched = false
+        this.scale = scale
 
-        this.eye = document.getElementById(`eye-container-${id}`);
-        this.pupils = this.eye.querySelectorAll('.eye-pupil');
+        this.pupils = document.querySelectorAll('.pupil');
+        this.updatePosition(area)
 
-        window.addEventListener('mousemove', this.handleMouseMove.bind(this), false);
         window.addEventListener('touchmove', this.handleMouseMove.bind(this), false);
-
-        window.addEventListener('mousedown', this.handleMouseDown.bind(this), false);
         window.addEventListener('touchstart', this.handleMouseDown.bind(this), false);
-
-        window.addEventListener('mouseup', this.handleMouseUp.bind(this), false);
         window.addEventListener('touchend', this.handleMouseUp.bind(this), false);
+    }
+
+    updatePosition(area) {
+        for (var i = 0; i < this.pupils.length; i++) {
+            const range = this.computePosition(area, this.ratio[i])
+            const size = area.w * this.scale
+
+            this.displacement = size * 0.08
+            this.pupils[i].width = size
+            this.pupils[i].height = size
+            this.pupils[i].style.top = `${range.top - size / 2}px`
+            this.pupils[i].style.left = `${range.left - size / 2}px`
+        }
+    }
+
+    computePosition(area, ratio) {
+        return {
+            left: area.left + area.w * ratio.x,
+            top: area.top + area.h * ratio.y
+        }
     }
 
     handleMouseDown(e) {
@@ -51,8 +66,8 @@ export default class Eyes {
             const magnitude = Math.sqrt(dir.x ** 2 + dir.y ** 2);
 
             this.watchDir = {
-                x: dir.x / magnitude * this.displacement * 0.7,
-                y: dir.y / magnitude * this.displacement * 0.7
+                x: dir.x / magnitude * this.displacement * 1.5,
+                y: dir.y / magnitude * this.displacement * 1.5
             };
         })
     }

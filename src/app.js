@@ -7,7 +7,7 @@ import source from "./source.js";
 const patternNum = 3
 
 window.onload = () => {
-    const id = 1//Math.floor(Math.random() * patternNum) + 1;
+    const id = 3//Math.floor(Math.random() * patternNum) + 1;
     const patternData = source.patterns[id - 1]
 
     const pattern = new Pattern(id, patternData)

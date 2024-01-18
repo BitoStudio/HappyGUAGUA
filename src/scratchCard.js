@@ -1,12 +1,12 @@
 export default class ScratchCard {
-    constructor(holder, id, data, callback) {
+    constructor(holder, patternId, cardId, data, callback) {
         this.holder = holder
-        this.id = id
+        this.cardId = cardId
         this.data = data
 
-        const scratch = document.getElementById('scratch-card-' + id)
-        scratch.style.top = data.top
-        scratch.style.left = data.left
+        const scratch = document.getElementById('scratch-card-' + cardId)
+        scratch.style.top = data.pos[patternId - 1].top
+        scratch.style.left = data.pos[patternId - 1].left
 
         const result = scratch.querySelector('.result')
         result.src = data.results[Math.floor(Math.random() * data.results.length)]
@@ -23,7 +23,7 @@ export default class ScratchCard {
 
         this.brush = new Image();
         this.brush.src = data.brush;
-        
+
         var paint = new Image();
         paint.src = data.cover;
         paint.onload = function () {

@@ -1,5 +1,6 @@
 export default class Eyes {
-    constructor(id, area, data) {
+    constructor(id, dragon, data) {
+        this.dragon = dragon
         this.speed = 0.0005
         this.data = data
 
@@ -7,18 +8,18 @@ export default class Eyes {
         this.watchDir = { x: 0, y: 0 }
         this.touched = false
 
-        this.pupils = document.querySelectorAll('.pupil');
-        this.updatePosition(area)
+        this.pupils = this.dragon.pattern.querySelectorAll('.pupil');
+        this.updatePosition()
 
         window.addEventListener('touchmove', this.handleMouseMove.bind(this), false);
         window.addEventListener('touchstart', this.handleMouseDown.bind(this), false);
         window.addEventListener('touchend', this.handleMouseUp.bind(this), false);
     }
 
-    updatePosition(area) {
+    updatePosition() {
         for (var i = 0; i < this.pupils.length; i++) {
-            const range = this.computePosition(area, this.data.pos[i])
-            const size = area.w * this.data.scale
+            const range = this.computePosition(this.dragon.area, this.data.pos[i])
+            const size = this.dragon.area.w * this.data.scale
 
             this.displacement = size * 0.2
             this.pupils[i].width = size

@@ -3,7 +3,7 @@ export default {
         // pattern 1
         {
             bgTex: '/assets/textures/bg_v1.png',
-            
+
             dragon: {
                 tex: '/assets/textures/dragon_v1.png',
                 eyes: {
@@ -18,7 +18,7 @@ export default {
             dragon: {
                 tex: '/assets/textures/dragon_v2.png',
                 eyes: {
-                    pos: [{ x: 0.2, y: 0.651 }, { x: 0.225, y: 0.696 }],
+                    pos: [{ x: 0.60, y: 0.125 }, { x: 0.68, y: 0.14 }],
                     scale: 0.07
                 }
             }
@@ -43,8 +43,20 @@ export default {
             brush: 'assets/textures/brush.png',
             brushSize: 30,
             callbackRatio: 70,
-            top: '25vh',
-            left: '40vw',
+            pos: [
+                {
+                    top: '25vh',
+                    left: '40vw',
+                },
+                {
+                    top: '80vh',
+                    left: '40vw',
+                },
+                {
+                    top: '70vh',
+                    left: '70vw',
+                }
+            ],
             results: [
                 'assets/textures/health_after_1.png'
             ]
@@ -54,8 +66,21 @@ export default {
             brush: 'assets/textures/tbr.png',
             brushSize: 30,
             callbackRatio: 70,
-            top: '50vh',
-            left: '70vw',
+            pos: [
+                {
+                    top: '50vh',
+                    left: '70vw',
+                },
+                {
+                    top: '57vh',
+                    left: '60vw',
+                },
+                {
+                    top: '70vh',
+                    left: '70vw',
+                }
+            ],
+
 
             results: [
                 'assets/textures/love_after_1.png'
@@ -67,8 +92,20 @@ export default {
             brush: 'assets/textures/tbr.png',
             brushSize: 30,
             callbackRatio: 70,
-            top: '70vh',
-            left: '70vw',
+            pos: [
+                {
+                    top: '70vh',
+                    left: '70vw',
+                },
+                {
+                    top: '37vh',
+                    left: '40vw',
+                },
+                {
+                    top: '50vh',
+                    left: '70vw',
+                }
+            ],
             results: [
                 'assets/textures/wealth_after_1.png'
             ]

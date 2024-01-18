@@ -2,12 +2,15 @@ import Eyes from "./eyes.js"
 
 export default class Dragon {
     constructor(id, data) {
-        this.dragon = document.querySelector('.dragon')
+
+        const patternId = 'pattern-' + id;
+        this.pattern = document.getElementById(patternId);
+
+        this.dragon = this.pattern.querySelector('.dragon')
         this.dragon.src = data.tex
 
-        this.area;
         this.updateArea()
-        this.eyes = new Eyes(id, this.area, data.eyes)
+        this.eyes = new Eyes(id, this, data.eyes)
 
         window.addEventListener('resize', () => { 
             this.updateArea() 

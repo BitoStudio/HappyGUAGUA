@@ -13,17 +13,17 @@ export default class ScratchCards {
         this.increaseRate = 0.05;
         this.decreaseRate = 0.03;
 
-        const cards = [new ScratchCard(this, id + '-1', data[0],
+        const cards = [new ScratchCard(this, '1', data[0],
             () => {
                 console.log('my callback function 1');
             }),
 
-        new ScratchCard(this, id + '-2', data[1],
+        new ScratchCard(this, '2', data[1],
             () => {
                 console.log('my callback function 1');
             }),
 
-        new ScratchCard(this, id + '-3', data[2],
+        new ScratchCard(this, '3', data[2],
             () => {
                 console.log('my callback function 1');
             })

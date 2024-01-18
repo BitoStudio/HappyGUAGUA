@@ -22,6 +22,8 @@ export default {
             brush: 'assets/textures/brush.png',
             brushSize: 30,
             callbackRatio: 70,
+            top: '25vh',
+            left: '40vw',
             results: [
                 'assets/textures/health_after_1.png'
             ]
@@ -31,15 +33,21 @@ export default {
             brush: 'assets/textures/tbr.png',
             brushSize: 30,
             callbackRatio: 70,
+            top: '50vh',
+            left: '70vw',
+
             results: [
                 'assets/textures/love_after_1.png'
             ]
+
         },
         {
             cover: 'assets/textures/wealth_before.png',
             brush: 'assets/textures/tbr.png',
             brushSize: 30,
             callbackRatio: 70,
+            top: '70vh',
+            left: '70vw',
             results: [
                 'assets/textures/wealth_after_1.png'
             ]

@@ -4,39 +4,42 @@ export default class ScratchCard {
         this.holder = holder
         this.id = id
 
-
+        this.scratch = document.getElementById('scratch-card-' + id)
+        this.scratch.style.top = data.top
+        this.scratch.style.left = data.left
 
         this.result = document.getElementById('result-' + id)
         this.result.src = data.results[Math.floor(Math.random() * data.results.length)]
 
         this.cover = document.getElementById('cover-' + id)
-        this.cover.width = this.result.width
-        this.cover.height = this.result.height
+
+        this.cover.width = this.cover.offsetWidth
+        this.cover.height = this.result.offsetHeight
 
         this.lastPoint = 0;
 
-        var canvasWidth = this.cover.width;
-        var canvasHeight = this.cover.height;
+        var coverWidth = this.cover.width;
+        var coverHeight = this.cover.height;
         var ctx = this.cover.getContext('2d');
 
-        var cover = new Image();
-        cover.src = data.cover ? data.cover : 'assets/transperant.jpg'
+        var paint = new Image();
+        paint.src = data.cover;
 
         this.brush = new Image();
         this.brush.src = data.brush ? data.brush : 'assets/brush.png'
         this.brushSize = data.brushSize ? data.brushSize : 80;
         this.callbackRatio = data.callbackRatio ? data.callbackRatio : 50
 
-        cover.onload = function () {
-            const imgRatio = cover.height / cover.width
-            const canvasRatio = canvasHeight / canvasWidth
+        paint.onload = function () {
+            const imgRatio = paint.height / paint.width
+            const canvasRatio = coverHeight / coverWidth
             if (imgRatio > canvasRatio) {
-                const h = canvasWidth * imgRatio
-                ctx.drawImage(cover, 0, (canvasHeight - h) / 2, canvasWidth, h)
+                const h = coverWidth * imgRatio
+                ctx.drawImage(paint, 0, (coverHeight - h) / 2, coverWidth, h)
             }
             else {
-                const w = canvasWidth * canvasRatio / imgRatio
-                ctx.drawImage(cover, (canvasWidth - w) / 2, 0, w, canvasHeight)
+                const w = coverWidth * canvasRatio / imgRatio
+                ctx.drawImage(paint, (coverWidth - w) / 2, 0, w, coverHeight)
             }
         }
     }

@@ -24,16 +24,26 @@ export default class Eyes {
             this.displacement = size * 0.2
             this.pupils[i].width = size
             this.pupils[i].height = size
-            this.pupils[i].style.top = `${range.top - size / 2}px`
-            this.pupils[i].style.left = `${range.left - size / 2}px`
+
+            if (this.dragon.data.align == 'top') {
+                this.pupils[i].style.top = `${range.top - size / 2}px`
+                this.pupils[i].style.left = `${range.left - size / 2}px`
+            } else {
+                this.pupils[i].style.bottom = `${range.bottom - size / 2}px`
+                this.pupils[i].style.left = `${range.left - size / 2}px`
+            }
         }
     }
 
     computePosition(area, ratio) {
-        return {
+        const range = this.dragon.data.align == 'top' ? {
             left: area.left + area.w * ratio.x,
             top: area.top + area.h * ratio.y
+        } : {
+            left: area.left + area.w * ratio.x,
+            bottom: area.h * ratio.y
         }
+        return range
     }
 
     handleMouseDown(e) {

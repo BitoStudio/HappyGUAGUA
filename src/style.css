@@ -24,16 +24,7 @@ body {
    background-size: 100% 100%;
 }
 
-#pattern-1 {
-   position: absolute;
-   display: none;
-   flex-direction: column-reverse;
-   width: 100%;
-   height: 100%;
-   padding: 0%;
-}
-
-#pattern-2 {
+.pattern {
    position: absolute;
    display: none;
    flex-direction: column-reverse;
@@ -60,19 +51,12 @@ body {
 }
 
 #dragon-3 {
-   width: 100%;
-   height: auto;
-   position: fixed;
-   /* object-fit: contain; */
-   /* overflow: scroll; */
+   object-position: center bottom;
 }
 
 .pupil {
    position: fixed;
-   top: 0px;
-   left: 0px;
 }
-
 
 /* Title */
 .title {
@@ -82,11 +66,15 @@ body {
    z-index: 5;
 }
 
+#title-3 {
+   position: fixed;
+   width: 100%;
+}
 
 /* Scratch Card */
 .scratch-card {
-   width: 50vmin;
-   height: 50vmin;
+   width: 200px;
+   height: 200px;
    position: fixed;
    transform: translate(-50%, -50%);
 }

@@ -1,13 +1,12 @@
-import ScratchHolder     from "./scratchHolder.js"
+import ScratchHolder from "./scratchHolder.js"
 import Pattern from "./pattern.js";
 import Dragon from "./dragon.js";
 import Sound from "./sound.js";
 import Time from "./Util/Time.js";
 import source from "./source.js";
-const patternNum = 3
 
 window.onload = () => {
-    const id = 3//Math.floor(Math.random() * patternNum) + 1;
+    const id = Math.floor(Math.random() * 3) + 1;
     const patternData = source.patterns[id - 1]
 
     const pattern = new Pattern(id, patternData)
@@ -24,6 +23,7 @@ window.onload = () => {
             scratchCardHolder.update()
             // sound.setVolume(scratchCards.value)
         }
-        dragon.eyes.update(time.elapsed)
+        if (dragon.ready)
+            dragon.eyes.update(time.elapsed)
     })
 }

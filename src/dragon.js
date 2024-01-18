@@ -2,19 +2,23 @@ import Eyes from "./eyes.js"
 
 export default class Dragon {
     constructor(id, data) {
+        this.data = data
 
+        this.ready = false
         const patternId = 'pattern-' + id;
         this.pattern = document.getElementById(patternId);
 
         this.dragon = this.pattern.querySelector('.dragon')
         this.dragon.src = data.tex
+        this.dragon.addEventListener('load', () => {
+            this.updateArea()
+            this.eyes = new Eyes(id, this, data.eyes)
 
-        this.updateArea()
-        this.eyes = new Eyes(id, this, data.eyes)
-
-        window.addEventListener('resize', () => { 
-            this.updateArea() 
-            this.eyes.updatePosition(this.area)
+            window.addEventListener('resize', () => {
+                this.updateArea()
+                this.eyes.updatePosition(this.area)
+            })
+            this.ready = true
         })
     }
 
@@ -27,7 +31,7 @@ export default class Dragon {
         if (aspectNatural < aspect) {
             h = rect.height
             w = h * aspectNatural
-            top = 0
+            top = rect.top
             left = rect.left + (rect.width - w) / 2
         }
         else {
@@ -36,6 +40,7 @@ export default class Dragon {
             top = rect.top + (rect.height - h) / 2;
             left = 0
         }
+
         this.area = {
             w, h, top, left
         }

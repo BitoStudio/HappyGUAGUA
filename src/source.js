@@ -6,9 +6,10 @@ export default {
 
             dragon: {
                 tex: '/assets/textures/dragon_v1.png',
+                align: 'top',
                 eyes: {
                     pos: [{ x: 0.2, y: 0.651 }, { x: 0.225, y: 0.696 }],
-                    scale: 0.07
+                    scale: 0.08
                 }
             }
         },
@@ -17,9 +18,10 @@ export default {
 
             dragon: {
                 tex: '/assets/textures/dragon_v2.png',
+                align: 'top',
                 eyes: {
                     pos: [{ x: 0.60, y: 0.125 }, { x: 0.68, y: 0.14 }],
-                    scale: 0.07
+                    scale: 0.08
                 }
             }
         },
@@ -28,9 +30,10 @@ export default {
 
             dragon: {
                 tex: '/assets/textures/dragon_v3.png',
+                align: 'bottom',
                 eyes: {
-                    pos: [{ x: 0.2, y: 0.651 }, { x: 0.225, y: 0.696 }],
-                    scale: 0.07
+                    pos: [{ x: 0.5, y: 0.5 }, { x: 0.47, y: 0.56 }],
+                    scale: 0.08
                 }
             }
         }
@@ -53,8 +56,8 @@ export default {
                     left: '40vw',
                 },
                 {
-                    top: '70vh',
-                    left: '70vw',
+                    top: '15vh',
+                    left: '50vw',
                 }
             ],
             results: [
@@ -76,8 +79,8 @@ export default {
                     left: '60vw',
                 },
                 {
-                    top: '70vh',
-                    left: '70vw',
+                    top: '80vh',
+                    left: '30vw',
                 }
             ],
 
@@ -102,7 +105,7 @@ export default {
                     left: '40vw',
                 },
                 {
-                    top: '50vh',
+                    top: '65vh',
                     left: '70vw',
                 }
             ],

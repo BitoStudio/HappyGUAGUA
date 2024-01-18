@@ -32,7 +32,7 @@ export default {
                 tex: '/assets/textures/dragon_v3.png',
                 align: 'bottom',
                 eyes: {
-                    pos: [{ x: 0.5, y: 0.5 }, { x: 0.47, y: 0.56 }],
+                    pos: [{ x: 0.52, y: 0.46 }, { x: 0.49, y: 0.52 }],
                     scale: 0.08
                 }
             }
@@ -56,7 +56,7 @@ export default {
                     left: '40vw',
                 },
                 {
-                    top: '15vh',
+                    top: '20vh',
                     left: '50vw',
                 }
             ],
@@ -106,7 +106,7 @@ export default {
                 },
                 {
                     top: '65vh',
-                    left: '70vw',
+                    left: '75vw',
                 }
             ],
             results: [

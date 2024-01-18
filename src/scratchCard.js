@@ -4,15 +4,20 @@ export default class ScratchCard {
         this.holder = holder
         this.id = id
 
-        this.canvas = document.getElementById('cover-' + id)
+
+
         this.result = document.getElementById('result-' + id)
+        this.result.src = data.results[Math.floor(Math.random() * data.results.length)]
+
+        this.cover = document.getElementById('cover-' + id)
+        this.cover.width = this.result.width
+        this.cover.height = this.result.height
+
         this.lastPoint = 0;
 
-        this.canvas.width = this.result.width
-        this.canvas.height = this.result.height
-        var canvasWidth = this.canvas.width;
-        var canvasHeight = this.canvas.height;
-        var ctx = this.canvas.getContext('2d');
+        var canvasWidth = this.cover.width;
+        var canvasHeight = this.cover.height;
+        var ctx = this.cover.getContext('2d');
 
         var cover = new Image();
         cover.src = data.cover ? data.cover : 'assets/transperant.jpg'
@@ -42,11 +47,11 @@ export default class ScratchCard {
     }
 
     checkTouch(touch) {
-        const offsetX = touch.x - this.canvas.getBoundingClientRect().left;
-        const offsetY = touch.y - this.canvas.getBoundingClientRect().top;
+        const offsetX = touch.x - this.cover.getBoundingClientRect().left;
+        const offsetY = touch.y - this.cover.getBoundingClientRect().top;
 
         return {
-            isInside: offsetX > 0 && offsetX < this.canvas.width && offsetY > 0 && offsetY < this.canvas.height,
+            isInside: offsetX > 0 && offsetX < this.cover.width && offsetY > 0 && offsetY < this.cover.height,
             pos: {
                 x: offsetX,
                 y: offsetY
@@ -72,7 +77,7 @@ export default class ScratchCard {
         const currentPoint = pos;
         const dist = this.distanceBetween(this.lastPoint, currentPoint);
         const angle = this.angleBetween(this.lastPoint, currentPoint);
-        const ctx = this.canvas.getContext('2d')
+        const ctx = this.cover.getContext('2d')
 
 
         var x, y;
@@ -101,10 +106,10 @@ export default class ScratchCard {
 
     getFilledInPixels(stride) {
         if (!stride || stride < 1) { stride = 1; }
-        const ctx = this.canvas.getContext('2d')
+        const ctx = this.cover.getContext('2d')
 
 
-        var pixels = ctx.getImageData(0, 0, this.canvas.width, this.canvas.height),
+        var pixels = ctx.getImageData(0, 0, this.cover.width, this.cover.height),
             pdata = pixels.data,
             l = pdata.length,
             total = (l / stride),

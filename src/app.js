@@ -8,10 +8,9 @@ const patternNum = 3
 
 window.onload = () => {
     const id = 1//Math.floor(Math.random() * patternNum) + 1;
-    const data = source.pattern[id-1]
-    console.log(data);
+    const patternData = source.patterns[id - 1]
 
-    const pattern = new Pattern(id)
+    const pattern = new Pattern(id, patternData)
     const scratchCards = new ScratchCards(id, source.scratchs)
     const dragon = new Dragon(id)
 

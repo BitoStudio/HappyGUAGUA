@@ -1,10 +1,13 @@
 import Eyes from "./eyes.js"
 
 export default class Dragon {
-    constructor(id) {
+    constructor(id, data) {
+        this.dragon = document.querySelector('.dragon')
+        this.dragon.src = data.tex
+
         this.area;
         this.updateArea()
-        this.eyes = new Eyes(id, this.area, [{ x: 0.2, y: 0.651 }, { x: 0.225, y: 0.696 }], 0.07)
+        this.eyes = new Eyes(id, this.area, data.eyes)
 
         window.addEventListener('resize', () => { 
             this.updateArea() 
@@ -13,10 +16,8 @@ export default class Dragon {
     }
 
     updateArea() {
-        var dragon = document.querySelector('.dragon');
-
-        var aspectNatural = dragon.naturalWidth / dragon.naturalHeight;
-        var rect = dragon.getBoundingClientRect()
+        var aspectNatural = this.dragon.naturalWidth / this.dragon.naturalHeight;
+        var rect = this.dragon.getBoundingClientRect()
         var aspect = rect.width / rect.height
 
         var w, h, top, left = 0;

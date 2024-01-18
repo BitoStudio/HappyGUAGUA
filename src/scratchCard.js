@@ -1,35 +1,31 @@
 export default class ScratchCard {
     constructor(holder, id, data, callback) {
-
         this.holder = holder
         this.id = id
+        this.data = data
 
-        this.scratch = document.getElementById('scratch-card-' + id)
-        this.scratch.style.top = data.top
-        this.scratch.style.left = data.left
+        const scratch = document.getElementById('scratch-card-' + id)
+        scratch.style.top = data.top
+        scratch.style.left = data.left
 
-        this.result = document.getElementById('result-' + id)
-        this.result.src = data.results[Math.floor(Math.random() * data.results.length)]
-
-        this.cover = document.getElementById('cover-' + id)
-
-        this.cover.width = this.cover.offsetWidth
-        this.cover.height = this.result.offsetHeight
+        const result = scratch.querySelector('.result')
+        result.src = data.results[Math.floor(Math.random() * data.results.length)]
 
         this.lastPoint = 0;
+
+        this.cover = scratch.querySelector('.cover')
+        this.cover.width = this.cover.offsetWidth
+        this.cover.height = this.cover.offsetHeight
 
         var coverWidth = this.cover.width;
         var coverHeight = this.cover.height;
         var ctx = this.cover.getContext('2d');
 
+        this.brush = new Image();
+        this.brush.src = data.brush;
+        
         var paint = new Image();
         paint.src = data.cover;
-
-        this.brush = new Image();
-        this.brush.src = data.brush ? data.brush : 'assets/brush.png'
-        this.brushSize = data.brushSize ? data.brushSize : 80;
-        this.callbackRatio = data.callbackRatio ? data.callbackRatio : 50
-
         paint.onload = function () {
             const imgRatio = paint.height / paint.width
             const canvasRatio = coverHeight / coverWidth
@@ -82,14 +78,13 @@ export default class ScratchCard {
         const angle = this.angleBetween(this.lastPoint, currentPoint);
         const ctx = this.cover.getContext('2d')
 
-
         var x, y;
 
         for (var i = 0; i < dist; i++) {
-            x = this.lastPoint.x + (Math.sin(angle) * i) - this.brushSize / 2;
-            y = this.lastPoint.y + (Math.cos(angle) * i) - this.brushSize / 2 + this.brushSize / 4;
+            x = this.lastPoint.x + (Math.sin(angle) * i) - this.data.brushSize / 2;
+            y = this.lastPoint.y + (Math.cos(angle) * i) - this.data.brushSize / 2 + this.data.brushSize / 4;
             ctx.globalCompositeOperation = 'destination-out';
-            ctx.drawImage(this.brush, x, y, this.brushSize, this.brushSize * this.brush.height / this.brush.width);
+            ctx.drawImage(this.brush, x, y, this.data.brushSize, this.data.brushSize * this.brush.height / this.brush.width);
         }
 
 
@@ -129,7 +124,7 @@ export default class ScratchCard {
     handlePercentage(filledInPixels) {
         filledInPixels = filledInPixels || 0;
         // console.log(filledInPixels + '%');
-        if (filledInPixels > this.callbackRatio) {
+        if (filledInPixels > this.data.callbackRatio) {
             // canvas.parentNode.removeChild(canvas);
             // if (params.callback) params.callback();
         }

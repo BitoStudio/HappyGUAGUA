@@ -1,12 +1,11 @@
 export default class Eyes {
-    constructor(id, area, ratio, scale) {
+    constructor(id, area, data) {
         this.speed = 0.0005
-        this.ratio = ratio
+        this.data = data
 
         this.watchRate = 0
         this.watchDir = { x: 0, y: 0 }
         this.touched = false
-        this.scale = scale
 
         this.pupils = document.querySelectorAll('.pupil');
         this.updatePosition(area)
@@ -18,8 +17,8 @@ export default class Eyes {
 
     updatePosition(area) {
         for (var i = 0; i < this.pupils.length; i++) {
-            const range = this.computePosition(area, this.ratio[i])
-            const size = area.w * this.scale
+            const range = this.computePosition(area, this.data.pos[i])
+            const size = area.w * this.data.scale
 
             this.displacement = size * 0.2
             this.pupils[i].width = size

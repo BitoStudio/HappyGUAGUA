@@ -53,35 +53,13 @@ body {
 }
 
 
-/* Shape Mask */
-.mask {
-   width: 100%;
-   height: 100%;
-   -webkit-mask-composite: destination-out;
-   mask-composite: destination-out;
-   -webkit-mask-size: 100%;
-   mask-size: 100%;
-   -webkit-mask-repeat: no-repeat;
-   mask-repeat: no-repeat;
+/* Scratch Card */
+.scratch-card {
+   width: 40vmin;
+   height: 40vmin;
+   position: fixed;
+   transform: translate(-50%, -50%);
 }
-
-.mask-1 {
-   -webkit-mask-image: url(/assets/textures/health_before.png);
-   mask-image: url(/assets/textures/health_before.png);
-}
-
-.mask-2 {
-   -webkit-mask-image: url(/assets/textures/love_before.png);
-   mask-image: url(/assets/textures/love_before.png);
-}
-
-.mask-3 {
-   -webkit-mask-image: url(/assets/textures/wealth_before.png);
-   mask-image: url(/assets/textures/wealth_before.png);
-}
-
-
-
 
 .cover {
    width: 100%;
@@ -99,12 +77,6 @@ body {
    /* behide cover */
 }
 
-.scratch-card {
-   width: 150px;
-   height: 150px;
-   position: fixed;
-   transform: translate(-50%, -50%);
-}
 
 .particles>.particle {
    z-index: 20;

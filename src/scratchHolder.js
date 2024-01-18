@@ -1,6 +1,6 @@
 import ScratchCard from './scratchCard.js';
 
-export default class ScratchCards {
+export default class ScratchHolder {
     constructor(id, data) {
         const body = document.body
 

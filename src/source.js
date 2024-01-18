@@ -3,15 +3,36 @@ export default {
         // pattern 1
         {
             bgTex: '/assets/textures/bg_v1.png',
-            dragonTex: '/assets/textures/dragon_v1.png'
+            
+            dragon: {
+                tex: '/assets/textures/dragon_v1.png',
+                eyes: {
+                    pos: [{ x: 0.2, y: 0.651 }, { x: 0.225, y: 0.696 }],
+                    scale: 0.07
+                }
+            }
         },
         {
             bgTex: '/assets/textures/bg_v2.png',
-            dragonTex: '/assets/textures/dragon_v2.png'
+
+            dragon: {
+                tex: '/assets/textures/dragon_v2.png',
+                eyes: {
+                    pos: [{ x: 0.2, y: 0.651 }, { x: 0.225, y: 0.696 }],
+                    scale: 0.07
+                }
+            }
         },
         {
             bgTex: '/assets/textures/bg_v3.png',
-            dragonTex: '/assets/textures/dragon_v3.png'
+
+            dragon: {
+                tex: '/assets/textures/dragon_v3.png',
+                eyes: {
+                    pos: [{ x: 0.2, y: 0.651 }, { x: 0.225, y: 0.696 }],
+                    scale: 0.07
+                }
+            }
         }
     ],
 

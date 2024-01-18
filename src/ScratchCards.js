@@ -1,9 +1,9 @@
 import ScratchCard from './scratchCard.js';
 
 export default class ScratchCards {
-    constructor(id) {
+    constructor(id, data) {
         const body = document.body
-        
+
         body.addEventListener('mousemove', handleMouseMove, { passive: false });
         body.addEventListener('touchmove', handleMouseMove, { passive: false });
         body.addEventListener('mouseup', handleMouseUp);
@@ -13,35 +13,20 @@ export default class ScratchCards {
         this.increaseRate = 0.05;
         this.decreaseRate = 0.03;
 
-        const cards = [new ScratchCard(this, id + '-1', {
-            cover: 'assets/textures/test_pattern_health.png',
-            brush: 'assets/textures/brush.png',
-            brushSize: 30,
-            callbackRatio: 70,
-            callback: () => {
+        const cards = [new ScratchCard(this, id + '-1', data[0],
+            () => {
                 console.log('my callback function 1');
-            }
-        }),
+            }),
 
-        new ScratchCard(this, id + '-2', {
-            cover: 'assets/textures/test_pattern_love.png',
-            brush: 'assets/textures/tbr.png',
-            brushSize: 30,
-            callbackRatio: 70,
-            callback: () => {
-                console.log('my callback function 2');
-            }
-        }),
+        new ScratchCard(this, id + '-2', data[1],
+            () => {
+                console.log('my callback function 1');
+            }),
 
-        new ScratchCard(this, id + '-3', {
-            cover: 'assets/textures/test_pattern_work.png',
-            brush: 'assets/textures/tbr.png',
-            brushSize: 30,
-            callbackRatio: 70,
-            callback: () => {
-                console.log('my callback function 3');
-            }
-        })
+        new ScratchCard(this, id + '-3', data[2],
+            () => {
+                console.log('my callback function 1');
+            })
         ]
 
         function handleMouseMove(e) {

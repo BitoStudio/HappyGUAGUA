@@ -1,5 +1,5 @@
 export default class ScratchCard {
-    constructor(holder, id, params) {
+    constructor(holder, id, data, callback) {
 
         this.holder = holder
         this.id = id
@@ -15,12 +15,12 @@ export default class ScratchCard {
         var ctx = this.canvas.getContext('2d');
 
         var cover = new Image();
-        cover.src = params.cover ? params.cover : 'assets/transperant.jpg'
+        cover.src = data.cover ? data.cover : 'assets/transperant.jpg'
 
         this.brush = new Image();
-        this.brush.src = params.brush ? params.brush : 'assets/brush.png'
-        this.brushSize = params.brushSize ? params.brushSize : 80;
-        this.callbackRatio = params.callbackRatio ? params.callbackRatio : 50
+        this.brush.src = data.brush ? data.brush : 'assets/brush.png'
+        this.brushSize = data.brushSize ? data.brushSize : 80;
+        this.callbackRatio = data.callbackRatio ? data.callbackRatio : 50
 
         cover.onload = function () {
             const imgRatio = cover.height / cover.width

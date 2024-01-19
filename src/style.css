@@ -17,6 +17,37 @@ body {
    height: 100vh;
 }
 
+#verticalContent,
+#horizontalContent {
+   display: none;
+}
+
+@media screen and (orientation: portrait) {
+   #verticalContent {
+      display: block;
+   }
+}
+
+@media screen and (orientation: landscape) {
+   #horizontalContent {
+      display: block;
+   }
+}
+
+#horizontalContent {
+   width: 100vw;
+   height: 100vh;
+   background-size: 100% 100%;
+   background-image: url('/assets/textures/loading_bg.png');
+}
+
+#rotateMessage{
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   text-align: center;
+}
 
 .container {
    transition: opacity 2s ease;
@@ -25,7 +56,6 @@ body {
    padding: 0;
    position: absolute;
 }
-
 
 .hidden {
    opacity: 0;
@@ -68,7 +98,7 @@ body {
 #loading-button {
    width: 30%;
    top: 65%;
-   transition: transform 0.2s ease; 
+   transition: transform 0.2s ease;
 }
 
 #loading-dragon {

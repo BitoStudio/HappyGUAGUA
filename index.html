@@ -18,57 +18,64 @@
 </head>
 
 <body>
-    <div class="container" id="loading-page" >
-        <img class="loading-element logo" id="loading-logo" src="assets/textures/bito_black.png">
-        <img class="loading-element" id="loading-title" src = "assets/textures/loading_title.png">
-        <img class="loading-element" id="loading-info" src = "assets/textures/loading_info.png">
-        <img class="loading-element" id="loading-button" src = "assets/textures/loading_start.png">
-        <img class="loading-element" id="loading-dragon" src = "assets/textures/loading_dragon.png">
+    <div id="verticalContent">
+        <div class="container" id="loading-page">
+            <img class="loading-element logo" id="loading-logo" src="assets/textures/bito_black.png">
+            <img class="loading-element" id="loading-title" src="assets/textures/loading_title.png">
+            <img class="loading-element" id="loading-info" src="assets/textures/loading_info.png">
+            <img class="loading-element" id="loading-button" src="assets/textures/loading_start.png">
+            <img class="loading-element" id="loading-dragon" src="assets/textures/loading_dragon.png">
+        </div>
+
+        <div class="container hidden" id="main-page">
+
+            <div class='particles'></div>
+
+            <div class="pattern" id="pattern-1" display="none">
+                <img class="logo" id="logo-1" src="/assets/textures/bito_white.png">
+                <img class="title" id="title-1" src="/assets/textures/happyguagua_black.png">
+                <img class="dragon" id="dragon-1">
+                <img class="pupil">
+                <img class="pupil">
+            </div>
+
+            <div class="pattern" id="pattern-2" display="none">
+                <img class="logo" id="logo-2" src="/assets/textures/bito_black.png">
+                <img class="dragon" id="dragon-2">
+                <img class="title" id="title-2" src="/assets/textures/happyguagua_black.png">
+                <img class="pupil">
+                <img class="pupil">
+            </div>
+
+            <div class="pattern" id="pattern-3" display="none">
+                <img class="logo" id="logo-3" src="/assets/textures/bito_black.png">
+                <img class="title" id="title-3" src="/assets/textures/happyguagua_black.png">
+                <img class="dragon" id="dragon-3">
+                <img class="pupil">
+                <img class="pupil">
+            </div>
+
+            <div class="scratch-card" id="scratch-card-1">
+                <canvas class="cover"></canvas>
+                <img class="result">
+            </div>
+
+            <div class="scratch-card" id="scratch-card-2">
+                <canvas class="cover"></canvas>
+                <img class="result">
+            </div>
+
+            <div class="scratch-card" id="scratch-card-3">
+                <canvas class="cover"></canvas>
+                <img class="result">
+            </div>
+        </div>
     </div>
-
-
-    <div class="container hidden" id="main-page">
-
-        <div class='particles'></div>
-
-        <div class="pattern" id="pattern-1" display="none">
-            <img class="logo" id="logo-1" src="/assets/textures/bito_white.png">
-            <img class="title" id="title-1" src="/assets/textures/happyguagua_black.png">
-            <img class="dragon" id="dragon-1">
-            <img class="pupil">
-            <img class="pupil">
-        </div>
-
-        <div class="pattern" id="pattern-2" display="none">
-            <img class="logo" id="logo-2" src="/assets/textures/bito_black.png">
-            <img class="dragon" id="dragon-2">
-            <img class="title" id="title-2" src="/assets/textures/happyguagua_black.png">
-            <img class="pupil">
-            <img class="pupil">
-        </div>
-
-        <div class="pattern" id="pattern-3" display="none">
-            <img class="logo" id="logo-3" src="/assets/textures/bito_black.png">
-            <img class="title" id="title-3" src="/assets/textures/happyguagua_black.png">
-            <img class="dragon" id="dragon-3">
-            <img class="pupil">
-            <img class="pupil">
-        </div>
-
-        <div class="scratch-card" id="scratch-card-1">
-            <canvas class="cover"></canvas>
-            <img class="result">
-        </div>
-
-        <div class="scratch-card" id="scratch-card-2">
-            <canvas class="cover"></canvas>
-            <img class="result">
-        </div>
-
-        <div class="scratch-card" id="scratch-card-3">
-            <canvas class="cover"></canvas>
-            <img class="result">
-        </div>
+    
+    <div id="horizontalContent">
+        <div id="rotateMessage">
+            <p>Please turn your device back to portrait orientation.</p>
+          </div>
     </div>
 </body>>
 

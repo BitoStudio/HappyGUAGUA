@@ -14,7 +14,7 @@ window.onload = () => {
 
     // Loading Page
     {
-        const loadButton = document.getElementById('loadButton');
+        const loadButton = document.getElementById('loading-button');
         const loadingPage = document.getElementById('loading-page');
         const mainPage = document.getElementById('main-page');
 

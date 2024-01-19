@@ -19,12 +19,11 @@ body {
 
 
 .container {
-   transition: opacity 0.5s ease;
+   transition: opacity 2s ease;
    width: 100vw;
    height: 100vh;
+   padding: 0;
    position: absolute;
-   padding-left: 0%;
-   padding-right: 0%
 }
 
 
@@ -36,30 +35,50 @@ body {
 
 
 /* Loading Page */
-.loading-text {
-   font-size: 18px;
-   position: absolute;
-   top: 45%;
+#loading-page {
+   background-size: 100% 100%;
+   background-image: url('/assets/textures/loading_bg.png');
+}
+
+.loading-element {
+   position: fixed;
    left: 50%;
    transform: translate(-50%, -50%);
 }
 
-#loadButton {
-   font-size: 16px;
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
+.logo {
+   position: fixed;
+   width: 10%;
+}
+
+#loading-logo {
+   top: 10%;
+}
+
+#loading-title {
+   width: 80%;
+   top: 20%;
+}
+
+#loading-info {
+   width: 60%;
+   top: 45%;
+}
+
+#loading-button {
+   width: 30%;
+   top: 65%;
+}
+
+#loading-dragon {
+   transform: translate(-50%, 0);
+   width: 100%;
+   bottom: 0;
 }
 
 /* Main Page */
-#main-page {
-   padding: 0%;
-   background-size: 100% 100%;
-}
-
 .pattern {
-   position: absolute;
+   position: fixed;
    display: none;
    flex-direction: column-reverse;
    width: 100%;
@@ -83,7 +102,6 @@ body {
    position: fixed;
 }
 
-/* Title */
 .title {
    width: 100%;
    height: auto;
@@ -94,6 +112,21 @@ body {
 #title-3 {
    position: fixed;
    width: 100%;
+}
+
+#logo-1 {
+   top: 8px;
+   right: 5px;
+}
+
+#logo-2 {
+   bottom: 8px;
+   right: 5px;
+}
+
+#logo-3 {
+   top: 8px;
+   right: 5px;
 }
 
 /* Scratch Card */

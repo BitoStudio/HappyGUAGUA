@@ -8,8 +8,10 @@ export default {
                 tex: '/assets/textures/dragon_v1.png',
                 align: 'top',
                 eyes: {
-                    pos: [{ x: 0.2, y: 0.651 }, { x: 0.225, y: 0.696 }],
-                    scale: 0.08
+                    pos: [{ x: 0.195, y: 0.651 }, { x: 0.223, y: 0.697 }],
+                    displaceScale: { x: 0.2, y: 0.8 },
+                    scale: 0.07,
+                    tex: '/assets/textures/eyeballs_v1.png'
                 }
             }
         },
@@ -20,8 +22,10 @@ export default {
                 tex: '/assets/textures/dragon_v2.png',
                 align: 'top',
                 eyes: {
-                    pos: [{ x: 0.60, y: 0.125 }, { x: 0.68, y: 0.14 }],
-                    scale: 0.08
+                    pos: [{ x: 0.59, y: 0.125 }, { x: 0.6745, y: 0.139 }],
+                    displaceScale: { x: 0.8, y: 0.2 },
+                    scale: 0.07,
+                    tex: '/assets/textures/eyeballs_v2.png'
                 }
             }
         },
@@ -32,8 +36,10 @@ export default {
                 tex: '/assets/textures/dragon_v3.png',
                 align: 'bottom',
                 eyes: {
-                    pos: [{ x: 0.52, y: 0.46 }, { x: 0.49, y: 0.52 }],
-                    scale: 0.08
+                    pos: [{ x: 0.511, y: 0.459 }, { x: 0.485, y: 0.522 }],
+                    displaceScale: { x: 0.2, y: 0.8 },
+                    scale: 0.07,
+                    tex: '/assets/textures/eyeballs_v3.png'
                 }
             }
         }

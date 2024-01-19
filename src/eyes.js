@@ -9,6 +9,10 @@ export default class Eyes {
         this.touched = false
 
         this.pupils = this.dragon.pattern.querySelectorAll('.pupil');
+        this.pupils.forEach(pupil => {
+            pupil.src = data.tex;
+        });
+
         this.updatePosition()
 
         window.addEventListener('touchmove', this.handleMouseMove.bind(this), false);
@@ -76,8 +80,8 @@ export default class Eyes {
             const magnitude = Math.sqrt(dir.x ** 2 + dir.y ** 2);
 
             this.watchDir = {
-                x: dir.x / magnitude * this.displacement * 0.4,
-                y: dir.y / magnitude * this.displacement * 1.2
+                x: dir.x / magnitude * this.displacement * this.data.displaceScale.x,
+                y: dir.y / magnitude * this.displacement * this.data.displaceScale.y
             };
         })
     }

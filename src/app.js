@@ -9,6 +9,8 @@ window.onload = () => {
 
     // quick debug flag
     const useLoadingPage = true
+    const sound = new Sound()
+
 
     // Loading Page
     {
@@ -19,11 +21,12 @@ window.onload = () => {
         if (useLoadingPage) {
             loadButton.addEventListener('click', function () {
                 loadButton.disabled = true;
+                sound.played = true
 
                 setTimeout(function () {
                     loadingPage.classList.add('hidden');
                     mainPage.classList.remove('hidden');
-                }, 2000);
+                }, 100);
             });
         } else {
             loadingPage.classList.add('hidden');
@@ -41,7 +44,6 @@ window.onload = () => {
         const scratchHolder = new ScratchHolder(id, source.scratchs)
         const dragon = new Dragon(id, patternData.dragon)
 
-        const sound = new Sound()
 
         const time = new Time()
 

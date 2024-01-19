@@ -51,7 +51,7 @@ export default {
             cover: 'assets/textures/health_before.png',
             brush: 'assets/textures/brush.png',
             brushSize: 30,
-            callbackRatio: 70,
+            callbackRatio: 80,
             pos: [
                 {
                     top: '25vh',
@@ -74,7 +74,7 @@ export default {
             cover: 'assets/textures/love_before.png',
             brush: 'assets/textures/tbr.png',
             brushSize: 30,
-            callbackRatio: 70,
+            callbackRatio: 80,
             pos: [
                 {
                     top: '50vh',
@@ -100,7 +100,7 @@ export default {
             cover: 'assets/textures/wealth_before.png',
             brush: 'assets/textures/tbr.png',
             brushSize: 30,
-            callbackRatio: 70,
+            callbackRatio: 80,
             pos: [
                 {
                     top: '70vh',

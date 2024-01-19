@@ -1,8 +1,9 @@
 import ScratchCard from './scratchCard.js';
 
 export default class ScratchHolder {
-    constructor(id, data) {
+    constructor(id, data, onFinsihed) {
         const body = document.body
+        this.onFinsihed = onFinsihed
 
         body.addEventListener('mousemove', handleMouseMove, { passive: false });
         body.addEventListener('touchmove', handleMouseMove, { passive: false });
@@ -12,22 +13,12 @@ export default class ScratchHolder {
         this.value = 0
         this.increaseRate = 0.05;
         this.decreaseRate = 0.03;
+        this.finishedScratch = 0
 
-        const cards = [new ScratchCard(this, id, '1', data[0],
-            () => {
-                console.log('my callback function 1');
-            }),
-
-        new ScratchCard(this, id, '2', data[1],
-            () => {
-                console.log('my callback function 1');
-            }),
-
-        new ScratchCard(this, id, '3', data[2],
-            () => {
-                console.log('my callback function 1');
-            })
-        ]
+        const cards = [
+            new ScratchCard(this, id, '1', data[0]),
+            new ScratchCard(this, id, '2', data[1]),
+            new ScratchCard(this, id, '3', data[2])]
 
         function handleMouseMove(e) {
             e.preventDefault()
@@ -41,6 +32,12 @@ export default class ScratchHolder {
         function handleMouseUp() {
             cards.forEach(card => card.reset())
         }
+    }
+
+    scratchFinish() {
+        this.finishedScratch++;
+        if (this.finishedScratch == 3)
+            this.onFinsihed()
     }
 
     add() {

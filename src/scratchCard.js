@@ -1,8 +1,9 @@
 export default class ScratchCard {
-    constructor(holder, patternId, cardId, data, callback) {
+    constructor(holder, patternId, cardId, data) {
         this.holder = holder
         this.cardId = cardId
         this.data = data
+        this.finshed = false
 
         const scratch = document.getElementById('scratch-card-' + cardId)
         scratch.style.top = data.pos[patternId - 1].top
@@ -124,9 +125,10 @@ export default class ScratchCard {
     handlePercentage(filledInPixels) {
         filledInPixels = filledInPixels || 0;
         // console.log(filledInPixels + '%');
-        if (filledInPixels > this.data.callbackRatio) {
-            // canvas.parentNode.removeChild(canvas);
-            // if (params.callback) params.callback();
+
+        if (filledInPixels > this.data.callbackRatio && !this.finshed) {
+            this.finshed = true
+            this.holder.scratchFinish()
         }
     }
 }

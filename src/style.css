@@ -17,23 +17,48 @@ body {
    height: 100vh;
 }
 
-.main-page {
+
+.container {
+   transition: opacity 0.5s ease;
    width: 100vw;
    height: 100vh;
+   position: absolute;
+   padding-left: 0%;
+   padding-right: 0%
+}
+
+
+.hidden {
+   opacity: 0;
+   pointer-events: none;
+   /* Prevent interaction with hidden elements */
+}
+
+
+/* Loading Page */
+.loading-text {
+   font-size: 18px;
+   position: absolute;
+   top: 45%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+#loadButton {
+   font-size: 16px;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+/* Main Page */
+#main-page {
    padding: 0%;
    background-size: 100% 100%;
 }
 
 .pattern {
-   position: absolute;
-   display: none;
-   flex-direction: column-reverse;
-   width: 100%;
-   height: 100%;
-   padding: 0%;
-}
-
-#pattern-3 {
    position: absolute;
    display: none;
    flex-direction: column-reverse;

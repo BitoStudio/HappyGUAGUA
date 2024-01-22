@@ -97,8 +97,13 @@ body {
 }
 
 #loading-info {
-   width: 60%;
+   width: 55%;
    top: 45%;
+}
+
+#loading-volume{
+   width: 12%;
+   top:30%
 }
 
 #loading-button {

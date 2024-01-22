@@ -10,6 +10,9 @@ export default class Pattern {
 
         const patternId = 'pattern-' + id;
 
+        const patterns = document.querySelectorAll('.pattern')
+        patterns.forEach(pattern => pattern.style.display = 'none')
+
         const pattern = document.getElementById(patternId);
         pattern.style.display = "flex";
         pattern.style.backgroundImage = `url(${data.bgTex})`
@@ -32,5 +35,9 @@ export default class Pattern {
 
     onStarted() {
         this.sound.play()
+    }
+
+    reset() {
+        this.scratchHolder.reset()
     }
 }

@@ -7,25 +7,41 @@ import Pattern3 from "./pattern3.js";
 export default class Main {
 
     constructor(id) {
-        this.end = new End()
+        this.id = id
+        this.end = new End(() => {
+            this.id = (this.id + 1) % 3 + 1
+            this.init()
+        })
 
-        switch (id) {
-            case 1:
-                this.pattern = new Pattern1(id, () => this.end.show())
-            case 2:
-                this.pattern = new Pattern2(id, () => this.end.show())
-            case 3:
-                this.pattern = new Pattern3(id, () => this.end.show())
-        }
+        this.init(id)
 
         this.time = new Time()
 
         this.time.on('tick', () => {
             this.pattern.update(this.time)
         })
+
+        document.addEventListener('keydown', function (event) {
+            const keyPressed = event.key || String.fromCharCode(event.keyCode);
+            if (keyPressed == '1') {
+                this.id = (this.id + 1) % 3 + 1
+                this.init(this.id)
+            }
+        }.bind(this));
     }
 
     onStarted() {
         this.pattern.onStarted()
+    }
+
+    init() {
+        switch (this.id) {
+            case 1:
+                this.pattern = new Pattern1(this.id, () => this.end.show())
+            case 2:
+                this.pattern = new Pattern2(this.id, () => this.end.show())
+            case 3:
+                this.pattern = new Pattern3(this.id, () => this.end.show())
+        }
     }
 }

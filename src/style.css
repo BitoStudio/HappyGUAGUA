@@ -101,9 +101,9 @@ body {
    top: 45%;
 }
 
-#loading-volume{
+#loading-volume {
    width: 12%;
-   top:30%
+   top: 30%
 }
 
 #loading-button {
@@ -193,6 +193,18 @@ body {
    pointer-events: none;
    z-index: 5;
    /* behide cover */
+}
+
+/* Cloud */
+.cloud {
+   width: 50%;
+   position: fixed;
+   z-index: -10;
+}
+
+#cloud-1 {
+   top: 75%;
+   left: 60%;
 }
 
 

@@ -18,31 +18,34 @@ export default class ScratchCard {
         this.cover.width = this.cover.offsetWidth
         this.cover.height = this.cover.offsetHeight
 
-        var coverWidth = this.cover.width;
-        var coverHeight = this.cover.height;
-        var ctx = this.cover.getContext('2d');
+        this.ctx = this.cover.getContext('2d');
 
         this.brush = new Image();
         this.brush.src = data.brush;
 
-        var paint = new Image();
-        paint.src = data.cover;
-        paint.onload = function () {
-            const imgRatio = paint.height / paint.width
-            const canvasRatio = coverHeight / coverWidth
+        this.paint = new Image();
+        this.paint.src = data.cover;
+        this.paint.onload = function () {
+            this.ctx.globalCompositeOperation = 'source-over'
+
+            const imgRatio = this.paint.height / this.paint.width
+            const canvasRatio = this.cover.height / this.cover.width
             if (imgRatio > canvasRatio) {
-                const h = coverWidth * imgRatio
-                ctx.drawImage(paint, 0, (coverHeight - h) / 2, coverWidth, h)
+                const h = this.cover.width * imgRatio
+                this.ctx.drawImage(this.paint, 0, (this.cover.height - h) / 2, this.cover.width, h)
             }
             else {
-                const w = coverWidth * canvasRatio / imgRatio
-                ctx.drawImage(paint, (coverWidth - w) / 2, 0, w, coverHeight)
+                const w = this.cover.width * canvasRatio / imgRatio
+                this.ctx.drawImage(this.paint, (this.cover.width - w) / 2, 0, w, this.cover.height)
             }
-        }
+        }.bind(this)
     }
 
-
     reset() {
+        this.paint.src = this.data.cover;
+    }
+
+    resetLastPoint() {
         this.lastPoint = -1
     }
 
@@ -67,7 +70,7 @@ export default class ScratchCard {
             // this.particle.explode(touch.x, touch.y)
         }
         else
-            this.reset()
+            this.resetLastPoint()
     }
 
     draw(pos) {

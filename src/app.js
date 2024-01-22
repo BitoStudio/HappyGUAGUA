@@ -3,7 +3,7 @@ import Main from "./main.js";
 
 window.onload = () => {
     // quick debug flag
-    const useLoadingPage = true
+    const useLoadingPage = false
 
     const id = Math.floor(Math.random() * 3) + 1;
 

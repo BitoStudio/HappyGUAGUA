@@ -4,9 +4,9 @@ import Main from "./main.js";
 window.onload = () => {
     // quick debug flag
     const useLoadingPage = true
-    
+
     const id = Math.floor(Math.random() * 3) + 1;
 
     const main = new Main(id)
-    const loding = new Loading(useLoadingPage, ()=> main.playSound())
+    const loding = new Loading(useLoadingPage, () => main.onStarted())
 }

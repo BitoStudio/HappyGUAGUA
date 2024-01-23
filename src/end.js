@@ -19,16 +19,12 @@ export default class End {
     show() {
         html2canvas(document.body).then((canvas) => {
             this.image = canvas
-            this.end.css({
-                transition: "opacity 2s ease"
-            }).removeClass('hidden');
+            this.end.fadeIn(1000)
         })
     }
 
     hide() {
-        this.end.css({
-            transition: "none"
-        }).addClass('hidden');
+        this.end.hide();
     }
 
     shareImage() {
@@ -38,9 +34,9 @@ export default class End {
         if (navigator.share) {
             // Share the image using Web Share API
             navigator.share({
-                title: 'Shared HTML Image',
-                text: 'Check out this HTML to Image!',
-                files: [new File([dataURItoBlob(imageDataUrl)], 'image.png', { type: 'image/png' })],
+                // title: 'Shared HTML Image',
+                // text: 'Check out this HTML to Image!',
+                files: [new File([dataURItoBlob(imageDataUrl)], 'image.jpg', { type: 'image/jpeg' })],
             })
                 .then(() => console.log('Shared successfully'))
                 .catch(error => console.error('Error sharing:', error));

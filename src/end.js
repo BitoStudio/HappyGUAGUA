@@ -1,17 +1,17 @@
 
 export default class End {
     constructor(onReply) {
-        this.end = document.getElementById('end-overlay')
+        this.end = $('#end-overlay')
 
-        this.replay = document.getElementById('end-again')
-        this.replay.addEventListener('touchend', () => {
+        this.replay = $('#end-again')
+        this.replay.on('touchend', () => {
             onReply()
             this.hide()
         })
 
-        this.share = document.getElementById('end-share')
+        this.share = $('#end-share')
 
-        this.share.addEventListener('touchend', () => {
+        this.share.on('touchend', () => {
             this.shareImage()
         })
     }
@@ -19,14 +19,16 @@ export default class End {
     show() {
         html2canvas(document.body).then((canvas) => {
             this.image = canvas
-            this.end.style.transition = "opacity 2s ease";
-            this.end.classList.remove('hidden');
+            this.end.css({
+                transition: "opacity 2s ease"
+            }).removeClass('hidden');
         })
     }
 
     hide() {
-        this.end.style.transition = "none";
-        this.end.classList.add('hidden')
+        this.end.css({
+            transition: "none"
+        }).addClass('hidden');
     }
 
     shareImage() {

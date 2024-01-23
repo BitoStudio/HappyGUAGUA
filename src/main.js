@@ -21,13 +21,13 @@ export default class Main {
             this.pattern.update(this.time)
         })
 
-        document.addEventListener('keydown', function (event) {
+        $(document).on('keydown', (event) => {
             const keyPressed = event.key || String.fromCharCode(event.keyCode);
-            if (keyPressed == '1') {
-                this.id = (this.id + 1) % 3 + 1
-                this.init(this.id)
+            if (keyPressed === '1') {
+                this.id = (this.id + 1) % 3 + 1;
+                this.init();
             }
-        }.bind(this));
+        });
     }
 
     onStarted() {
@@ -38,10 +38,13 @@ export default class Main {
         switch (this.id) {
             case 1:
                 this.pattern = new Pattern1(this.id, () => this.end.show())
+                break;
             case 2:
                 this.pattern = new Pattern2(this.id, () => this.end.show())
+                break;
             case 3:
                 this.pattern = new Pattern3(this.id, () => this.end.show())
+                break;
         }
     }
 }

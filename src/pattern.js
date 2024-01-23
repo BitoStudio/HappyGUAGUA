@@ -8,14 +8,15 @@ export default class Pattern {
     constructor(id, onFinished) {
         const data = source.patterns[id - 1]
 
-        const patternId = 'pattern-' + id;
+        const patternId = '#pattern-' + id;
 
-        const patterns = document.querySelectorAll('.pattern')
-        patterns.forEach(pattern => pattern.style.display = 'none')
+        $('.pattern').css('display', 'none'); // Hide all elements with class 'pattern'
 
-        const pattern = document.getElementById(patternId);
-        pattern.style.display = "flex";
-        pattern.style.backgroundImage = `url(${data.bgTex})`
+        const pattern = $(patternId);
+        pattern.css({
+            'display': 'flex',
+            'background-image': `url(${data.bgTex})`
+        });
 
         this.scratchHolder = new ScratchHolder(id, source.scratchs, () => onFinished())
         this.dragon = new Dragon(id, data.dragon)

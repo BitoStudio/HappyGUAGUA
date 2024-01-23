@@ -5,16 +5,18 @@ export default class ScratchCard {
         this.data = data
         this.finshed = false
 
-        const scratch = document.getElementById('scratch-card-' + cardId)
-        scratch.style.top = data.pos[patternId - 1].top
-        scratch.style.left = data.pos[patternId - 1].left
+        const scratch = $('#scratch-card-' + cardId)
+        scratch.css({
+            'top': data.pos[patternId - 1].top,
+            'left': data.pos[patternId - 1].left
+        })
 
-        const result = scratch.querySelector('.result')
-        result.src = data.results[Math.floor(Math.random() * data.results.length)]
+        const result = scratch.find('.result')
+        result.attr('src', data.results[Math.floor(Math.random() * data.results.length)]);
 
         this.lastPoint = 0;
 
-        this.cover = scratch.querySelector('.cover')
+        this.cover = scratch.find('.cover')[0]
         this.cover.width = this.cover.offsetWidth
         this.cover.height = this.cover.offsetHeight
 

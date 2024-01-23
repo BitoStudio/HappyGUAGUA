@@ -5,16 +5,15 @@ export default class Dragon {
         this.data = data
 
         this.ready = false
-        const patternId = 'pattern-' + id;
-        this.pattern = document.getElementById(patternId);
+        this.pattern = $('#pattern-' + id);
 
-        this.dragon = this.pattern.querySelector('.dragon')
-        this.dragon.src = data.tex
-        this.dragon.addEventListener('load', () => {
+        this.dragon = this.pattern.find('.dragon')
+        this.dragon.attr('src', data.tex)
+        this.dragon.on('load', () => {
             this.updateArea()
             this.eyes = new Eyes(id, this, data.eyes)
 
-            window.addEventListener('resize', () => {
+            $(window).on('resize', () => {
                 this.updateArea()
                 this.eyes.updatePosition(this.area)
             })
@@ -23,8 +22,8 @@ export default class Dragon {
     }
 
     updateArea() {
-        var aspectNatural = this.dragon.naturalWidth / this.dragon.naturalHeight;
-        var rect = this.dragon.getBoundingClientRect()
+        var aspectNatural = this.dragon[0].naturalWidth / this.dragon[0].naturalHeight;
+        var rect = this.dragon[0].getBoundingClientRect()
         var aspect = rect.width / rect.height
 
         var w, h, top, left = 0;

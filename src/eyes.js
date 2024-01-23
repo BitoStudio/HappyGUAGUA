@@ -8,9 +8,9 @@ export default class Eyes {
         this.watchDir = { x: 0, y: 0 }
         this.touched = false
 
-        this.pupils = this.dragon.pattern.querySelectorAll('.pupil');
-        this.pupils.forEach(pupil => {
-            pupil.src = data.tex;
+        this.pupils = $(this.dragon.pattern).find('.pupil');
+        this.pupils.each((index, pupil) => {
+            $(pupil).attr('src', data.tex);
         });
 
         this.updatePosition()
@@ -21,22 +21,25 @@ export default class Eyes {
     }
 
     updatePosition() {
-        for (var i = 0; i < this.pupils.length; i++) {
-            const range = this.computePosition(this.dragon.area, this.data.pos[i])
-            const size = this.dragon.area.w * this.data.scale
+        this.pupils.each((index, pupil) => {
+            const range = this.computePosition(this.dragon.area, this.data.pos[index]);
+            const size = this.dragon.area.w * this.data.scale;
 
-            this.displacement = size * 0.2
-            this.pupils[i].width = size
-            this.pupils[i].height = size
+            this.displacement = size * 0.2;
+            $(pupil).width(size).height(size);
 
             if (this.dragon.data.align == 'top') {
-                this.pupils[i].style.top = `${range.top - size / 2}px`
-                this.pupils[i].style.left = `${range.left - size / 2}px`
+                $(pupil).css({
+                    'top': `${range.top - size / 2}px`,
+                    'left': `${range.left - size / 2}px`
+                });
             } else {
-                this.pupils[i].style.bottom = `${range.bottom - size / 2}px`
-                this.pupils[i].style.left = `${range.left - size / 2}px`
+                $(pupil).css({
+                    'bottom': `${range.bottom - size / 2}px`,
+                    'left': `${range.left - size / 2}px`
+                });
             }
-        }
+        });
     }
 
     computePosition(area, ratio) {
@@ -59,18 +62,18 @@ export default class Eyes {
     }
 
     handleMouseMove(e) {
-        this.pupils.forEach(pupil => {
-            const { left, top, width, height } = pupil.getBoundingClientRect()
+        this.pupils.each((index, pupil) => {
+            const { left, top, width, height } = pupil.getBoundingClientRect();
 
             const center = {
                 x: left + width / 2,
                 y: top + height / 2
-            }
+            };
 
             const touch = {
-                x: e.clientX || e.touches[0].clientX,
-                y: e.clientY || e.touches[0].clientY
-            }
+                x: e.touches[0].clientX,
+                y: e.touches[0].clientY
+            };
 
             const dir = {
                 x: touch.x - center.x,
@@ -83,7 +86,7 @@ export default class Eyes {
                 x: dir.x / magnitude * this.displacement * this.data.displaceScale.x,
                 y: dir.y / magnitude * this.displacement * this.data.displaceScale.y
             };
-        })
+        });
     }
 
     lerp(a, b, t) {
@@ -91,16 +94,16 @@ export default class Eyes {
     }
 
     update(elapsed) {
-        this.watchRate += this.touched ? 0.05 : -0.02
+        this.watchRate += this.touched ? 0.05 : -0.02;
         this.watchRate = Math.max(0, Math.min(this.watchRate, 1));
 
-        const noiseX = noise.perlin2(elapsed * this.speed, 0.1) * this.displacement
-        const noiseY = noise.perlin2(0.1, elapsed * this.speed) * this.displacement
-        const x = this.lerp(noiseX, this.watchDir.x, this.watchRate)
-        const y = this.lerp(noiseY, this.watchDir.y, this.watchRate)
+        const noiseX = noise.perlin2(elapsed * this.speed, 0.1) * this.displacement;
+        const noiseY = noise.perlin2(0.1, elapsed * this.speed) * this.displacement;
+        const x = this.lerp(noiseX, this.watchDir.x, this.watchRate);
+        const y = this.lerp(noiseY, this.watchDir.y, this.watchRate);
 
-        this.pupils.forEach(pupil => {
-            pupil.style.transform = `translate(${x}px, ${y}px)`
-        })
+        this.pupils.each((index, pupil) => {
+            $(pupil).css('transform', `translate(${x}px, ${y}px)`);
+        });
     }
 }

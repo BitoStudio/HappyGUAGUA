@@ -5,10 +5,8 @@ export default class ScratchHolder {
         const body = document.body
         this.onFinsihed = onFinsihed
 
-        body.addEventListener('mousemove', handleMouseMove.bind(this), { passive: false });
-        body.addEventListener('touchmove', handleMouseMove.bind(this), { passive: false });
-        body.addEventListener('mouseup', handleMouseUp.bind(this));
-        body.addEventListener('touchend', handleMouseUp.bind(this));
+        body.addEventListener('touchmove', handleTouchMove.bind(this), { passive: false });
+        body.addEventListener('touchend', handleTouchUp.bind(this));
 
         this.value = 0
         this.increaseRate = 0.05;
@@ -20,7 +18,7 @@ export default class ScratchHolder {
             new ScratchCard(this, id, '2', data[1]),
             new ScratchCard(this, id, '3', data[2])]
 
-        function handleMouseMove(e) {
+        function handleTouchMove(e) {
             e.preventDefault()
 
             var touchX = e.clientX || e.touches[0].clientX;
@@ -29,7 +27,7 @@ export default class ScratchHolder {
             this.cards.forEach(card => card.receiveTouched({ x: touchX, y: touchY }))
         }
 
-        function handleMouseUp() {
+        function handleTouchUp() {
             this.cards.forEach(card => card.resetLastPoint())
         }
     }

@@ -1,32 +1,31 @@
 export default class Loading {
 
     constructor(useLoadingPage, onLoaded) {
-        
-        const loadButton = document.getElementById('loading-button');
-        const loadingPage = document.getElementById('loading-page');
-        const mainPage = document.getElementById('main-page');
+        $(document).ready(function () {
+            const loadButton = $('#loading-button');
+            const loadingPage = $('#loading-page');
+            const mainPage = $('#main-page');
 
-        if (useLoadingPage) {
-            loadButton.addEventListener('touchstart', function (event) {
+            function handleTouchStart(event) {
                 event.preventDefault();
+                loadButton.css('transform', 'translate(-50%, -50%) scale(0.9)');
+            }
 
-                loadButton.style.transform = 'translate(-50%, -50%) scale(0.9)';
-            });
-
-            loadButton.addEventListener('touchend', function (event) {
+            function handleTouchEnd(event) {
                 event.preventDefault();
+                loadButton.css('transform', 'translate(-50%, -50%) scale(1)');
+                loadingPage.addClass('hidden');
+                mainPage.removeClass('hidden');
+                onLoaded();
+            }
 
-                loadButton.style.transform = 'translate(-50%, -50%) scale(1)';
-
-                loadingPage.classList.add('hidden');
-                mainPage.classList.remove('hidden');
-
-                onLoaded()
-            });
-
-        } else {
-            loadingPage.classList.add('hidden');
-            mainPage.classList.remove('hidden');
-        }
+            if (useLoadingPage) {
+                loadButton.on('touchstart', handleTouchStart);
+                loadButton.on('touchend', handleTouchEnd);
+            } else {
+                loadingPage.addClass('hidden');
+                mainPage.removeClass('hidden');
+            }
+        });
     }
 }

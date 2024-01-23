@@ -6,14 +6,14 @@ export default class Cloud {
         this.seed = Math.random()
 
         const textures = ['/assets/textures/cloud_01.png',
-                         '/assets/textures/cloud_02.png',
-                         '/assets/textures/cloud_03.png']
+            '/assets/textures/cloud_02.png',
+            '/assets/textures/cloud_03.png']
 
         this.element.src = textures[Math.floor(Math.random() * 3)]
 
-            function getRandomNumber(min, max) {
-                return Math.random() * (max - min) + min;
-            }
+        function getRandomNumber(min, max) {
+            return Math.random() * (max - min) + min;
+        }
     }
 
     update(t) {

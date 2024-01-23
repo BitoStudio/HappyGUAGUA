@@ -6,7 +6,6 @@ export default class Pattern3 extends Pattern {
         super(id, onFinished)
 
         this.clouds = Array.from(document.querySelectorAll('.cloud'), e => new Cloud(e))
-        console.log(this.clouds);
     }
 
     update(t) {

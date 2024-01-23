@@ -5,10 +5,16 @@ export default class Sound {
     }
 
     play() {
+        const context = new (window.AudioContext || window.webkitAudioContext)();
+        const source = context.createMediaElementSource(this.audio);
+        this.gainNode = context.createGain();
+        source.connect(this.gainNode);
+        this.gainNode.connect(context.destination);
         this.audio.play()
     }
 
     setVolume(volume) {
-        this.audio.volume = volume
+        if (!this.audio.paused)
+            this.gainNode.gain.value = volume
     }
 }

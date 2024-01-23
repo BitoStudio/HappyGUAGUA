@@ -67,14 +67,18 @@ export default {
                 }
             ],
             results: [
-                'assets/textures/health_after_1.png'
+                {
+                    origin: 'assets/textures/health_after_1.png',
+                    red: 'assets/textures/health_after_red_1.png',
+                    gray: 'assets/textures/health_after_gray_1.png',
+                }
             ]
         },
         {
             cover: 'assets/textures/love_before.png',
             brush: 'assets/textures/tbr.png',
             brushSize: 30,
-            callbackRatio: 80,
+            callbackRatio: 90,
             pos: [
                 {
                     top: '50vh',
@@ -92,7 +96,11 @@ export default {
 
 
             results: [
-                'assets/textures/love_after_1.png'
+                {
+                    origin: 'assets/textures/love_after_1.png',
+                    red: 'assets/textures/love_after_red_1.png',
+                    gray: 'assets/textures/love_after_gray_1.png',
+                }
             ]
 
         },
@@ -100,7 +108,7 @@ export default {
             cover: 'assets/textures/wealth_before.png',
             brush: 'assets/textures/tbr.png',
             brushSize: 30,
-            callbackRatio: 80,
+            callbackRatio: 90,
             pos: [
                 {
                     top: '70vh',
@@ -116,7 +124,11 @@ export default {
                 }
             ],
             results: [
-                'assets/textures/wealth_after_1.png'
+                {
+                    origin: 'assets/textures/wealth_after_1.png',
+                    red: 'assets/textures/wealth_after_red_1.png',
+                    gray: 'assets/textures/wealth_after_gray_1.png',
+                }
             ]
         }
     ]

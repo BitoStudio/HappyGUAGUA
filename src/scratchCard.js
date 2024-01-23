@@ -11,8 +11,17 @@ export default class ScratchCard {
             'left': data.pos[patternId - 1].left
         })
 
-        const result = scratch.find('.result')
-        result.attr('src', data.results[Math.floor(Math.random() * data.results.length)]);
+
+        const result = data.results[Math.floor(Math.random() * data.results.length)]
+
+        const origin = scratch.find('.origin')
+        origin.attr('src', result.origin);
+
+        this.red = scratch.find('.red')
+        this.red.attr('src', result.red);
+
+        this.gray = scratch.find('.gray')
+        this.gray.attr('src', result.gray);
 
         this.lastPoint = 0;
 
@@ -133,6 +142,7 @@ export default class ScratchCard {
 
         if (filledInPixels > this.data.callbackRatio && !this.finshed) {
             this.finshed = true
+            this.red.fadeIn(500)
             this.holder.scratchFinish()
         }
     }

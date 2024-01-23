@@ -35,7 +35,6 @@ export default class End {
             // Share the image using Web Share API
             navigator.share({
                 // title: 'Shared HTML Image',
-                // text: 'Check out this HTML to Image!',
                 files: [new File([dataURItoBlob(imageDataUrl)], 'image.jpg', { type: 'image/jpeg' })],
             })
                 .then(() => console.log('Shared successfully'))

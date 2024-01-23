@@ -5,8 +5,8 @@ export default class End {
 
         this.replay = $('#end-again')
         this.replay.on('touchend', () => {
-            onReply()
             this.hide()
+            onReply()
         })
 
         this.share = $('#end-share')
@@ -17,10 +17,12 @@ export default class End {
     }
 
     show() {
-        html2canvas(document.body).then((canvas) => {
-            this.image = canvas
-            this.end.fadeIn(1000)
-        })
+        setTimeout(() => {
+            html2canvas(document.body).then((canvas) => {
+                this.image = canvas
+                this.end.fadeIn(1000)
+            })
+        }, (1000));
     }
 
     hide() {

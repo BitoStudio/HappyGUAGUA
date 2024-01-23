@@ -198,13 +198,35 @@ body {
 /* Cloud */
 .cloud {
    width: 50%;
+   height: auto;
    position: fixed;
    z-index: -10;
+   transform: translate(-50%, -50%);
 }
 
 #cloud-1 {
-   top: 75%;
-   left: 60%;
+   top: 80%;
+   left: 80%;
+}
+
+#cloud-2 {
+   top: 60%;
+   left: 10%;
+}
+
+#cloud-3 {
+   top: 50%;
+   left: 80%;
+}
+
+#cloud-4 {
+   top: 20%;
+   left: 20%;
+}
+
+#cloud-5 {
+   top: 5%;
+   left: 80%;
 }
 
 

@@ -18,6 +18,7 @@ export default class ScratchCard {
         origin.attr('src', result.origin);
 
         this.red = scratch.find('.red')
+        this.red.hide()
         this.red.attr('src', result.red);
 
         this.gray = scratch.find('.gray')

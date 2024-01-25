@@ -5,7 +5,6 @@ export default {
             bgTex: '/assets/textures/bg_v1.png',
 
             dragon: {
-                tex: '/assets/textures/dragon_v1.png',
                 align: 'top',
                 eyes: {
                     pos: [{ x: 0.195, y: 0.651 }, { x: 0.223, y: 0.697 }],
@@ -19,7 +18,6 @@ export default {
             bgTex: '/assets/textures/bg_v2.png',
 
             dragon: {
-                tex: '/assets/textures/dragon_v2.png',
                 align: 'top',
                 eyes: {
                     pos: [{ x: 0.59, y: 0.125 }, { x: 0.6745, y: 0.139 }],
@@ -33,7 +31,6 @@ export default {
             bgTex: '/assets/textures/bg_v3.png',
 
             dragon: {
-                tex: '/assets/textures/dragon_v3.png',
                 align: 'bottom',
                 eyes: {
                     pos: [{ x: 0.511, y: 0.459 }, { x: 0.485, y: 0.522 }],

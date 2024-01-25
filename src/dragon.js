@@ -8,17 +8,14 @@ export default class Dragon {
         this.pattern = $('#pattern-' + id);
 
         this.dragon = this.pattern.find('.dragon')
-        this.dragon.attr('src', data.tex)
-        this.dragon.on('load', () => {
-            this.updateArea()
-            this.eyes = new Eyes(id, this, data.eyes)
+        this.updateArea()
+        this.eyes = new Eyes(id, this, data.eyes)
 
-            $(window).on('resize', () => {
-                this.updateArea()
-                this.eyes.updatePosition(this.area)
-            })
-            this.ready = true
+        $(window).on('resize', () => {
+            this.updateArea()
+            this.eyes.updatePosition(this.area)
         })
+        this.ready = true
     }
 
     updateArea() {

@@ -4,7 +4,6 @@ export default class Dragon {
     constructor(id, data) {
         this.data = data
 
-        this.ready = false
         this.pattern = $('#pattern-' + id);
 
         this.dragon = this.pattern.find('.dragon')
@@ -15,11 +14,11 @@ export default class Dragon {
             this.updateArea()
             this.eyes.updatePosition(this.area)
         })
-        this.ready = true
     }
 
     updateArea() {
-        var aspectNatural = this.dragon[0].naturalWidth / this.dragon[0].naturalHeight;
+        var aspectNatural = this.data.width / this.data.height
+
         var rect = this.dragon[0].getBoundingClientRect()
         var aspect = rect.width / rect.height
 

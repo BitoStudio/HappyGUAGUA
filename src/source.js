@@ -5,32 +5,38 @@ export default {
             bgTex: '/assets/textures/bg_v1.png',
 
             dragon: {
+                width: 3250,
+                height: 5788,
                 align: 'top',
                 eyes: {
                     pos: [{ x: 0.195, y: 0.651 }, { x: 0.223, y: 0.697 }],
                     displaceScale: { x: 0.2, y: 0.8 },
                     scale: 0.07,
                     tex: '/assets/textures/eyeballs_v1.png'
-                }
+                },
             }
         },
         {
             bgTex: '/assets/textures/bg_v2.png',
 
             dragon: {
+                width: 3250,
+                height: 5752,
                 align: 'top',
                 eyes: {
                     pos: [{ x: 0.59, y: 0.125 }, { x: 0.6745, y: 0.139 }],
                     displaceScale: { x: 0.8, y: 0.2 },
                     scale: 0.07,
                     tex: '/assets/textures/eyeballs_v2.png'
-                }
+                },
             }
         },
         {
             bgTex: '/assets/textures/bg_v3.png',
 
             dragon: {
+                width: 937,
+                height: 1182,
                 align: 'bottom',
                 eyes: {
                     pos: [{ x: 0.511, y: 0.459 }, { x: 0.485, y: 0.522 }],

@@ -1,12 +1,13 @@
 
 export default class End {
-    constructor(onReply) {
+    constructor(main) {
         this.end = $('#end-overlay')
+        this.main = main
 
         this.replay = $('#end-again')
         this.replay.on('touchend', () => {
             this.hide()
-            onReply()
+            this.main.replay()
         })
 
         this.share = $('#end-share')

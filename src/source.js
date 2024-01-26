@@ -50,15 +50,15 @@ export default {
             callbackRatio: 80,
             pos: [
                 {
-                    top: '25vh',
+                    top: '25dvh',
                     left: '40vw',
                 },
                 {
-                    top: '80vh',
+                    top: '80dvh',
                     left: '40vw',
                 },
                 {
-                    top: '20vh',
+                    top: '20dvh',
                     left: '50vw',
                 }
             ],
@@ -75,18 +75,18 @@ export default {
             cover: 'assets/textures/love_before.png',
             brush: 'assets/textures/brush.png',
             brushSize: 30,
-            callbackRatio: 90,
+            callbackRatio: 80,
             pos: [
                 {
-                    top: '50vh',
+                    top: '50dvh',
                     left: '70vw',
                 },
                 {
-                    top: '57vh',
+                    top: '57dvh',
                     left: '60vw',
                 },
                 {
-                    top: '80vh',
+                    top: '85dvh',
                     left: '30vw',
                 }
             ],
@@ -106,18 +106,18 @@ export default {
             cover: 'assets/textures/wealth_before.png',
             brush: 'assets/textures/brush.png',
             brushSize: 30,
-            callbackRatio: 90,
+            callbackRatio: 80,
             pos: [
                 {
-                    top: '70vh',
+                    top: '70dvh',
                     left: '70vw',
                 },
                 {
-                    top: '37vh',
+                    top: '37dvh',
                     left: '40vw',
                 },
                 {
-                    top: '65vh',
+                    top: '75dvh',
                     left: '75vw',
                 }
             ],

@@ -15,7 +15,6 @@ export default class Pattern {
         const pattern = $(patternId);
         pattern.css({
             'display': 'flex',
-            'background-image': `url(${data.bgTex})`
         });
 
         this.scratchHolder = new ScratchHolder(id, source.scratchs, () => onFinished())

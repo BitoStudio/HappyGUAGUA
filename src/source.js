@@ -13,6 +13,7 @@ export default {
                 },
             }
         },
+        // pattern 2
         {
             dragon: {
                 width: 3250,
@@ -25,6 +26,7 @@ export default {
                 },
             }
         },
+        // pattern 3
         {
             dragon: {
                 width: 937,
@@ -68,9 +70,10 @@ export default {
                 }
             ]
         },
+        // scratch 2
         {
             cover: 'assets/textures/love_before.png',
-            brush: 'assets/textures/tbr.png',
+            brush: 'assets/textures/brush.png',
             brushSize: 30,
             callbackRatio: 90,
             pos: [
@@ -98,9 +101,10 @@ export default {
             ]
 
         },
+        // scratch 3
         {
             cover: 'assets/textures/wealth_before.png',
-            brush: 'assets/textures/tbr.png',
+            brush: 'assets/textures/brush.png',
             brushSize: 30,
             callbackRatio: 90,
             pos: [

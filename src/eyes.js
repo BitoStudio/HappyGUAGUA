@@ -9,9 +9,6 @@ export default class Eyes {
         this.touched = false
 
         this.pupils = $(this.dragon.pattern).find('.pupil');
-        this.pupils.each((index, pupil) => {
-            $(pupil).attr('src', data.tex);
-        });
 
         this.updatePosition()
 

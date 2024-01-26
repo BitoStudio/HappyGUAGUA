@@ -128,6 +128,19 @@ body {
    padding: 0%;
 }
 
+#pattern-1 {
+   background-image: url("/assets/textures/bg_v1.png");
+}
+
+#pattern-2 {
+   background-image: url("/assets/textures/bg_v2.png");
+}
+
+#pattern-3 {
+   background-image: url("/assets/textures/bg_v3.png");
+}
+
+
 /* Dragon */
 .dragon {
    width: 100%;
@@ -198,12 +211,12 @@ body {
    z-index: 5;
 }
 
-.red{
+.red {
    display: none;
    z-index: 15;
 }
 
-.gray{
+.gray {
    z-index: 10;
 }
 

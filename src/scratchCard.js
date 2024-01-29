@@ -30,7 +30,7 @@ export default class ScratchCard {
         this.cover.width = this.cover.offsetWidth
         this.cover.height = this.cover.offsetHeight
 
-        this.ctx = this.cover.getContext('2d');
+        this.ctx = this.cover.getContext('2d', { willReadFrequently: true });
 
         this.brush = new Image();
         this.brush.src = data.brush;
@@ -92,7 +92,7 @@ export default class ScratchCard {
         const currentPoint = pos;
         const dist = this.distanceBetween(this.lastPoint, currentPoint);
         const angle = this.angleBetween(this.lastPoint, currentPoint);
-        const ctx = this.cover.getContext('2d')
+        const ctx = this.cover.getContext('2d', { willReadFrequently: true });
 
         var x, y;
 

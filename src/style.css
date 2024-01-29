@@ -13,12 +13,13 @@ body {
    overflow: hidden;
    overscroll-behavior: none;
    -webkit-overflow-scrolling: none;
-   width: 100vw;
+   width: 100dvw;
    height: 100dvh;
 }
 
 #verticalContent,
-#horizontalContent {
+#horizontalContent,
+#computerContent {
    display: none;
 }
 
@@ -28,17 +29,25 @@ body {
    }
 }
 
-@media screen and (orientation: landscape) {
+@media screen and (orientation: landscape) and (max-width: 991.98px) {
    #horizontalContent {
       display: block;
    }
 }
 
+/* Large devices (desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+   #computerContent {
+      display: block;
+   }
+}
+
 #horizontalContent {
-   width: 100vw;
+   width: 100dvw;
    height: 100dvh;
-   background-size: 100% 100%;
-   background-image: url('/assets/textures/loading_bg.png');
+   background-size: cover;
+   background-position: center center;
+   background-image: url('/assets/textures/turn.png');
 }
 
 #rotateMessage {
@@ -49,9 +58,17 @@ body {
    text-align: center;
 }
 
+#computerContent {
+   width: 100dvw;
+   height: 100dvh;
+   background-size: cover;
+   background-position: center center;
+   background-image: url('/assets/textures/phone.png');
+}
+
 .container {
    transition: opacity 2s ease;
-   width: 100vw;
+   width: 100dvw;
    height: 100dvh;
    padding: 0;
    position: absolute;
@@ -270,8 +287,8 @@ body {
 #end-container {
    position: absolute;
    top: 45%;
-   width: 60vw;
-   height: 60vw;
+   width: 60dvw;
+   height: 60dvw;
    z-index: 30;
 }
 

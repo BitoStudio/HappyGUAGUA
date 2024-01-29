@@ -62,8 +62,26 @@ body {
    width: 100dvw;
    height: 100dvh;
    background-size: cover;
-   background-position: center center;
-   background-image: url('/assets/textures/phone.png');
+   background-image: url('/assets/textures/loading_bg.png');
+   /* background-color: yellow; */
+}
+
+#computerIcon {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 20dvw;
+   height: auto;
+}
+
+#computerTitle {
+   position: absolute;
+   top: 90%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   width: 35dvw;
+   height: auto;
 }
 
 .container {

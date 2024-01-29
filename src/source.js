@@ -67,6 +67,36 @@ export default {
                     origin: 'assets/textures/health_after_1.png',
                     red: 'assets/textures/health_after_red_1.png',
                     gray: 'assets/textures/health_after_gray_1.png',
+                },
+                {
+                    origin: 'assets/textures/health_after_2.png',
+                    red: 'assets/textures/health_after_red_2.png',
+                    gray: 'assets/textures/health_after_gray_2.png',
+                },
+                {
+                    origin: 'assets/textures/health_after_3.png',
+                    red: 'assets/textures/health_after_red_3.png',
+                    gray: 'assets/textures/health_after_gray_3.png',
+                },
+                {
+                    origin: 'assets/textures/health_after_4.png',
+                    red: 'assets/textures/health_after_red_4.png',
+                    gray: 'assets/textures/health_after_gray_4.png',
+                },
+                {
+                    origin: 'assets/textures/health_after_5.png',
+                    red: 'assets/textures/health_after_red_5.png',
+                    gray: 'assets/textures/health_after_gray_5.png',
+                },
+                {
+                    origin: 'assets/textures/health_after_6.png',
+                    red: 'assets/textures/health_after_red_6.png',
+                    gray: 'assets/textures/health_after_gray_6.png',
+                },
+                {
+                    origin: 'assets/textures/health_after_7.png',
+                    red: 'assets/textures/health_after_red_7.png',
+                    gray: 'assets/textures/health_after_gray_7.png',
                 }
             ]
         },
@@ -97,6 +127,26 @@ export default {
                     origin: 'assets/textures/love_after_1.png',
                     red: 'assets/textures/love_after_red_1.png',
                     gray: 'assets/textures/love_after_gray_1.png',
+                },
+                {
+                    origin: 'assets/textures/love_after_2.png',
+                    red: 'assets/textures/love_after_red_2.png',
+                    gray: 'assets/textures/love_after_gray_2.png',
+                },
+                {
+                    origin: 'assets/textures/love_after_3.png',
+                    red: 'assets/textures/love_after_red_3.png',
+                    gray: 'assets/textures/love_after_gray_3.png',
+                },
+                {
+                    origin: 'assets/textures/love_after_4.png',
+                    red: 'assets/textures/love_after_red_4.png',
+                    gray: 'assets/textures/love_after_gray_4.png',
+                },
+                {
+                    origin: 'assets/textures/love_after_5.png',
+                    red: 'assets/textures/love_after_red_5.png',
+                    gray: 'assets/textures/love_after_gray_5.png',
                 }
             ]
 
@@ -126,6 +176,36 @@ export default {
                     origin: 'assets/textures/wealth_after_1.png',
                     red: 'assets/textures/wealth_after_red_1.png',
                     gray: 'assets/textures/wealth_after_gray_1.png',
+                },
+                {
+                    origin: 'assets/textures/wealth_after_2.png',
+                    red: 'assets/textures/wealth_after_red_2.png',
+                    gray: 'assets/textures/wealth_after_gray_2.png',
+                },
+                {
+                    origin: 'assets/textures/wealth_after_3.png',
+                    red: 'assets/textures/wealth_after_red_3.png',
+                    gray: 'assets/textures/wealth_after_gray_3.png',
+                },
+                {
+                    origin: 'assets/textures/wealth_after_4.png',
+                    red: 'assets/textures/wealth_after_red_4.png',
+                    gray: 'assets/textures/wealth_after_gray_4.png',
+                },
+                {
+                    origin: 'assets/textures/wealth_after_5.png',
+                    red: 'assets/textures/wealth_after_red_5.png',
+                    gray: 'assets/textures/wealth_after_gray_5.png',
+                },
+                {
+                    origin: 'assets/textures/wealth_after_6.png',
+                    red: 'assets/textures/wealth_after_red_6.png',
+                    gray: 'assets/textures/wealth_after_gray_6.png',
+                },
+                {
+                    origin: 'assets/textures/wealth_after_7.png',
+                    red: 'assets/textures/wealth_after_red_7.png',
+                    gray: 'assets/textures/wealth_after_gray_7.png',
                 }
             ]
         }

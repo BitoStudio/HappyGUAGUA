@@ -22,7 +22,8 @@
         <div class="container" id="loading-page">
             <img class="loading-element logo" id="loading-logo" src="assets/textures/bito_black.png">
             <img class="loading-element" id="loading-title" src="assets/textures/loading_title.png">
-            <img class="loading-element" id="loading-info" src="assets/textures/loading_info.png">
+            <!-- <img class="loading-element" id="loading-info" src="assets/textures/loading_info.png"> -->
+            <dotlottie-player class="loading-element" id="loading-info" src="/assets/video/dragon_hand.json" background="transparent" speed="1" loop autoplay></dotlottie-player>
             <img class="loading-element" id="loading-button" src="assets/textures/loading_start.png">
             <img class="loading-element" id="loading-dragon" src="assets/textures/loading_dragon.png">
             <img class="loading-element" id="loading-volume" src="assets/textures/volume.gif">
@@ -42,7 +43,8 @@
 
             <div class="pattern" id="pattern-2" display="none">
                 <img class="logo" id="logo-2" src="/assets/textures/bito_black.png">
-                <img class="dragon" id="dragon-2" src="/assets/textures/dragon_v2.png">
+                <!-- <img class="dragon" id="dragon-2" src="/assets/textures/dragon_v2.png"> -->
+                <dotlottie-player class="dragon" src="/assets/video/dragon_v2.json" background="transparent" speed="1" loop autoplay></dotlottie-player>
                 <img class="title" id="title-2" src="/assets/textures/happyguagua_black.png">
                 <img class="pupil" src="/assets/textures/eyeballs_v2.png">
                 <img class="pupil" src="/assets/textures/eyeballs_v2.png">
@@ -51,7 +53,8 @@
             <div class="pattern" id="pattern-3" display="none">
                 <img class="logo" id="logo-3" src="/assets/textures/bito_white.png">
                 <img class="title" id="title-3" src="/assets/textures/happyguagua_black.png">
-                <img class="dragon" id="dragon-3" src="/assets/textures/dragon_v3.png">
+                <!-- <img class="dragon" id="dragon-3" src="/assets/textures/dragon_v3.png"> -->
+                <dotlottie-player id="dragon-3" class="dragon" src="/assets/video/dragon_v3.json" background="transparent" speed="1" loop autoplay></dotlottie-player>
                 <img class="pupil" src="/assets/textures/eyeballs_v3.png">
                 <img class="pupil" src="/assets/textures/eyeballs_v3.png">
                 <div class="cloud" id="cloud-1">
@@ -94,7 +97,8 @@
 
             <div id="end-overlay">
                 <div class="center" id="end-container">
-                    <img id="end-dragon" src="/assets/textures/end_dragon.png">
+                    <dotlottie-player id="end-dragon" src="/assets/video/dragon_ending.json" background="transparent" speed="1"></dotlottie-player>
+                    <!-- <img id="end-dragon" src="/assets/textures/end_dragon.png"> -->
                     <img class="center" id="end-again" src="/assets/textures/end_again.png">
                     <img class="center" id="end-share" src="/assets/textures/end_share.png">
                 </div>
@@ -118,7 +122,7 @@
 <script src="src/Util/jquery-animate-css-rotate-scale.js"></script>
 <script src="src/Util/html2canvas.js" type="module"></script>
 <script src='src/Util/perlin.js'></script>
-<script src='src/particles.js'></script>
+<!-- <script src='src/particles.js'></script> -->
 <script src="src/app.js" type="module"></script>
 </body>
 

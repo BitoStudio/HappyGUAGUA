@@ -15,6 +15,7 @@ export default class ScratchCard {
         const result = data.results[Math.floor(Math.random() * data.results.length)]
 
         const origin = scratch.find('.origin')
+        origin.hide()
         origin.attr('src', result.origin);
 
         this.red = scratch.find('.red')
@@ -22,6 +23,7 @@ export default class ScratchCard {
         this.red.attr('src', result.red);
 
         this.gray = scratch.find('.gray')
+        this.gray.hide()
         this.gray.attr('src', result.gray);
 
         this.lastPoint = 0;
@@ -31,6 +33,7 @@ export default class ScratchCard {
         this.cover.height = this.cover.offsetHeight
 
         this.ctx = this.cover.getContext('2d', { willReadFrequently: true });
+        this.ctx.imageSmoothingQuality = 'medium';
 
         this.brush = new Image();
         this.brush.src = data.brush;
@@ -39,17 +42,37 @@ export default class ScratchCard {
         this.paint.src = data.cover;
         this.paint.onload = function () {
             this.ctx.globalCompositeOperation = 'source-over'
+            // this.ctx.filter = `blur(4px)`;
+
+            // const oc = document.createElement('canvas');
+            // const octx = oc.getContext('2d');
+            // oc.width = this.paint.width;
+            // oc.height = this.paint.height;
+
+            // const steps = (oc.width / this.cover.width)>>1;
+            // octx.filter = `blur(${steps}px)`;
+            // octx.drawImage(this.paint, 0, 0);
 
             const imgRatio = this.paint.height / this.paint.width
             const canvasRatio = this.cover.height / this.cover.width
             if (imgRatio > canvasRatio) {
                 const h = this.cover.width * imgRatio
                 this.ctx.drawImage(this.paint, 0, (this.cover.height - h) / 2, this.cover.width, h)
+                // this.ctx.drawImage(oc, 0, 0, oc.width, oc.height, 0, (this.cover.height - h) / 2, this.cover.width, h)
+                // this.ctx.drawImage(c1, 0, (this.cover.height - h) / 2, this.cover.width, h)
             }
             else {
                 const w = this.cover.width * canvasRatio / imgRatio
                 this.ctx.drawImage(this.paint, (this.cover.width - w) / 2, 0, w, this.cover.height)
+                // this.ctx.drawImage(oc, 0, 0, oc.width, oc.height, (this.cover.width - w) / 2, 0, w, this.cover.height)
+                // this.ctx.drawImage(c1, (this.cover.width - w) / 2, 0, w, this.cover.height)
             }
+
+            setTimeout(()=>{
+                origin.show();
+                this.gray.show();
+            }, 500)
+
         }.bind(this)
     }
 

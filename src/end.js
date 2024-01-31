@@ -7,8 +7,8 @@ export default class End {
         this.video = $('#end-dragon');
         this.video.on('complete', () => {
             // console.log('c');
-            this.replay.fadeIn(500);
-            this.share.fadeIn(500);
+            this.replay.stop(true).fadeTo(500, 1);
+            this.share.stop(true).fadeTo(500, 1);
         })
 
         this.replay = $('#end-again')

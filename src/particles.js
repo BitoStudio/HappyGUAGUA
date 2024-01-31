@@ -3,6 +3,7 @@ var d = document, $d = $(d),
     wWidth = $w.width(), wHeight = $w.height(),
     particles = $('.particles'),
     particleCount = 0,
+    maxCount = 20,
     size = 5,
     colors = [
         '#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5',
@@ -49,18 +50,21 @@ $w
 
 $d
     .on('mousemove touchmove', function (event) {
-        mouseX = event.clientX;
-        mouseY = event.clientY;
-        if (!!event.originalEvent.touches) {
-            mouseX = event.originalEvent.touches[0].clientX;
-            mouseY = event.originalEvent.touches[0].clientY;
+        if (particleCount < maxCount) {
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+            if (!!event.originalEvent.touches) {
+                mouseX = event.originalEvent.touches[0].clientX;
+                mouseY = event.originalEvent.touches[0].clientY;
+            }
+    
+            const currentTime = performance.now(); // Using high-resolution time
+    
+            const vel = calculateVelocity(mouseX, mouseY, currentTime);
+    
+            createParticle(mouseX, mouseY, vel);
         }
 
-        const currentTime = performance.now(); // Using high-resolution time
-
-        const vel = calculateVelocity(mouseX, mouseY, currentTime);
-
-        createParticle(mouseX, mouseY, vel);
     })
 
 function smoothstep(edge0, edge1, x) {
@@ -118,5 +122,5 @@ function createParticle(mouseX, mouseY, vel) {
             particleCount--;
             clearInterval(particleTimer);
         }
-    }, 1000 / 60);
+    }, 1000 / 40);
 }

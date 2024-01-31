@@ -182,10 +182,17 @@ body {
    object-fit: contain;
    overflow: scroll;
    pointer-events: none;
+   /* width: 100%;
+   height: 100%;
+   object-fit: contain;
+   overflow: scroll;
+   pointer-events: none; */
 }
 
 #dragon-3 {
-   object-position: center bottom;
+   /* object-position: center bottom; */
+   position: fixed;
+   bottom: -14dvh;
 }
 
 .pupil {
@@ -232,6 +239,13 @@ body {
    height: 100%;
    position: absolute;
    z-index: 20;
+
+   /* for effect */
+   /* transition: filter, -webkit-filter 3s ease; */
+   /* transition: all 3s ease; */
+   /* transition: filter 3s ease; */
+   /* -webkit-transition: -webkit-filter 3s; */
+   
 }
 
 .result {
@@ -370,5 +384,46 @@ body {
 
 /* Effect */
 .breathing-effect {
-   
+   animation: breathing 5s infinite;
+   -webkit-animation: breathing 5s infinite;
+
+   &.end-animation {
+      animation: none;
+      -webkit-animation: none;
+   }
+}
+
+@keyframes breathing {
+   0% {
+      filter: brightness(1);
+      -webkit-filter: brightness(1);
+   }
+   25% {
+      filter: brightness(1.3) blur(0.5px);
+      -webkit-filter: brightness(1.3) blur(0.5px);
+   }
+   60% {
+      filter: brightness(1);
+      -webkit-filter: brightness(1);
+   }
+   100% {
+      filter: brightness(1);
+      -webkit-filter: brightness(1);
+   }
+   /* 0% {
+      filter: brightness(1) invert(0) opacity(1) blur(0);
+      -webkit-filter: brightness(1) invert(0) opacity(1) blur(0);
+   }
+   30% {
+      filter: brightness(0) invert(1) opacity(.8) blur(2px);
+      -webkit-filter: brightness(0) invert(1) opacity(.8) blur(2px);
+   }
+   80% {
+      filter: brightness(1) invert(0) opacity(1) blur(0);
+      -webkit-filter: brightness(1) invert(0) opacity(1) blur(0);
+   }
+   100% {
+      filter: brightness(1) invert(0) opacity(1) blur(0);
+      -webkit-filter: brightness(1) invert(0) opacity(1) blur(0);
+   } */
 }

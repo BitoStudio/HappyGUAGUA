@@ -3,7 +3,9 @@ export default class ScratchCard {
         this.holder = holder
         this.cardId = cardId
         this.data = data
-        this.finshed = false
+        this.finished = false
+        this.recorded = false
+        this.brandnew = true
 
         const scratch = $('#scratch-card-' + cardId)
         scratch.css({
@@ -29,6 +31,7 @@ export default class ScratchCard {
         this.lastPoint = 0;
 
         this.cover = scratch.find('.cover')[0]
+        this.cover.classList.remove('end-animation');
         this.cover.width = this.cover.offsetWidth
         this.cover.height = this.cover.offsetHeight
 
@@ -162,10 +165,23 @@ export default class ScratchCard {
 
     handlePercentage(filledInPixels) {
         filledInPixels = filledInPixels || 0;
-        // console.log(filledInPixels + '%');
 
-        if (filledInPixels > this.data.callbackRatio && !this.finshed) {
-            this.finshed = true
+        if (!this.recorded) {
+            this.recorded = true;
+            this.originFilledInPixels = filledInPixels;
+        }
+
+        if (this.originFilledInPixels !== filledInPixels && this.brandnew) {
+            this.brandnew = false;
+            // this.cover.classList.add('off');
+            $(this.cover).on('animationiteration webkitAnimationIteration', ()=> {
+                $(this.cover).off();
+                this.cover.classList.add('end-animation');
+            })
+        }
+
+        if (filledInPixels > this.data.callbackRatio && !this.finished) {
+            this.finished = true
             this.red.fadeIn(500)
             this.holder.scratchFinish()
         }

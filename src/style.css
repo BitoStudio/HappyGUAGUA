@@ -120,6 +120,7 @@ body {
 .logo {
    position: fixed;
    width: 10%;
+   z-index: 10;
 }
 
 #loading-logo {
@@ -177,33 +178,30 @@ body {
 
 /* Dragon */
 .dragon {
+   position: static;
    width: 100%;
-   height: 100%;
+   height: auto;
    object-fit: contain;
    overflow: scroll;
    pointer-events: none;
-   /* width: 100%;
-   height: 100%;
-   object-fit: contain;
-   overflow: scroll;
-   pointer-events: none; */
+   /* z-index: 5; */
 }
 
 #dragon-3 {
-   /* object-position: center bottom; */
-   position: fixed;
-   bottom: -14dvh;
+   position: absolute;
+   z-index: 5;
 }
 
 .pupil {
    position: fixed;
+   z-index: 7;
 }
 
 .title {
    width: 100%;
    height: auto;
    bottom: 0%;
-   z-index: 5;
+   z-index: 7;
 }
 
 #title-3 {
@@ -232,6 +230,7 @@ body {
    height: 200px;
    position: fixed;
    transform: translate(-50%, -50%);
+   z-index: 10;
 }
 
 .cover {
@@ -239,13 +238,6 @@ body {
    height: 100%;
    position: absolute;
    z-index: 20;
-
-   /* for effect */
-   /* transition: filter, -webkit-filter 3s ease; */
-   /* transition: all 3s ease; */
-   /* transition: filter 3s ease; */
-   /* -webkit-transition: -webkit-filter 3s; */
-   
 }
 
 .result {
@@ -272,8 +264,8 @@ body {
 .cloud {
    width: 50%;
    height: auto;
-   position: fixed;
-   z-index: -10;
+   position: absolute;
+   z-index: 1;
 }
 
 .cloud img {
@@ -282,27 +274,27 @@ body {
 }
 
 #cloud-1 {
-   top: 80%;
+   top: 80dvh;
    left: 80%;
 }
 
 #cloud-2 {
-   top: 65%;
+   top: 65dvh;
    left: 15%;
 }
 
 #cloud-3 {
-   top: 45%;
+   top: 45dvh;
    left: 80%;
 }
 
 #cloud-4 {
-   top: 20%;
+   top: 20dvh;
    left: 20%;
 }
 
 #cloud-5 {
-   top: 10%;
+   top: 10dvh;
    left: 80%;
 }
 
@@ -314,6 +306,7 @@ body {
    width: 100%;
    height: 100%;
    background: rgba(255, 255, 255, 0.7);
+   z-index: 25;
 }
 
 #end-container {
@@ -410,20 +403,4 @@ body {
       filter: brightness(1);
       -webkit-filter: brightness(1);
    }
-   /* 0% {
-      filter: brightness(1) invert(0) opacity(1) blur(0);
-      -webkit-filter: brightness(1) invert(0) opacity(1) blur(0);
-   }
-   30% {
-      filter: brightness(0) invert(1) opacity(.8) blur(2px);
-      -webkit-filter: brightness(0) invert(1) opacity(.8) blur(2px);
-   }
-   80% {
-      filter: brightness(1) invert(0) opacity(1) blur(0);
-      -webkit-filter: brightness(1) invert(0) opacity(1) blur(0);
-   }
-   100% {
-      filter: brightness(1) invert(0) opacity(1) blur(0);
-      -webkit-filter: brightness(1) invert(0) opacity(1) blur(0);
-   } */
 }

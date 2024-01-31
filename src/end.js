@@ -4,14 +4,22 @@ export default class End {
         this.end = $('#end-overlay')
         this.main = main
 
+        this.video = $('#end-dragon');
+        this.video.on('complete', () => {
+            // console.log('c');
+            this.replay.fadeIn(500);
+            this.share.fadeIn(500);
+        })
+
         this.replay = $('#end-again')
+        this.replay.hide()
         this.replay.on('touchend', () => {
             this.hide()
             this.main.replay()
         })
 
         this.share = $('#end-share')
-
+        this.share.hide()
         this.share.on('touchend', () => {
             this.shareImage()
         })
@@ -22,6 +30,10 @@ export default class End {
             html2canvas(document.body).then((canvas) => {
                 this.image = canvas
                 this.end.fadeIn(1000)
+
+                setTimeout(()=>{
+                    this.video.get(0).play();
+                }, 1000)
             })
         }, (1000));
     }

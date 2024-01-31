@@ -6,7 +6,6 @@ export default class End {
 
         this.video = $('#end-dragon');
         this.video.on('complete', () => {
-            // console.log('c');
             this.replay.stop(true).fadeTo(500, 1);
             this.share.stop(true).fadeTo(500, 1);
         })
@@ -16,6 +15,10 @@ export default class End {
         this.replay.on('touchend', () => {
             this.hide()
             this.main.replay()
+
+            setTimeout(()=>{
+                this.reset()
+            }, 1000)
         })
 
         this.share = $('#end-share')
@@ -23,6 +26,12 @@ export default class End {
         this.share.on('touchend', () => {
             this.shareImage()
         })
+    }
+
+    reset() {
+        this.video.get(0).seek(0)
+        this.replay.hide()
+        this.share.hide()
     }
 
     show() {

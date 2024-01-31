@@ -175,7 +175,7 @@ export default class ScratchCard {
             this.brandnew = false;
             // this.cover.classList.add('off');
             $(this.cover).on('animationiteration webkitAnimationIteration', ()=> {
-                $(this.cover).off();
+                $(this.cover).off('animationiteration webkitAnimationIteration');
                 this.cover.classList.add('end-animation');
             })
         }

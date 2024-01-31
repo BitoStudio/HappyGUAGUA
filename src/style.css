@@ -188,7 +188,7 @@ body {
    object-fit: contain;
    overflow: scroll;
    pointer-events: none;
-   /* z-index: 5; */
+   z-index: 5;
 }
 
 #dragon-3 {
@@ -198,7 +198,7 @@ body {
 
 .pupil {
    position: fixed;
-   z-index: 7;
+   z-index: 10;
 }
 
 .title {

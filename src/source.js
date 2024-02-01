@@ -20,7 +20,7 @@ export default {
                 height: 5752,
                 align: 'top',
                 eyes: {
-                    pos: [{ x: 0.59, y: 0.125 }, { x: 0.6745, y: 0.139 }],
+                    pos: [{ x: 0.6, y: 0.13 }, { x: 0.686, y: 0.145 }],
                     displaceScale: { x: 0.8, y: 0.2 },
                     scale: 0.07,
                 },
@@ -33,7 +33,7 @@ export default {
                 height: 1182,
                 align: 'bottom',
                 eyes: {
-                    pos: [{ x: 0.511, y: 0.459 }, { x: 0.485, y: 0.522 }],
+                    pos: [{ x: 0.503, y: 0.465 }, { x: 0.473, y: 0.53 }],
                     displaceScale: { x: 0.2, y: 0.8 },
                     scale: 0.07,
                 }

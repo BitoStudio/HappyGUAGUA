@@ -6,9 +6,9 @@ export default class Cloud {
         this.seed = Math.random()
         this.offset = 0
 
-        const textures = ['/assets/textures/cloud_01.png',
-            '/assets/textures/cloud_02.png',
-            'assets/textures/cloud_03.png']
+        const textures = ['https://bitostudio.github.io/HappyGUAGUA/assets/textures/cloud_01.png',
+            'https://bitostudio.github.io/HappyGUAGUA/assets/textures/cloud_02.png',
+            'https://bitostudio.github.io/HappyGUAGUA/assets/textures/cloud_03.png']
 
 
         this.div.css('width', `${Math.random() * 30 + 35}%`)

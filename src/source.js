@@ -54,8 +54,8 @@ export default {
                     left: '40vw',
                 },
                 {
-                    top: '80dvh',
-                    left: '40vw',
+                    top: '45dvh',
+                    left: '35vw',
                 },
                 {
                     top: '20dvh',
@@ -112,8 +112,8 @@ export default {
                     left: '70vw',
                 },
                 {
-                    top: '57dvh',
-                    left: '60vw',
+                    top: '80dvh',
+                    left: '40vw',
                 },
                 {
                     top: '85dvh',
@@ -163,8 +163,8 @@ export default {
                     left: '70vw',
                 },
                 {
-                    top: '37dvh',
-                    left: '40vw',
+                    top: '60dvh',
+                    left: '70vw',
                 },
                 {
                     top: '75dvh',

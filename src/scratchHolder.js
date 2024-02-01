@@ -30,10 +30,14 @@ export default class ScratchHolder {
         function handleTouchUp() {
             this.cards.forEach(card => card.resetLastPoint())
         }
+
+        this.scores = 0
     }
 
-    scratchFinish() {
+    scratchFinish(score) {
+        this.scores += score
         this.finishedScratch++;
+        
         if (this.finishedScratch == 3)
             this.onFinsihed()
     }

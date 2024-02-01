@@ -135,17 +135,18 @@ body {
 
 #loading-info {
    width: 55%;
-   top: 45%;
+   top: 50%;
 }
 
 #loading-volume {
    width: 12%;
-   top: 30%
+   top: 35%
 }
 
 #loading-button {
+   display: none;
    width: 30%;
-   top: 65%;
+   top: 70%;
    transition: transform 0.2s ease;
 }
 

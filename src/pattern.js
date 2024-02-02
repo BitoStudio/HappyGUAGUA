@@ -24,10 +24,11 @@ export default class Pattern {
         this.scratchHolder = new ScratchHolder(id, source.scratchs, result => {
             this.main.stop()
             this.main.end.show(result)
+            this.main.sound.setVolume(0)
         })
         this.dragon = new Dragon(id, data.dragon)
     }
-    
+
     start() {
         this.paused = false
         this.dragon.start()
@@ -41,11 +42,8 @@ export default class Pattern {
     update(t) {
         if (this.paused) return
 
-        if (this.scratchHolder != null) {
-            this.scratchHolder.update()
-            this.main.sound.setVolume(this.scratchHolder.value)
-        }
-
+        this.scratchHolder.update()
+        this.main.sound.setVolume(this.scratchHolder.value)
         this.dragon.eyes.update(t.elapsed)
     }
 

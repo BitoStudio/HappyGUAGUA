@@ -9,20 +9,20 @@ export default class Dragon {
         this.dragon = this.pattern.find('.dragon')
         this.updateArea()
         this.eyes = new Eyes(id, this, data.eyes)
-
-        $(window).on('resize', () => {
-            this.updateArea()
-            this.eyes.updatePosition(this.area)
-        })
-
     }
 
-    start() {
+    play() {
         this.dragon.get(0).play()
     }
 
-    stop() {
+    pause() {
         this.dragon.get(0).pause()
+    }
+
+    update(t) {
+        this.updateArea()
+        this.eyes.updatePosition(this.area)
+        this.eyes.update(t)
     }
 
     updateArea() {

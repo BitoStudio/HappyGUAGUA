@@ -1,7 +1,9 @@
 import ScratchCard from './scratchCard.js';
 
 export default class ScratchHolder {
-    constructor(id, data, onFinsihed) {
+    constructor(main, data, onFinsihed) {
+        this.main = main
+        const id = this.main.id
         const body = document.body
         this.onFinsihed = onFinsihed
 
@@ -20,6 +22,7 @@ export default class ScratchHolder {
 
         function handleTouchMove(e) {
             e.preventDefault()
+            if (!this.main.scratchable) return
 
             var touchX = e.clientX || e.touches[0].clientX;
             var touchY = e.clientY || e.touches[0].clientY;

@@ -17,19 +17,21 @@ export default class Main {
         })
 
         this.init()
+        this.scratchable = false
     }
 
-    start() {
-        this.pattern.start()
+    play() {
+        this.pattern.play()
     }
 
-    stop() {
-        this.pattern.stop()
+    pause() {
+        this.pattern.pause()
     }
 
 
     onStarted() {
         this.sound.play()
+        this.scratchable = true
     }
 
     init() {
@@ -44,7 +46,7 @@ export default class Main {
                 this.pattern = new Pattern3(this)
                 break;
         }
-        this.start()
+        this.play()
     }
 
     replay() {

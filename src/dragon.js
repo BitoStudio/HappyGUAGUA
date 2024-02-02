@@ -17,11 +17,11 @@ export default class Dragon {
 
     }
 
-    start() {
+    play() {
         this.dragon.get(0).play()
     }
 
-    stop() {
+    pause() {
         this.dragon.get(0).pause()
     }
 

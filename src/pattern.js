@@ -21,22 +21,22 @@ export default class Pattern {
             'display': 'flex',
         });
 
-        this.scratchHolder = new ScratchHolder(id, source.scratchs, result => {
-            this.main.stop()
+        this.scratchHolder = new ScratchHolder(main, source.scratchs, result => {
+            this.main.pause()
             this.main.end.show(result)
             this.main.sound.setVolume(0)
         })
         this.dragon = new Dragon(id, data.dragon)
     }
 
-    start() {
+    play() {
         this.paused = false
-        this.dragon.start()
+        this.dragon.play()
     }
 
-    stop() {
+    pause() {
         this.paused = true
-        this.dragon.stop()
+        this.dragon.pause()
     }
 
     update(t) {

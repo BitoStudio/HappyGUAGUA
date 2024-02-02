@@ -33,7 +33,7 @@ export default {
                 height: 1182,
                 align: 'bottom',
                 eyes: {
-                    pos: [{ x: 0.503, y: 0.465 }, { x: 0.473, y: 0.53 }],
+                    pos: [{ x: 0.503, y: 0.463 }, { x: 0.473, y: 0.528 }],
                     displaceScale: { x: 0.2, y: 0.8 },
                     scale: 0.07,
                 }

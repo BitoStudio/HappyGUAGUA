@@ -47,7 +47,7 @@ body {
    height: 100dvh;
    background-size: cover;
    background-position: center center;
-   background-image: url('/assets/textures/turn.png');
+   background-image: url('https://bitostudio.github.io/HappyGUAGUA/assets/textures/turn.png');
 }
 
 #rotateMessage {
@@ -62,7 +62,6 @@ body {
    width: 100dvw;
    height: 100dvh;
    background-size: cover;
-   /* background-image: url('/assets/textures/loading_bg.png'); */
    background-color: #FFEC00;
 }
 

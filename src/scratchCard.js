@@ -14,19 +14,19 @@ export default class ScratchCard {
         })
 
 
-        const result = data.results[Math.floor(Math.random() * data.results.length)]
+        this.result = data.results[Math.floor(Math.random() * data.results.length)]
 
         const origin = scratch.find('.origin')
         origin.hide()
-        origin.attr('src', result.origin);
+        origin.attr('src', this.result.origin);
 
         this.red = scratch.find('.red')
         this.red.hide()
-        this.red.attr('src', result.red);
+        this.red.attr('src', this.result.red);
 
         this.gray = scratch.find('.gray')
         this.gray.hide()
-        this.gray.attr('src', result.gray);
+        this.gray.attr('src', this.result.gray);
 
         this.lastPoint = 0;
 
@@ -71,7 +71,7 @@ export default class ScratchCard {
                 // this.ctx.drawImage(c1, (this.cover.width - w) / 2, 0, w, this.cover.height)
             }
 
-            setTimeout(()=>{
+            setTimeout(() => {
                 origin.show();
                 this.gray.show();
             }, 500)
@@ -174,7 +174,7 @@ export default class ScratchCard {
         if (this.originFilledInPixels !== filledInPixels && this.brandnew) {
             this.brandnew = false;
             // this.cover.classList.add('off');
-            $(this.cover).on('animationiteration webkitAnimationIteration', ()=> {
+            $(this.cover).on('animationiteration webkitAnimationIteration', () => {
                 $(this.cover).off('animationiteration webkitAnimationIteration');
                 this.cover.classList.add('end-animation');
             })
@@ -183,7 +183,7 @@ export default class ScratchCard {
         if (filledInPixels > this.data.callbackRatio && !this.finished) {
             this.finished = true
             this.red.fadeIn(500)
-            this.holder.scratchFinish()
+            this.holder.scratchFinish(this.result.score)
         }
     }
 }

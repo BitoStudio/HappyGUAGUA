@@ -1,8 +1,11 @@
+import source from "./source.js";
 
 export default class End {
     constructor(main) {
         this.end = $('#end-overlay')
         this.main = main
+
+        this.stamp = $('#stamp');
 
         this.video = $('#end-dragon');
         this.video.on('complete', () => {
@@ -11,44 +14,45 @@ export default class End {
         })
 
         this.replay = $('#end-again')
-        this.replay.hide()
         this.replay.on('touchend', () => {
             this.hide()
             this.main.replay()
-
-            setTimeout(()=>{
-                this.reset()
-            }, 1000)
         })
 
         this.share = $('#end-share')
-        this.share.hide()
         this.share.on('touchend', () => {
             this.shareImage()
         })
-    }
 
-    reset() {
-        this.video.get(0).seek(0)
-        this.replay.hide()
-        this.share.hide()
-    }
-
-    show() {
-        setTimeout(() => {
-            html2canvas(document.body).then((canvas) => {
-                this.image = canvas
-                this.end.fadeIn(1000)
-
-                setTimeout(()=>{
-                    this.video.get(0).play();
-                }, 1000)
-            })
-        }, (1000));
+        this.hide()
     }
 
     hide() {
+        this.video.get(0).seek(0)
+        this.replay.hide()
+        this.share.hide()
         this.end.hide();
+        this.stamp.hide();
+    }
+
+    show(result) {
+        this.stamp.css({
+            'top': source.stamps.pos[this.main.id - 1].top,
+            'left': source.stamps.pos[this.main.id - 1].left,
+            'background-image': `url(${source.stamps.src[result - 1]})`
+        })
+        this.stamp.show()
+
+        setTimeout(() => {
+            html2canvas(document.body).then((canvas) => {
+                this.image = canvas
+                this.end.fadeIn(500)
+
+                setTimeout(() => {
+                    this.video.get(0).play();
+                }, 500)
+            })
+        }, 2000);
     }
 
     shareImage() {

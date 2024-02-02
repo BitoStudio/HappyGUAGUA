@@ -14,6 +14,15 @@ export default class Dragon {
             this.updateArea()
             this.eyes.updatePosition(this.area)
         })
+
+    }
+
+    start() {
+        this.dragon.get(0).play()
+    }
+
+    stop() {
+        this.dragon.get(0).pause()
     }
 
     updateArea() {

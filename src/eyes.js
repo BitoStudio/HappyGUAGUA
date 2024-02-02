@@ -1,11 +1,12 @@
 export default class Eyes {
     constructor(id, dragon, data) {
         this.dragon = dragon
-        this.speed = 0.0005
+        this.speed = 0.001
         this.data = data
 
         this.watchRate = 0
         this.watchDir = { x: 0, y: 0 }
+        this.seeds = { x: Math.random(), y: Math.random() }
         this.touched = false
 
         this.pupils = $(this.dragon.pattern).find('.pupil');
@@ -94,8 +95,8 @@ export default class Eyes {
         this.watchRate += this.touched ? 0.05 : -0.02;
         this.watchRate = Math.max(0, Math.min(this.watchRate, 1));
 
-        const noiseX = noise.perlin2(elapsed * this.speed, 0.1) * this.displacement;
-        const noiseY = noise.perlin2(0.1, elapsed * this.speed) * this.displacement;
+        const noiseX = Math.sin(elapsed * this.speed + this.seeds.x * Math.PI * 2) * this.displacement * this.data.displaceScale.x;
+        const noiseY = Math.cos(elapsed * this.speed + this.seeds.y * Math.PI * 2) * this.displacement * this.data.displaceScale.y;
         const x = this.lerp(noiseX, this.watchDir.x, this.watchRate);
         const y = this.lerp(noiseY, this.watchDir.y, this.watchRate);
 

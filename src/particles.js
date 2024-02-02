@@ -50,6 +50,8 @@ $w
 
 $d
     .on('mousemove touchmove', function (event) {
+        if ($('#end-overlay').is(':visible')) return
+
         if (particleCount < maxCount) {
             mouseX = event.clientX;
             mouseY = event.clientY;
@@ -57,11 +59,11 @@ $d
                 mouseX = event.originalEvent.touches[0].clientX;
                 mouseY = event.originalEvent.touches[0].clientY;
             }
-    
+
             const currentTime = performance.now(); // Using high-resolution time
-    
+
             const vel = calculateVelocity(mouseX, mouseY, currentTime);
-    
+
             createParticle(mouseX, mouseY, vel);
         }
 
@@ -82,8 +84,8 @@ function createParticle(mouseX, mouseY, vel) {
         spinSpeed = ((36 * Math.random())) * (Math.random() <= .5 ? -1 : 1),
         otime,
         time = otime = (1 + (.5 * Math.random())) * life,
-        top = (mouseY + (Math.random() -0.5) * randomDisplacement),
-        left = (mouseX + (Math.random() -0.5) * randomDisplacement);
+        top = (mouseY + (Math.random() - 0.5) * randomDisplacement),
+        left = (mouseX + (Math.random() - 0.5) * randomDisplacement);
 
     particle
         .css({

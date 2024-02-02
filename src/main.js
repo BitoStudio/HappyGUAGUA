@@ -19,6 +19,15 @@ export default class Main {
         this.init()
     }
 
+    start() {
+        this.pattern.start()
+    }
+
+    stop() {
+        this.pattern.stop()
+    }
+
+
     onStarted() {
         this.sound.play()
     }
@@ -35,6 +44,7 @@ export default class Main {
                 this.pattern = new Pattern3(this)
                 break;
         }
+        this.start()
     }
 
     replay() {

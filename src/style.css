@@ -47,7 +47,7 @@ body {
    height: 100dvh;
    background-size: cover;
    background-position: center center;
-   background-image: url('https://bitostudio.github.io/HappyGUAGUA/assets/textures/turn.png');
+   background-image: url('/assets/textures/turn.png');
 }
 
 #rotateMessage {
@@ -108,7 +108,6 @@ body {
 /* Loading Page */
 #loading-page {
    background-size: 100% 100%;
-   /* background-image: url('/assets/textures/loading_bg.png'); */
    background-color: #FFEC00;
 }
 
@@ -135,17 +134,18 @@ body {
 
 #loading-info {
    width: 55%;
-   top: 45%;
+   top: 50%;
 }
 
 #loading-volume {
    width: 12%;
-   top: 30%
+   top: 35%
 }
 
 #loading-button {
+   display: none;
    width: 30%;
-   top: 65%;
+   top: 70%;
    transition: transform 0.2s ease;
 }
 
@@ -166,18 +166,17 @@ body {
 }
 
 #pattern-1 {
-   /* background-image: url("/assets/textures/bg_v1.png"); */
    background-color: #FF4200;
 }
 
 #pattern-2 {
-   /* background-image: url("/assets/textures/bg_v2.png"); */
    background-color: #FFEC00;
+   flex-direction: column;
+   gap: 10px;
 }
 
 #pattern-3 {
-   /* background-image: url("/assets/textures/bg_v3.png"); */
-   background-color:  #8639FF;
+   background-color: #8639FF;
 }
 
 /* Dragon */
@@ -302,6 +301,44 @@ body {
    left: 80%;
 }
 
+/* Stamp */
+#stamp {
+   height: 55dvw;
+   width: 55dvw;
+   position: fixed;
+   background-size: 100% 100%;
+   -webkit-animation-name: pulse;
+   animation-name: pulse;
+   animation-delay: 1s;
+   -webkit-animation-delay: 1s;
+   -webkit-animation-duration: 1s;
+   animation-duration: 1s;
+   opacity: 0;
+   -webkit-animation-fill-mode: forwards;
+   animation-fill-mode: forwards;
+   z-index: 22;
+}
+
+@-webkit-keyframes pulse {
+   0% {
+      opacity: 0;
+   }
+
+   10% {
+      opacity: .50;
+      transform-origin: 50% 50%;
+      transform: rotate(-2deg) scale(5);
+      transition: all .3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+   }
+
+   100% {
+      opacity: 1;
+      transform: rotate(-15deg) scale(1);
+   }
+}
+
+
+
 /* Overlay */
 #end-overlay {
    display: none;
@@ -395,14 +432,17 @@ body {
       filter: brightness(1);
       -webkit-filter: brightness(1);
    }
+
    35% {
       filter: brightness(1.15) blur(0.2px);
       -webkit-filter: brightness(1.15) blur(0.2px);
    }
+
    70% {
       filter: brightness(1);
       -webkit-filter: brightness(1);
    }
+
    100% {
       filter: brightness(1);
       -webkit-filter: brightness(1);

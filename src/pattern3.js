@@ -7,9 +7,10 @@ export default class Pattern3 extends Pattern {
 
         this.clouds = $('.cloud').toArray().map(e => new Cloud(e))
     }
-
+    
     update(t) {
         super.update(t)
+        if (this.paused) return
         this.clouds.forEach(c => c.update(t))
     }
 }

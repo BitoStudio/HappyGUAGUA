@@ -4,7 +4,11 @@ export default class Loading {
         $(document).ready(function () {
             const loadButton = $('#loading-button');
             const loadingPage = $('#loading-page');
+
             const mainPage = $('#main-page');
+            setTimeout(()=>{
+                loadButton.fadeIn(800);
+            }, 2500)
 
             function handleTouchStart(event) {
                 event.preventDefault();

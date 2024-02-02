@@ -172,11 +172,11 @@ body {
 #pattern-2 {
    background-color: #FFEC00;
    flex-direction: column;
-   gap:10px;
+   gap: 10px;
 }
 
 #pattern-3 {
-   background-color:  #8639FF;
+   background-color: #8639FF;
 }
 
 /* Dragon */
@@ -301,6 +301,47 @@ body {
    left: 80%;
 }
 
+/* Stamp */
+.stamp {
+   height: 300px;
+   width: 300px;
+   top: 50%;
+   left: 20%;
+   position: fixed;
+   background-image: url(/assets/textures/stamp_small_yellow.png);
+   background-size: 100% 100%;
+   -webkit-animation-name: pulse;
+   animation-name: pulse;
+   animation-delay: 1s;
+   -webkit-animation-delay: 1s;
+   -webkit-animation-duration: 0.5s;
+   animation-duration: 0.5s;
+   opacity: 0;
+   -webkit-animation-fill-mode: forwards;
+   animation-fill-mode: forwards;
+   z-index: 22;
+}
+
+@-webkit-keyframes pulse {
+   0% {
+      opacity: 0;
+   }
+
+   10% {
+      opacity: .50;
+      transform-origin: 50% 50%;
+      transform: rotate(-2deg) scale(5);
+      transition: all .3s cubic-bezier(0.6, 0.04, 0.98, 0.335);
+   }
+
+   100% {
+      opacity: 1;
+      transform: rotate(-15deg) scale(1);
+   }
+}
+
+
+
 /* Overlay */
 #end-overlay {
    display: none;
@@ -394,14 +435,17 @@ body {
       filter: brightness(1);
       -webkit-filter: brightness(1);
    }
+
    35% {
       filter: brightness(1.15) blur(0.2px);
       -webkit-filter: brightness(1.15) blur(0.2px);
    }
+
    70% {
       filter: brightness(1);
       -webkit-filter: brightness(1);
    }
+
    100% {
       filter: brightness(1);
       -webkit-filter: brightness(1);

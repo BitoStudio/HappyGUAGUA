@@ -4,6 +4,8 @@ export default class End {
         this.end = $('#end-overlay')
         this.main = main
 
+        this.stamp = $('#stamp');
+
         this.video = $('#end-dragon');
         this.video.on('complete', () => {
             this.replay.stop(true).fadeTo(500, 1);
@@ -11,44 +13,41 @@ export default class End {
         })
 
         this.replay = $('#end-again')
-        this.replay.hide()
         this.replay.on('touchend', () => {
             this.hide()
             this.main.replay()
-
-            setTimeout(()=>{
-                this.reset()
-            }, 1000)
         })
 
         this.share = $('#end-share')
-        this.share.hide()
         this.share.on('touchend', () => {
             this.shareImage()
         })
+
+        this.hide()
     }
 
-    reset() {
+    hide() {
         this.video.get(0).seek(0)
         this.replay.hide()
         this.share.hide()
+        this.end.hide();
+        this.stamp.hide();
     }
 
-    show() {
+    show(result) {
+        console.log(result);
+        this.stamp.show()
+
         setTimeout(() => {
             html2canvas(document.body).then((canvas) => {
                 this.image = canvas
                 this.end.fadeIn(1000)
 
-                setTimeout(()=>{
+                setTimeout(() => {
                     this.video.get(0).play();
                 }, 1000)
             })
-        }, (1000));
-    }
-
-    hide() {
-        this.end.hide();
+        }, 1500);
     }
 
     shareImage() {

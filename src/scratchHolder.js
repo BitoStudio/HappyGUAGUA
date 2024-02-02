@@ -37,9 +37,20 @@ export default class ScratchHolder {
     scratchFinish(score) {
         this.scores += score
         this.finishedScratch++;
-        
-        if (this.finishedScratch == 3)
-            this.onFinsihed()
+
+        if (this.finishedScratch == 3) {
+            var result;
+
+            if (this.scores === 3 || this.scores === 4) {
+                result = 1;
+            } else if (this.scores >= 5 && this.scores <= 7) {
+                result = 2;
+            } else if (this.scores >= 8 && this.scores <= 9) {
+                result = 3;
+            }
+
+            this.onFinsihed(result)
+        }
     }
 
     add() {

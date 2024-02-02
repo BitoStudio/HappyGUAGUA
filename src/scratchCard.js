@@ -71,7 +71,7 @@ export default class ScratchCard {
                 // this.ctx.drawImage(c1, (this.cover.width - w) / 2, 0, w, this.cover.height)
             }
 
-            setTimeout(()=>{
+            setTimeout(() => {
                 origin.show();
                 this.gray.show();
             }, 500)
@@ -101,6 +101,8 @@ export default class ScratchCard {
     }
 
     receiveTouched(touch) {
+        if (this.holder.finishedScratch == 3) return
+
         const result = this.checkTouch(touch)
 
         if (result.isInside) {
@@ -174,7 +176,7 @@ export default class ScratchCard {
         if (this.originFilledInPixels !== filledInPixels && this.brandnew) {
             this.brandnew = false;
             // this.cover.classList.add('off');
-            $(this.cover).on('animationiteration webkitAnimationIteration', ()=> {
+            $(this.cover).on('animationiteration webkitAnimationIteration', () => {
                 $(this.cover).off('animationiteration webkitAnimationIteration');
                 this.cover.classList.add('end-animation');
             })

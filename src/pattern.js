@@ -44,7 +44,7 @@ export default class Pattern {
 
         this.scratchHolder.update()
         this.main.sound.setVolume(this.scratchHolder.value)
-        this.dragon.eyes.update(t.elapsed)
+        this.dragon.update(t.elapsed)
     }
 
     reset() {

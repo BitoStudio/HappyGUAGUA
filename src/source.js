@@ -228,5 +228,27 @@ export default {
                 }
             ]
         }
-    ]
+    ],
+
+    stamps:
+    {
+        pos: [
+            {
+                top: '3dvh',
+                left: '45vw',
+            }, 
+            {
+                top: '50dvh',
+                left: '0vw',
+            }, 
+            {
+                top: '65dvh',
+                left: '0vw',
+            },
+        ],
+
+        src: ['assets/textures/stamp_small.png',
+            'assets/textures/stamp_medium.png',
+            'assets/textures/stamp_large.png']
+    }
 }

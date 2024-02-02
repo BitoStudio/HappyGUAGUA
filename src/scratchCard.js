@@ -101,8 +101,6 @@ export default class ScratchCard {
     }
 
     receiveTouched(touch) {
-        if (this.holder.finishedScratch == 3) return
-
         const result = this.checkTouch(touch)
 
         if (result.isInside) {

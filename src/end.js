@@ -1,3 +1,4 @@
+import source from "./source.js";
 
 export default class End {
     constructor(main) {
@@ -35,19 +36,23 @@ export default class End {
     }
 
     show(result) {
-        console.log(result);
+        this.stamp.css({
+            'top': source.stamps.pos[this.main.id - 1].top,
+            'left': source.stamps.pos[this.main.id - 1].left,
+            'background-image': `url(${source.stamps.src[result - 1]})`
+        })
         this.stamp.show()
 
         setTimeout(() => {
             html2canvas(document.body).then((canvas) => {
                 this.image = canvas
-                this.end.fadeIn(1000)
+                this.end.fadeIn(500)
 
                 setTimeout(() => {
                     this.video.get(0).play();
-                }, 1000)
+                }, 500)
             })
-        }, 1500);
+        }, 2000);
     }
 
     shareImage() {

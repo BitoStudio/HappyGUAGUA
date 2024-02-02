@@ -302,20 +302,17 @@ body {
 }
 
 /* Stamp */
-.stamp {
-   height: 300px;
-   width: 300px;
-   top: 50%;
-   left: 20%;
+#stamp {
+   height: 55dvw;
+   width: 55dvw;
    position: fixed;
-   background-image: url(/assets/textures/stamp_small_yellow.png);
    background-size: 100% 100%;
    -webkit-animation-name: pulse;
    animation-name: pulse;
    animation-delay: 1s;
    -webkit-animation-delay: 1s;
-   -webkit-animation-duration: 0.5s;
-   animation-duration: 0.5s;
+   -webkit-animation-duration: 1s;
+   animation-duration: 1s;
    opacity: 0;
    -webkit-animation-fill-mode: forwards;
    animation-fill-mode: forwards;

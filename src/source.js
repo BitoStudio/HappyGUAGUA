@@ -16,11 +16,11 @@ export default {
         // pattern 2
         {
             dragon: {
-                width: 3250,
+                width: 3825,
                 height: 5752,
                 align: 'top',
                 eyes: {
-                    pos: [{ x: 0.6, y: 0.13 }, { x: 0.686, y: 0.145 }],
+                    pos: [{ x: 0.558, y: 0.131 }, { x: 0.63, y: 0.144 }],
                     displaceScale: { x: 0.8, y: 0.2 },
                     scale: 0.07,
                 },
@@ -54,8 +54,8 @@ export default {
                     left: '40vw',
                 },
                 {
-                    top: '45dvh',
-                    left: '35vw',
+                    top: '42dvh',
+                    left: '30vw',
                 },
                 {
                     top: '20dvh',
@@ -175,7 +175,7 @@ export default {
                     left: '70vw',
                 },
                 {
-                    top: '60dvh',
+                    top: '55dvh',
                     left: '70vw',
                 },
                 {

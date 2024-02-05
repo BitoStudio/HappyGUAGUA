@@ -6,8 +6,8 @@ export default class SE {
         this.stamp = new Audio('https://bitostudio.github.io/HappyGUAGUA/assets/sound/stamp_japan.wav')
         this.stamp.loop = false
 
-        this.dragon = new Audio('https://bitostudio.github.io/HappyGUAGUA/assets/sound/dragon_happy_new_year.wav')
-        this.dragon.loop = false
+        this.celebration = new Audio('https://bitostudio.github.io/HappyGUAGUA/assets/sound/dragon_happy_new_year.wav')
+        this.celebration.loop = false
     }
 
     init() {
@@ -28,12 +28,12 @@ export default class SE {
         this.stamp.play();
 
         this.context3 = new (window.AudioContext || window.webkitAudioContext)();
-        this.source3 = this.context3.createMediaElementSource(this.dragon);
+        this.source3 = this.context3.createMediaElementSource(this.celebration);
         this.gainNode3 = this.context3.createGain();
         this.source3.connect(this.gainNode3);
         this.gainNode3.connect(this.context3.destination);
         this.gainNode3.gain.value = 0;
-        this.dragon.play();
+        this.celebration.play();
     }
 
     playBotton() {
@@ -46,8 +46,8 @@ export default class SE {
         this.stamp.play();
     }
 
-    playDragon() {
+    playCelebration() {
         this.gainNode3.gain.value = 1;
-        this.dragon.play();
+        this.celebration.play();
     }
 }

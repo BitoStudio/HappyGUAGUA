@@ -4,6 +4,8 @@ import Pattern1 from "./pattern1.js";
 import Pattern2 from "./pattern2.js";
 import Pattern3 from "./pattern3.js";
 import Sound from "./sound.js";
+import Bgm from "./bgm.js";
+import SE from "./se.js";
 
 export default class Main {
 
@@ -11,6 +13,8 @@ export default class Main {
         this.id = id
         this.end = new End(this)
         this.sound = new Sound()
+        this.bgm = new Bgm()
+        this.se = new SE()
         this.time = new Time()
         this.time.on('tick', () => {
             this.pattern.update(this.time)
@@ -31,6 +35,7 @@ export default class Main {
 
     onStarted() {
         this.sound.play()
+        this.bgm.play()
         this.scratchable = true
     }
 

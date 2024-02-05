@@ -42,6 +42,9 @@ export default class End {
             'background-image': `url(${source.stamps.src[result - 1]})`
         })
         this.stamp.show()
+        setTimeout(()=>{
+            this.main.se.playStamp()
+        }, 500)
 
         setTimeout(() => {
             html2canvas(document.body).then((canvas) => {
@@ -49,7 +52,8 @@ export default class End {
                 this.end.fadeIn(500)
 
                 setTimeout(() => {
-                    this.video.get(0).play();
+                    this.video.get(0).play()
+                    this.main.se.playDragon()
                 }, 500)
             })
         }, 2000);

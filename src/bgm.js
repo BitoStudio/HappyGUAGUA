@@ -1,7 +1,8 @@
-export default class Sound {
+export default class Bgm {
     constructor() {
-        this.audio = new Audio('/assets/sound/writing-on-paper-6988.mp3')
+        this.audio = new Audio('/assets/sound/new_year_music.wav')
         this.audio.loop = true
+        this.volume = 1
     }
 
     play() {
@@ -10,6 +11,7 @@ export default class Sound {
         this.gainNode = context.createGain();
         source.connect(this.gainNode);
         this.gainNode.connect(context.destination);
+        this.gainNode.gain.value = this.volume;
         this.audio.play()
     }
 

@@ -242,8 +242,8 @@ export default {
                 left: '0vw',
             }, 
             {
-                top: '65dvh',
-                left: '0vw',
+                top: '30dvh',
+                left: '50vw',
             },
         ],
 

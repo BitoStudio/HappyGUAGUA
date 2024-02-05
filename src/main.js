@@ -36,6 +36,7 @@ export default class Main {
     onStarted() {
         this.sound.play()
         this.bgm.play()
+        this.se.init()
         this.scratchable = true
     }
 

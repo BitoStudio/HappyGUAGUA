@@ -1,6 +1,6 @@
 export default class SE {
     constructor() {
-        this.button = new Audio('/assets/sound/button.mp3')
+        this.button = new Audio('https://bitostudio.github.io/HappyGUAGUA/assets/sound/button.mp3')
         this.button.loop = false
         this.context1 = new (window.AudioContext || window.webkitAudioContext)();
         this.source1 = this.context1.createMediaElementSource(this.button);
@@ -10,7 +10,7 @@ export default class SE {
         this.gainNode1.gain.value = 0
         this.button.play();
 
-        this.stamp = new Audio('/assets/sound/stamp_japan.wav')
+        this.stamp = new Audio('https://bitostudio.github.io/HappyGUAGUA/assets/sound/stamp_japan.wav')
         this.stamp.loop = false
         this.context2 = new (window.AudioContext || window.webkitAudioContext)();
         this.source2 = this.context2.createMediaElementSource(this.stamp);
@@ -20,7 +20,7 @@ export default class SE {
         this.gainNode2.gain.value = 0
         this.stamp.play();
 
-        this.dragon = new Audio('/assets/sound/dragon_happy_new_year.wav')
+        this.dragon = new Audio('https://bitostudio.github.io/HappyGUAGUA/assets/sound/dragon_happy_new_year.wav')
         this.dragon.loop = false
         this.context3 = new (window.AudioContext || window.webkitAudioContext)();
         this.source3 = this.context3.createMediaElementSource(this.dragon);

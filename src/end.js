@@ -39,11 +39,13 @@ export default class End {
         this.stamp.css({
             'top': source.stamps.pos[this.main.id - 1].top,
             'left': source.stamps.pos[this.main.id - 1].left,
-            'background-image': `url(${source.stamps.src[result - 1]})`
+            'background-image': `url(${source.stamps.src[result - 1]})`,
+            'opacity': 0
         })
         this.stamp.show()
 
         setTimeout(() => {
+            this.stamp.css({ 'opacity': 1 })
             html2canvas(document.body).then((canvas) => {
                 this.image = canvas
                 this.end.fadeIn(500)

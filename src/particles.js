@@ -4,7 +4,7 @@ var d = document, $d = $(d),
     particles = $('.particles'),
     particleCount = 0,
     maxCount = 20,
-    size = 5,
+    size = 7,
     colors = [
         '#f44336', '#e91e63', '#9c27b0', '#673ab7', '#3f51b5',
         '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4CAF50',
@@ -17,8 +17,8 @@ var d = document, $d = $(d),
     splashSpeed = 3,
     splashDecay = 0.95,
     mouseX = $w.width() / 2, mouseY = $w.height() / 2,
-    paritclesPerSpawn = 2,
-    randomDisplacement = 10;
+    paritclesPerSpawn = 1,
+    randomDisplacement = 20;
 
 
 let prevMouseX;
@@ -52,18 +52,19 @@ $d
     .on('mousemove touchmove', function (event) {
         if ($('#end-overlay').is(':visible')) return
 
-        if (particleCount < maxCount) {
-            mouseX = event.clientX;
-            mouseY = event.clientY;
-            if (!!event.originalEvent.touches) {
-                mouseX = event.originalEvent.touches[0].clientX;
-                mouseY = event.originalEvent.touches[0].clientY;
-            }
+        mouseX = event.clientX;
+        mouseY = event.clientY;
+        if (!!event.originalEvent.touches) {
+            mouseX = event.originalEvent.touches[0].clientX;
+            mouseY = event.originalEvent.touches[0].clientY;
+        }
 
-            const currentTime = performance.now(); // Using high-resolution time
+        const currentTime = performance.now(); // Using high-resolution time
 
-            const vel = calculateVelocity(mouseX, mouseY, currentTime);
+        const vel = calculateVelocity(mouseX, mouseY, currentTime);
+        const speed = vel.x * vel.x + vel.y * vel.y
 
+        if (particleCount < maxCount && speed > 0.08) {
             createParticle(mouseX, mouseY, vel);
         }
 
@@ -79,7 +80,6 @@ function smoothstep(edge0, edge1, x) {
 function createParticle(mouseX, mouseY, vel) {
     var particle = $('<div class="particle"/>'),
         color = colors[Math.floor(Math.random() * colors.length)],
-        negative = size / 2,
         spinVal = 360 * Math.random(),
         spinSpeed = ((36 * Math.random())) * (Math.random() <= .5 ? -1 : 1),
         otime,

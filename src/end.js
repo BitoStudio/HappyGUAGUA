@@ -52,8 +52,10 @@ export default class End {
                 this.end.fadeIn(500)
 
                 setTimeout(() => {
+                    this.main.se.playCelebration()
+                }, 200)
+                setTimeout(() => {
                     this.video.get(0).play()
-                    this.main.se.playDragon()
                 }, 500)
             })
         }, 2000);

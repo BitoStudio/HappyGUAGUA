@@ -1,8 +1,8 @@
 export default class Bgm {
-    constructor() {
-        this.audio = new Audio('/assets/sound/new_year_music.wav')
+    constructor(v=1) {
+        this.audio = new Audio('https://bitostudio.github.io/HappyGUAGUA/assets/sound/new_year_music.wav')
         this.audio.loop = true
-        this.volume = 1
+        this.volume = v
     }
 
     play() {

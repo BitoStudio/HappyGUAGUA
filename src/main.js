@@ -13,7 +13,7 @@ export default class Main {
         this.id = id
         this.end = new End(this)
         this.sound = new Sound()
-        this.bgm = new Bgm()
+        this.bgm = new Bgm(0.5)
         this.se = new SE()
         this.time = new Time()
         this.time.on('tick', () => {
